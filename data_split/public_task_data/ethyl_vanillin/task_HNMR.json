@@ -1,0 +1,9 @@
+{
+  "molecule_id": "ethyl_vanillin",
+  "spectrum_type": "HNMR",
+  "molecular_formula": "C9H10O3",
+  "solvent": "Chloroform-d",
+  "mhz": "400MHz",
+  "spectrum_peaks_raw": "9.82 (s, 1H), 7.41 (d, J = 7.8 Hz, 1H), 7.05 (d, J = 8.0 Hz, 1H), 6.30 (s, 1H), 4.20 (q, J = 7.0, 7.0, 7.0 Hz, 2H), 1.48 (t, J = 7.0, 7.0 Hz, 3H)",
+  "task_prompt": "You are given the molecular formula and a 1H NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

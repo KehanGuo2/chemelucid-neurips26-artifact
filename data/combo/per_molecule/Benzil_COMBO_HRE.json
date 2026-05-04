@@ -1,0 +1,33 @@
+{
+    "nodes": [
+        {
+            "id": "BIG QUESTION",
+            "label": "Molecule X has a molecular formula of C14H10O2. The text carbon NMR spectra for Molecule X is δ 194.67, 134.99, 133.01, 129.94, 129.10. Molecule X’s carbon NMR was taken in Chloroform-d solvent, on a machine with a frequency of 101MHz. From prior analysis of the carbon NMR, a list of potential structural possibilities and impossibilities for each carbon NMR peak has been created, here it is: {Blackboard Summarization of CNMR}. The text proton NMR of molecule X with each peak's shift, integration, multiplicity, and J value, listed respectively is: 7.97 (dd, J = 5.2, 1.6 Hz, 4H), 7.64 (tt, J = 7.6, 1.3 Hz, 4H), 7.48 (t, J = 7.9, 7.9 Hz, 4H). Molecule X’s proton NMR was taken in Chloroform-d solvent, on a machine with a frequency of 400MHz. From prior analysis of the proton NMR, a list of potential structural possibilities and impossibilities for each proton NMR peak has been created, here it is: {Blackboard Summarization of HNMR}.\n\nGiven Molecule X’s molecular formula, carbon NMR, proton NMR, and potential peak possibilities provide 5 potential SMILES strings which could represent Molecule X. Rank these 1-5 with position 1 being the most likely and 5 being the least likely",
+            "weight": 1,
+            "answer": "O=C(C(=O)c1ccccc1)c1ccccc1"
+        },
+        {
+            "id": "F1",
+            "label": "For each SMILES string listed above, provide a Tanimoto Similarity score between the molecule and this SMILES string O=C(C(=O)c1ccccc1)c1ccccc1. Provide the answer in the format: Prediction1: Similarity Score, Prediction2: Similarity Score",
+            "weight": 1,
+            "answer": "O=C(C(=O)c1ccccc1)c1ccccc1"
+        }
+    ],
+    "edges": [
+        {
+            "source": "BIG QUESTION",
+            "target": "F1"
+        }
+    ],
+    "metadata": {
+        "molecule_name": "Benzil",
+        "molecular_formula": "C14H10O2",
+        "gt_smiles": "O=C(C(=O)c1ccccc1)c1ccccc1",
+        "cnmr_source": "Benzil_CNMR_HRE",
+        "hnmr_source": "Benzil_HNMR_HRE",
+        "cnmr_solvent": "Chloroform-d",
+        "hnmr_solvent": "Chloroform-d",
+        "cnmr_mhz": "101MHz",
+        "hnmr_mhz": "400MHz"
+    }
+}

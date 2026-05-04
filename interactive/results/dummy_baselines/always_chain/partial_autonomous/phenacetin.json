@@ -1,0 +1,612 @@
+{
+  "molecule_id": "phenacetin",
+  "agent": "always_chain",
+  "model": "dummy/always_chain",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "partial",
+  "condition": "partial_autonomous",
+  "scaffold": false,
+  "seed": 56,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 24,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "CCOc1ccc(NC(C)=O)cc1",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 4.0
+      },
+      "result": {
+        "range": [
+          1.0,
+          4.0
+        ],
+        "peaks": [
+          {
+            "ppm": 4.0,
+            "multiplicity": "q"
+          },
+          {
+            "ppm": 2.14,
+            "multiplicity": "s"
+          },
+          {
+            "ppm": 1.4,
+            "multiplicity": "t"
+          }
+        ],
+        "count": 3
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 3.0,
+        "ppm_max": 12.0
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          3.0,
+          12.0
+        ],
+        "peaks": [
+          {
+            "ppm": 7.38,
+            "multiplicity": "d",
+            "integration": 4,
+            "j_values": [
+              9.0
+            ],
+            "raw_text": "7.38 (d, J = 9.0 Hz, 4H)"
+          },
+          {
+            "ppm": 6.83,
+            "multiplicity": "d",
+            "integration": 2,
+            "j_values": [
+              9.0
+            ],
+            "raw_text": "6.83 (d, J = 9.0 Hz, 2H)"
+          },
+          {
+            "ppm": 4.0,
+            "multiplicity": "q",
+            "integration": 2,
+            "j_values": [
+              6.9,
+              6.9,
+              6.6
+            ],
+            "raw_text": "4.00 (q, J = 6.9, 6.9, 6.6 Hz, 2H)"
+          }
+        ],
+        "count": 3
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 6.83,
+        "ppm_max": 8.33
+      },
+      "result": {
+        "range": [
+          6.83,
+          8.33
+        ],
+        "peaks": [
+          {
+            "ppm": 7.38,
+            "multiplicity": "d"
+          },
+          {
+            "ppm": 6.83,
+            "multiplicity": "d"
+          }
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 6.83,
+        "ppm_max": 8.33
+      },
+      "result": {
+        "range": [
+          6.83,
+          8.33
+        ],
+        "peaks": [
+          {
+            "ppm": 7.38,
+            "multiplicity": "d"
+          },
+          {
+            "ppm": 6.83,
+            "multiplicity": "d"
+          }
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "CCO",
+        "pattern": "d"
+      },
+      "result": {
+        "error": "Invalid pattern: d"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C10H13NO2"
+      },
+      "result": {
+        "formula": "C10H13NO2",
+        "degree": 5,
+        "explanation": "DBE = (2*10 + 2 + 1 - 13 - 0) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "C10H13NO2"
+      },
+      "result": {
+        "error": "Invalid SMILES: C10H13NO2"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [
+          {
+            "ppm": 2.14,
+            "integration": 3
+          },
+          {
+            "ppm": 1.4,
+            "integration": 3
+          }
+        ],
+        "count": 2,
+        "total_integration": 6
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C10H13NO2"
+      },
+      "result": {
+        "formula": "C10H13NO2",
+        "degree": 5,
+        "explanation": "DBE = (2*10 + 2 + 1 - 13 - 0) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "C10H13NO2"
+      },
+      "result": {
+        "error": "Invalid SMILES: C10H13NO2"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [
+          {
+            "ppm": 2.14,
+            "j_values": [],
+            "multiplicity": "s"
+          },
+          {
+            "ppm": 1.4,
+            "j_values": [
+              6.9,
+              6.7
+            ],
+            "multiplicity": "t"
+          }
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "smiles": "CCO",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 2.0,
+        "ppm_max": 3.5
+      },
+      "result": {
+        "range": [
+          2.0,
+          3.5
+        ],
+        "peaks": [
+          {
+            "ppm": 2.14,
+            "integration": 3
+          }
+        ],
+        "count": 1,
+        "total_integration": 3
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 2.0,
+        "ppm_max": 12.0
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          2.0,
+          12.0
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 2.0,
+        "ppm_max": 3.5
+      },
+      "result": {
+        "range": [
+          2.0,
+          3.5
+        ],
+        "peaks": [
+          {
+            "ppm": 2.14,
+            "integration": 3
+          }
+        ],
+        "count": 1,
+        "total_integration": 3
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "CCO",
+        "canonical_smiles": "CCO",
+        "molecular_formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "num_atoms": 3,
+        "num_heavy_atoms": 3
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 3.0,
+        "ppm_max": 4.5
+      },
+      "result": {
+        "range": [
+          3.0,
+          4.5
+        ],
+        "peaks": [
+          {
+            "ppm": 4.0,
+            "j_values": [
+              6.9,
+              6.9,
+              6.6
+            ],
+            "multiplicity": "q"
+          }
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C10H13NO2"
+      },
+      "result": {
+        "formula": "C10H13NO2",
+        "molecular_weight": 179.219,
+        "breakdown": [
+          "C10=120.110",
+          "H13=13.104",
+          "N1=14.007",
+          "O2=31.998"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "C10H13NO2"
+      },
+      "result": {
+        "valid": false,
+        "smiles": "C10H13NO2",
+        "error": "Invalid SMILES string"
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "C10H13NO2",
+        "pattern": "C10H13NO2"
+      },
+      "result": {
+        "error": "Invalid SMILES: C10H13NO2"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C10H13NO2"
+      },
+      "result": {
+        "formula": "C10H13NO2",
+        "molecular_weight": 179.219,
+        "breakdown": [
+          "C10=120.110",
+          "H13=13.104",
+          "N1=14.007",
+          "O2=31.998"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C10H13NO2"
+      },
+      "result": {
+        "formula": "C10H13NO2",
+        "degree": 5,
+        "explanation": "DBE = (2*10 + 2 + 1 - 13 - 0) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "C10H13NO2",
+        "pattern": "C10H13NO2"
+      },
+      "result": {
+        "error": "Invalid SMILES: C10H13NO2"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.8375,
+    "unique_regions": 7,
+    "regions": [
+      "13C_2_12",
+      "1H_1_2",
+      "1H_1_4",
+      "1H_2_3",
+      "1H_3_12",
+      "1H_3_4",
+      "1H_6_8"
+    ],
+    "categories_used": 4,
+    "categories": [
+      "computation",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "layer3_dependency_rate": 0.7391,
+  "layer3_dependency_rate_v1_edgecount": 1.9565,
+  "layer3_conflict_reactivity": 1.0,
+  "layer3_num_edges": 45,
+  "layer3_edge_types": [
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+  ],
+  "layer3_strict_dependency_rate": 0.7391,
+  "layer3_strict_num_edges": 45,
+  "layer3_strict_edge_types": [
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+  ],
+  "elapsed_seconds": 0.001,
+  "timestamp": "2026-04-28T13:57:13.280005"
+}

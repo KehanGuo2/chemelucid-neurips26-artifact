@@ -1,0 +1,510 @@
+{
+  "molecule_id": "pamoic_acid",
+  "agent": "always_chain",
+  "model": "dummy/always_chain",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "full",
+  "condition": "full_autonomous",
+  "scaffold": false,
+  "seed": 155,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 23,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "O=C(O)c1cc2ccccc2c(Cc2c(O)c(C(=O)O)cc3ccccc23)c1O",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 4.0
+      },
+      "result": {
+        "range": [
+          1.0,
+          4.0
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 0.0,
+        "ppm_max": 1.5
+      },
+      "result": {
+        "range": [
+          0.0,
+          1.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.5,
+        "ppm_max": 3.0
+      },
+      "result": {
+        "range": [
+          1.5,
+          3.0
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 0.0,
+        "ppm_max": 1.5
+      },
+      "result": {
+        "range": [
+          0.0,
+          1.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "CCO",
+        "canonical_smiles": "CCO",
+        "molecular_formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "num_atoms": 3,
+        "num_heavy_atoms": 3
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 3.0,
+        "ppm_max": 4.5
+      },
+      "result": {
+        "range": [
+          3.0,
+          4.5
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "CCO",
+        "pattern": "[OH]"
+      },
+      "result": {
+        "smiles": "CCO",
+        "pattern": "[OH]",
+        "has_match": true,
+        "num_matches": 1
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "molecular_weight": 388.375,
+        "breakdown": [
+          "C23=276.253",
+          "H16=16.128",
+          "O6=95.994"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "molecular_weight": 388.375,
+        "breakdown": [
+          "C23=276.253",
+          "H16=16.128",
+          "O6=95.994"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "C23H16O6",
+        "pattern": "C23H16O6"
+      },
+      "result": {
+        "error": "Invalid SMILES: C23H16O6"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "degree": 16,
+        "explanation": "DBE = (2*23 + 2 + 0 - 16 - 0) / 2 = 16"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "degree": 16,
+        "explanation": "DBE = (2*23 + 2 + 0 - 16 - 0) / 2 = 16"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 2.5,
+        "ppm_max": 12.5
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          2.5,
+          12.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "degree": 16,
+        "explanation": "DBE = (2*23 + 2 + 0 - 16 - 0) / 2 = 16"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "C23H16O6",
+        "nucleus": "13C"
+      },
+      "result": {
+        "error": "Invalid SMILES: C23H16O6"
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 20.0,
+        "ppm_max": 30.0
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          20.0,
+          30.0
+        ],
+        "peaks": [
+          20.54
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "degree": 16,
+        "explanation": "DBE = (2*23 + 2 + 0 - 16 - 0) / 2 = 16"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.9375,
+    "unique_regions": 7,
+    "regions": [
+      "13C_20_30",
+      "13C_2_12",
+      "1H_0_1",
+      "1H_1_2",
+      "1H_1_3",
+      "1H_1_4",
+      "1H_3_4"
+    ],
+    "categories_used": 5,
+    "categories": [
+      "computation",
+      "prediction",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "layer3_dependency_rate": 0.7727,
+  "layer3_dependency_rate_v1_edgecount": 2.0455,
+  "layer3_conflict_reactivity": 1.0,
+  "layer3_num_edges": 45,
+  "layer3_edge_types": [
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+  ],
+  "layer3_strict_dependency_rate": 0.7727,
+  "layer3_strict_num_edges": 45,
+  "layer3_strict_edge_types": [
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string"
+  ],
+  "elapsed_seconds": 0.001,
+  "timestamp": "2026-04-28T13:57:13.409987"
+}

@@ -1,0 +1,17 @@
+{
+  "molecule_id": "cinnamaldehyde_trans",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C9H8O",
+  "solvent": "Chloroform-d",
+  "mhz": "101MHz",
+  "spectrum_peaks": [
+    194.0,
+    153.09,
+    134.23,
+    131.54,
+    129.36,
+    128.8,
+    128.76
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

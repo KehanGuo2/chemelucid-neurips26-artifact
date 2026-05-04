@@ -1,0 +1,389 @@
+{
+  "molecule_id": "pamoic_acid",
+  "agent": "random_tool_roulette",
+  "model": "dummy/random_tool_roulette",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "full",
+  "condition": "full_autonomous",
+  "scaffold": false,
+  "seed": 1155,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 20,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "O=C(O)c1cc2ccccc2c(Cc2c(O)c(C(=O)O)cc3ccccc23)c1O",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "molecular_weight": 388.375,
+        "breakdown": [
+          "C23=276.253",
+          "H16=16.128",
+          "O6=95.994"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "degree": 16,
+        "explanation": "DBE = (2*23 + 2 + 0 - 16 - 0) / 2 = 16"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 39.93,
+        "ppm_max": 64.05
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          39.93,
+          64.05
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "degree": 16,
+        "explanation": "DBE = (2*23 + 2 + 0 - 16 - 0) / 2 = 16"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "CCN"
+      },
+      "result": {
+        "smiles": "CCN",
+        "total_carbons": 2,
+        "unique_carbon_environments": 2,
+        "has_symmetry": false,
+        "symmetry_note": "No carbon symmetry: all 2 carbons are in unique environments"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "degree": 16,
+        "explanation": "DBE = (2*23 + 2 + 0 - 16 - 0) / 2 = 16"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "degree": 16,
+        "explanation": "DBE = (2*23 + 2 + 0 - 16 - 0) / 2 = 16"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CC(=O)O"
+      },
+      "result": {
+        "smiles": "CC(=O)O",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CC(=O)O"
+      },
+      "result": {
+        "smiles": "CC(=O)O",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "molecular_weight": 388.375,
+        "breakdown": [
+          "C23=276.253",
+          "H16=16.128",
+          "O6=95.994"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "CC(=O)O",
+        "pattern": "[OH]"
+      },
+      "result": {
+        "smiles": "CC(=O)O",
+        "pattern": "[OH]",
+        "has_match": true,
+        "num_matches": 1
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "CCO",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "CCO",
+        "nucleus": "13C",
+        "predicted_shifts": [
+          65.0,
+          23.0
+        ],
+        "num_carbons": 2,
+        "details": [
+          {
+            "atom_idx": 0,
+            "predicted_shift": 23.0,
+            "environment": "alkyl"
+          },
+          {
+            "atom_idx": 1,
+            "predicted_shift": 65.0,
+            "environment": "C-O alkyl"
+          }
+        ],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "CCO",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "CCO",
+        "nucleus": "13C",
+        "predicted_shifts": [
+          65.0,
+          23.0
+        ],
+        "num_carbons": 2,
+        "details": [
+          {
+            "atom_idx": 0,
+            "predicted_shift": 23.0,
+            "environment": "alkyl"
+          },
+          {
+            "atom_idx": 1,
+            "predicted_shift": 65.0,
+            "environment": "C-O alkyl"
+          }
+        ],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "degree": 16,
+        "explanation": "DBE = (2*23 + 2 + 0 - 16 - 0) / 2 = 16"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 8.66,
+        "ppm_max": 9.77
+      },
+      "result": {
+        "range": [
+          8.66,
+          9.77
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 7.37,
+        "ppm_max": 8.65
+      },
+      "result": {
+        "range": [
+          7.37,
+          8.65
+        ],
+        "peaks": [
+          {
+            "ppm": 8.52,
+            "multiplicity": "s"
+          },
+          {
+            "ppm": 8.17,
+            "multiplicity": "dd"
+          },
+          {
+            "ppm": 7.91,
+            "multiplicity": "dd"
+          },
+          {
+            "ppm": 7.41,
+            "multiplicity": "ddd"
+          }
+        ],
+        "count": 4
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "c1ccncc1",
+        "nucleus": "1H"
+      },
+      "result": {
+        "smiles": "c1ccncc1",
+        "nucleus": "1H",
+        "predicted_shifts": [
+          7.2
+        ],
+        "num_groups": 5,
+        "note": "Heuristic prediction \u2014 approximate only."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C23H16O6"
+      },
+      "result": {
+        "formula": "C23H16O6",
+        "molecular_weight": 388.375,
+        "breakdown": [
+          "C23=276.253",
+          "H16=16.128",
+          "O6=95.994"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "smiles": "CCO",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.6875,
+    "unique_regions": 3,
+    "regions": [
+      "13C_39_64",
+      "1H_7_8",
+      "1H_8_9"
+    ],
+    "categories_used": 5,
+    "categories": [
+      "computation",
+      "prediction",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "elapsed_seconds": 0.001,
+  "timestamp": "2026-04-28T09:10:48.631844"
+}

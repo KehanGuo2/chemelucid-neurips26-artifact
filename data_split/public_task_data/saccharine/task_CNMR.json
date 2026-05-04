@@ -1,0 +1,17 @@
+{
+  "molecule_id": "saccharine",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C7H5NO3S",
+  "solvent": "Chloroform-d",
+  "mhz": "101MHz",
+  "spectrum_peaks": [
+    173.11,
+    150.55,
+    140.07,
+    136.81,
+    136.24,
+    127.74,
+    124.37
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

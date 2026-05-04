@@ -1,0 +1,32 @@
+{
+  "molecule_id": "canary_040",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C22H20O6",
+  "solvent": "Acetone-D6 ((CD3)2CO)",
+  "mhz": "75MHz",
+  "spectrum_peaks": [
+    176.45,
+    162.45,
+    159.05,
+    157.59,
+    157.4,
+    157.14,
+    155.67,
+    131.69,
+    130.95,
+    120.78,
+    116.25,
+    113.6,
+    113.25,
+    112.55,
+    106.75,
+    103.48,
+    100.89,
+    77.8,
+    62.9,
+    55.59,
+    29.4,
+    27.4
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

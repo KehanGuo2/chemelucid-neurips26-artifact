@@ -1,0 +1,19 @@
+{
+  "molecule_id": "benzoin",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C14H12O2",
+  "solvent": "Chloroform-d",
+  "mhz": "101MHz",
+  "spectrum_peaks": [
+    199.0,
+    139.07,
+    133.88,
+    129.16,
+    129.13,
+    128.7,
+    128.58,
+    127.8,
+    114.52
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

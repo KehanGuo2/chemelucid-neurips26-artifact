@@ -1,0 +1,483 @@
+{
+  "molecule_id": "canary_005",
+  "model": "claude-sonnet-4-20250514",
+  "provider": "anthropic",
+  "stateful": true,
+  "spectrum_type": "CNMR",
+  "info_mode": "partial",
+  "accuracy": {
+    "exact_match": false,
+    "tanimoto": 0.1509,
+    "submitted": "O=C(NCCO)c1ccc2ccccc2c1",
+    "submitted_canonical": "O=C(NCCO)c1ccc2ccccc2c1",
+    "gt": "O=CC1=C(Cc2ccccc2)CN(O)C=C1",
+    "gt_canonical": "O=CC1=C(Cc2ccccc2)CN(O)C=C1"
+  },
+  "efficiency": 0.48,
+  "coverage": 0.6154,
+  "cf_coverage": 0.6154,
+  "cnmr_coverage": null,
+  "hnmr_coverage": null,
+  "node_results": {
+    "F1": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "compute_unsaturation returned 8 (GT=8)"
+    },
+    "F1.1.1": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "query_spectrum in alkene range, found peaks, GT=Yes"
+    },
+    "F1.1.2": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "Agent queried alkene region [110,160]"
+    },
+    "F1.2.1": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "query_spectrum in carbonyl range, found peaks, GT=Yes"
+    },
+    "F1.2.2": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "Agent queried carbonyl region [110,160]"
+    },
+    "F1.3.1": {
+      "covered": false,
+      "method": "tool_match",
+      "details": "query_spectrum in imine range, found peaks, but GT=No"
+    },
+    "F1.3.2": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "Agent queried imine region [110,160]"
+    },
+    "F1.4.1": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "query_spectrum in aromatic range, found peaks, GT=Yes"
+    },
+    "F1.4.2": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "Agent queried aromatic region [110,160]"
+    },
+    "F1.5.1": {
+      "covered": false,
+      "method": "tool_match",
+      "details": "query_spectrum in alkyne range, found peaks, but GT=No"
+    },
+    "F1.5.2": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "Agent queried alkyne region [110,160]"
+    },
+    "F1.6.1": {
+      "covered": false,
+      "method": "tool_match",
+      "details": "query_spectrum in nitrile range, found peaks, but GT=No"
+    },
+    "F1.6.2": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "Agent queried nitrile region [110,160]"
+    },
+    "F1.7.1": {
+      "covered": true,
+      "method": "heuristic",
+      "details": "Agent explored multiple spectral regions: {'mid', 'high', 'low'}"
+    },
+    "F1.8.1": {
+      "covered": true,
+      "method": "heuristic",
+      "details": "Agent explored multiple spectral regions: {'mid', 'high', 'low'}"
+    },
+    "F2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F2"
+    },
+    "F2.1.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F2.1.1"
+    },
+    "F3": {
+      "covered": false,
+      "method": "tool_match",
+      "details": "query_spectrum in alkyl range, found peaks, but GT="
+    },
+    "F3.1.1": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "Agent queried alkyl region [0,110]"
+    },
+    "F4": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "Agent queried range [110,160] overlapping Amide (155-185)"
+    },
+    "F5": {
+      "covered": false,
+      "method": "tool_match",
+      "details": "query_spectrum in C-heteroatom range, found peaks, but GT="
+    },
+    "F5.1.1": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "Agent queried C-heteroatom region [0,110]"
+    },
+    "F5.1.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F5.1.2"
+    },
+    "F6": {
+      "covered": false,
+      "method": "tool_match",
+      "details": "query_spectrum in C-halogen range, found peaks, but GT="
+    },
+    "F6.1.1": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "Agent queried C-halogen region [0,110]"
+    },
+    "F6.1.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F6.1.2"
+    }
+  },
+  "failure_analysis": {
+    "knowledge": [],
+    "reasoning": [
+      "F1.3.1",
+      "F1.5.1",
+      "F1.6.1",
+      "F3",
+      "F5",
+      "F6"
+    ],
+    "tool_use": [],
+    "strategy": [
+      "F2",
+      "F2.1.1",
+      "F5.1.2",
+      "F6.1.2"
+    ]
+  },
+  "grading_summary": "DAG Coverage: 16/26 nodes (61.5% weighted, cf=61.5%). Failures: reasoning=6, strategy=4",
+  "submitted_smiles": "O=C(NCCO)c1ccc2ccccc2c1",
+  "gt_smiles": "O=CC1=C(Cc2ccccc2)CN(O)C=C1",
+  "total_cost": 13,
+  "budget": 25,
+  "num_turns": 11,
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C13H13NO2"
+      },
+      "result": {
+        "formula": "C13H13NO2",
+        "degree": 8,
+        "explanation": "DBE = (2*13 + 2 + 1 - 13 - 0) / 2 = 8"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 110,
+        "ppm_max": 160
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          110.0,
+          160.0
+        ],
+        "peaks": [
+          146.38,
+          137.54,
+          129.35,
+          128.73,
+          128.61,
+          127.03,
+          126.63
+        ],
+        "count": 7
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 160,
+        "ppm_max": 220
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          160.0,
+          220.0
+        ],
+        "peaks": [
+          189.49
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 0,
+        "ppm_max": 110
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          0.0,
+          110.0
+        ],
+        "peaks": [
+          99.44,
+          53.64,
+          37.86
+        ],
+        "count": 3
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 6.5,
+        "ppm_max": 8.0
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          6.5,
+          8.0
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 0.5,
+        "ppm_max": 6.5
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          0.5,
+          6.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 0,
+        "ppm_max": 15
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          0.0,
+          15.0
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "O=C(c1ccccc1)N1CCOCC1"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "O=C(c1ccccc1)N1CCOCC1",
+        "canonical_smiles": "O=C(c1ccccc1)N1CCOCC1",
+        "molecular_formula": "C11H13NO2",
+        "molecular_weight": 191.23,
+        "num_atoms": 14,
+        "num_heavy_atoms": 14
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "COc1ccc(C(=O)N2CCOCC2)cc1"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "COc1ccc(C(=O)N2CCOCC2)cc1",
+        "canonical_smiles": "COc1ccc(C(=O)N2CCOCC2)cc1",
+        "molecular_formula": "C12H15NO3",
+        "molecular_weight": 221.256,
+        "num_atoms": 16,
+        "num_heavy_atoms": 16
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "O=C(c1ccc2ccccc2c1)NCCO"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "O=C(c1ccc2ccccc2c1)NCCO",
+        "canonical_smiles": "O=C(NCCO)c1ccc2ccccc2c1",
+        "molecular_formula": "C13H13NO2",
+        "molecular_weight": 215.252,
+        "num_atoms": 16,
+        "num_heavy_atoms": 16
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "O=C(NCCO)c1ccc2ccccc2c1"
+      },
+      "result": {
+        "submitted": "O=C(NCCO)c1ccc2ccccc2c1",
+        "canonical": "O=C(NCCO)c1ccc2ccccc2c1",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.775,
+    "unique_regions": 6,
+    "regions": [
+      "13C_0_110",
+      "13C_110_160",
+      "13C_160_220",
+      "1H_0_15",
+      "1H_0_6",
+      "1H_6_8"
+    ],
+    "categories_used": 4,
+    "categories": [
+      "computation",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "layer3_dependency_rate": 0.7,
+  "layer3_conflict_reactivity": 1.0,
+  "layer3_edges": [
+    {
+      "from_idx": 0,
+      "to_idx": 1,
+      "type": "rule",
+      "detail": "DoU=8 \u2192 aromatic query"
+    },
+    {
+      "from_idx": 1,
+      "to_idx": 2,
+      "type": "numeric",
+      "detail": "range[1]=160.0 \u2192 ppm_min=160"
+    },
+    {
+      "from_idx": 1,
+      "to_idx": 3,
+      "type": "numeric",
+      "detail": "range[0]=110.0 \u2192 ppm_max=110"
+    },
+    {
+      "from_idx": 0,
+      "to_idx": 4,
+      "type": "numeric",
+      "detail": "degree=8 \u2192 ppm_min=6.5"
+    },
+    {
+      "from_idx": 1,
+      "to_idx": 4,
+      "type": "numeric",
+      "detail": "count=7 \u2192 ppm_min=6.5"
+    },
+    {
+      "from_idx": 0,
+      "to_idx": 5,
+      "type": "numeric",
+      "detail": "degree=8 \u2192 ppm_max=6.5"
+    },
+    {
+      "from_idx": 1,
+      "to_idx": 5,
+      "type": "numeric",
+      "detail": "count=7 \u2192 ppm_max=6.5"
+    },
+    {
+      "from_idx": 2,
+      "to_idx": 5,
+      "type": "numeric",
+      "detail": "count=1 \u2192 ppm_min=0.5"
+    },
+    {
+      "from_idx": 3,
+      "to_idx": 5,
+      "type": "numeric",
+      "detail": "count=3 \u2192 ppm_min=0.5"
+    },
+    {
+      "from_idx": 4,
+      "to_idx": 5,
+      "type": "numeric",
+      "detail": "range[0]=6.5 \u2192 ppm_max=6.5"
+    },
+    {
+      "from_idx": 5,
+      "to_idx": 6,
+      "type": "numeric",
+      "detail": "range[0]=0.5 \u2192 ppm_min=0"
+    },
+    {
+      "from_idx": 9,
+      "to_idx": 10,
+      "type": "string",
+      "detail": "canonical_smiles='O=C(NCCO)c1ccc2ccccc2c1' \u2192 smiles"
+    }
+  ],
+  "layer3_conflicts": [],
+  "elapsed_seconds": 40.71,
+  "timestamp": "2026-04-28T06:07:02.502157"
+}

@@ -1,0 +1,508 @@
+{
+  "molecule_id": "2_isopropyl_5_methyl_phenol",
+  "agent": "always_chain",
+  "model": "dummy/always_chain",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "full",
+  "condition": "full_autonomous",
+  "scaffold": false,
+  "seed": 145,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 20,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "Cc1ccc(C(C)C)c(O)c1",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "CCO",
+        "canonical_smiles": "CCO",
+        "molecular_formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "num_atoms": 3,
+        "num_heavy_atoms": 3
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 3.0,
+        "ppm_max": 4.5
+      },
+      "result": {
+        "range": [
+          3.0,
+          4.5
+        ],
+        "peaks": [
+          {
+            "ppm": 3.16,
+            "multiplicity": "pent"
+          }
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "pent",
+        "nucleus": "13C"
+      },
+      "result": {
+        "error": "Invalid SMILES: pent"
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [
+          {
+            "ppm": 2.26,
+            "j_values": [],
+            "multiplicity": "s"
+          },
+          {
+            "ppm": 1.23,
+            "j_values": [
+              6.9
+            ],
+            "multiplicity": "d"
+          }
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "smiles": "CCO",
+        "total_carbons": 2,
+        "unique_carbon_environments": 2,
+        "has_symmetry": false,
+        "symmetry_note": "No carbon symmetry: all 2 carbons are in unique environments"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 2.0,
+        "ppm_max": 3.5
+      },
+      "result": {
+        "range": [
+          2.0,
+          3.5
+        ],
+        "peaks": [
+          {
+            "ppm": 3.16,
+            "j_values": [
+              6.9,
+              6.9,
+              6.9,
+              6.9
+            ],
+            "multiplicity": "pent"
+          },
+          {
+            "ppm": 2.26,
+            "j_values": [],
+            "multiplicity": "s"
+          }
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 2.0,
+        "ppm_max": 3.5
+      },
+      "result": {
+        "range": [
+          2.0,
+          3.5
+        ],
+        "peaks": [
+          {
+            "ppm": 3.16,
+            "integration": 1
+          },
+          {
+            "ppm": 2.26,
+            "integration": 3
+          }
+        ],
+        "count": 2,
+        "total_integration": 4
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "smiles": "CCO",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C10H14O"
+      },
+      "result": {
+        "formula": "C10H14O",
+        "degree": 4,
+        "explanation": "DBE = (2*10 + 2 + 0 - 14 - 0) / 2 = 4"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "C10H14O"
+      },
+      "result": {
+        "error": "Invalid SMILES: C10H14O"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C10H14O"
+      },
+      "result": {
+        "formula": "C10H14O",
+        "molecular_weight": 150.221,
+        "breakdown": [
+          "C10=120.110",
+          "H14=14.112",
+          "O1=15.999"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 1.0,
+        "ppm_max": 11.0
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          1.0,
+          11.0
+        ],
+        "peaks": [
+          {
+            "ppm": 7.08,
+            "multiplicity": "d",
+            "integration": 2,
+            "j_values": [
+              7.8
+            ],
+            "raw_text": "7.08 (d, J = 7.8 Hz, 2H)"
+          },
+          {
+            "ppm": 6.74,
+            "multiplicity": "dd",
+            "integration": 2,
+            "j_values": [
+              1.2,
+              0.6
+            ],
+            "raw_text": "6.74 (dd, J = 1.2, 0.6 Hz, 2H)"
+          },
+          {
+            "ppm": 6.55,
+            "multiplicity": "s",
+            "integration": 1,
+            "raw_text": "6.55 (s, 1H)"
+          },
+          {
+            "ppm": 4.75,
+            "multiplicity": "s",
+            "integration": 1,
+            "raw_text": "4.75 (s, 1H)"
+          },
+          {
+            "ppm": 3.16,
+            "multiplicity": "pent",
+            "integration": 1,
+            "j_values": [
+              6.9,
+              6.9,
+              6.9,
+              6.9
+            ],
+            "raw_text": "3.16 (pent, J = 6.9, 6.9, 6.9, 6.9 Hz, 1H)"
+          },
+          {
+            "ppm": 2.26,
+            "multiplicity": "s",
+            "integration": 3,
+            "raw_text": "2.26 (s, 3H)"
+          },
+          {
+            "ppm": 1.23,
+            "multiplicity": "d",
+            "integration": 6,
+            "j_values": [
+              6.9
+            ],
+            "raw_text": "1.23 (d, J = 6.9 Hz, 6H)"
+          }
+        ],
+        "count": 7
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "7.08 (d, J = 7.8 Hz, 2H)",
+        "nucleus": "13C"
+      },
+      "result": {
+        "error": "Invalid SMILES: 7.08 (d, J = 7.8 Hz, 2H)"
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [
+          {
+            "ppm": 2.26,
+            "integration": 3
+          },
+          {
+            "ppm": 1.23,
+            "integration": 6
+          }
+        ],
+        "count": 2,
+        "total_integration": 9
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "smiles": "CCO",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "smiles": "CCO",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "smiles": "CCO",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "CCO",
+        "canonical_smiles": "CCO",
+        "molecular_formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "num_atoms": 3,
+        "num_heavy_atoms": 3
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C2H6O"
+      },
+      "result": {
+        "formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "breakdown": [
+          "C2=24.022",
+          "H6=6.048",
+          "O1=15.999"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.75,
+    "unique_regions": 4,
+    "regions": [
+      "1H_1_11",
+      "1H_1_2",
+      "1H_2_3",
+      "1H_3_4"
+    ],
+    "categories_used": 5,
+    "categories": [
+      "computation",
+      "prediction",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "layer3_dependency_rate": 0.5789,
+  "layer3_dependency_rate_v1_edgecount": 1.1053,
+  "layer3_conflict_reactivity": 1.0,
+  "layer3_num_edges": 21,
+  "layer3_edge_types": [
+    "numeric",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "numeric",
+    "numeric",
+    "string"
+  ],
+  "layer3_strict_dependency_rate": 0.5789,
+  "layer3_strict_num_edges": 21,
+  "layer3_strict_edge_types": [
+    "numeric",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "numeric",
+    "numeric",
+    "string"
+  ],
+  "elapsed_seconds": 0.001,
+  "timestamp": "2026-04-28T13:57:13.346931"
+}

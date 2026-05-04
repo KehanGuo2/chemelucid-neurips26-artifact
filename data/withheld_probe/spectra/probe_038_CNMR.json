@@ -1,0 +1,21 @@
+{
+  "molecule_id": "probe_038",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C17H14O9",
+  "solvent": "DMSO-d6",
+  "mhz": "50MHz",
+  "spectrum_peaks": [
+    182.97,
+    174.92,
+    147.25,
+    145.61,
+    140.39,
+    125.49,
+    122.08,
+    110.1,
+    51.38,
+    39.14,
+    32.49
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

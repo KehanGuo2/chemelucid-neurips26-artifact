@@ -1,0 +1,9 @@
+{
+  "molecule_id": "theophylline",
+  "spectrum_type": "HNMR",
+  "molecular_formula": "C7H8N4O2",
+  "solvent": "DMSO-d6",
+  "mhz": "400MHz",
+  "spectrum_peaks_raw": "13.57 (s, 1H), 8.04 (s, 1H), 3.44 (s, 3H), 3.24 (s, 3H)",
+  "task_prompt": "You are given the molecular formula and a 1H NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

@@ -1,0 +1,9 @@
+{
+  "molecule_id": "phenacetin",
+  "spectrum_type": "HNMR",
+  "molecular_formula": "C10H13NO2",
+  "solvent": "Chloroform-d",
+  "mhz": "400MHz",
+  "spectrum_peaks_raw": "7.38 (d, J = 9.0 Hz, 4H), 6.83 (d, J = 9.0 Hz, 2H), 4.00 (q, J = 6.9, 6.9, 6.6 Hz, 2H), 2.14 (s, 3H), 1.40 (t, J = 6.9, 6.7 Hz, 3H)",
+  "task_prompt": "You are given the molecular formula and a 1H NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

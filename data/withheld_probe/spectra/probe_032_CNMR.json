@@ -1,0 +1,27 @@
+{
+  "molecule_id": "probe_032",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C19H12O2",
+  "solvent": "Acetone-D6 ((CD3)2CO)",
+  "mhz": "125MHz",
+  "spectrum_peaks": [
+    180.42,
+    150.79,
+    145.32,
+    143.55,
+    132.74,
+    132.68,
+    132.49,
+    131.07,
+    131.06,
+    128.63,
+    128.42,
+    128.2,
+    127.82,
+    126.9,
+    125.94,
+    124.49,
+    114.19
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

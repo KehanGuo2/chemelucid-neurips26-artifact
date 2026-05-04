@@ -1,0 +1,598 @@
+{
+  "molecule_id": "benzoin",
+  "spectrum_type": "HNMR",
+  "ground_truth": {
+    "smiles": "O=C(c1ccccc1)C(O)c1ccccc1",
+    "molecular_formula": "C14H12O2"
+  },
+  "dag_nodes": [
+    {
+      "id": "BIG QUESTION",
+      "label": "Here is the text proton NMR of Molecule X with each peak's shift, integration, multiplicity, and J value, respectively: {Spectra: 7.92 (dd, J = 7.1, 1.2 Hz, 2H), 7.52 (t, J = 7.3, 7.3 Hz, 1H), 7.40 (t, J = 8.3, 7.5 Hz, 2H), 7.33 (t, J = 2.8, 2.1 Hz, 1H), 7.32 \u2013 7.22 (m, 4H), 5.96 (s, 1H), 4.56 (s, 1H)}. This NMR was taken in {Solvent: Chloroform-d} solvent, on a machine with a frequency of {MHz Value: 400MHz}. Molecule X has a Molecular formula of {Molecular Formula: C14H12O2}. Given Molecule X's proton NMR and molecular formula, provide the corresponding SMILES string of the molecule.",
+      "weight": 0,
+      "answer": "O=C(c1ccccc1)C(O)c1ccccc1"
+    },
+    {
+      "id": "F1",
+      "label": "What is the unsaturation number of this molecule?",
+      "weight": 1,
+      "answer": "9"
+    },
+    {
+      "id": "F1.0.0",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.1.1",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of a protonated alkene?  Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "Yes"
+    },
+    {
+      "id": "F1.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.1.2",
+      "label": "Provide peaks from the original question that might represent the(se) alkene proton(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peak values.",
+      "weight": 1,
+      "answer": "5.96, 4.56"
+    },
+    {
+      "id": "F1.0.1.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.1.3",
+      "label": "Using the J coupling values, state whether the proton's relationship to another proton would be Cis/Trans/Geminal.  State this answer for every peak combination.  Provide your answer in the format (Peak 1 & Peak 2: Cis/Trans/Geminal; Peak 3 & Peak 4: Cis/Trans/Geminal;...",
+      "weight": 1,
+      "answer": "N/A"
+    },
+    {
+      "id": "F1.0.1.3",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.2.1",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an aromatic ring?  Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "Yes"
+    },
+    {
+      "id": "F1.0.2.1",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.2.2",
+      "label": "Provide peaks from the original question that might represent the(se) aromatic ring proton(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peak values.",
+      "weight": 1,
+      "answer": "7.92, 7.52, 7.40, 7.33, 7.22-7.32"
+    },
+    {
+      "id": "F1.0.2.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.2.3",
+      "label": "From the peak list in the previous answer, provide the integration number for each peak.  Provide your answer as (peak values: integration number)",
+      "weight": 1,
+      "answer": "7.92: 2H, 7.52: 1H, 7.40: 2H, 7.33: 1H, 7.22-7.32: 4H"
+    },
+    {
+      "id": "F1.0.2.3",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.2.4",
+      "label": "Why is knowing the integration number for peaks within this region important?",
+      "weight": 0,
+      "answer": "Knowing the integration numbers for peaks in this range is important because the amount of protons on an aromatic ring can tell chemists how many substituents are coming off of that ring"
+    },
+    {
+      "id": "F1.0.2.4",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.3.1",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of a terminal alkyne?  Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F1.0.3.1",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.3.2",
+      "label": "Provide peaks from the original question that might represent the terminal alkyne proton in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peak values.",
+      "weight": 1,
+      "answer": "No peaks in range"
+    },
+    {
+      "id": "F1.0.3.2",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.4.1",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an protonated alkene in addition to an aromatic ring?  Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "Yes"
+    },
+    {
+      "id": "F1.0.4.1",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.5.1",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an alkyne in addition to an aromatic ring?  Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F1.0.5.1",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.6.1",
+      "label": "Provide reasoning for how the unsaturated number was calculated",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.7.1",
+      "label": "Provide reasoning for how you determined if alkene(s) had the possibility of being present.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.8.1",
+      "label": "Provide reasoning for how you determined if an aromatic ring(s) had the possibility of being present.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F1.9.1",
+      "label": "Provide reasoning for how you determined if a terminal alkyne had the possibility of being present.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F2",
+      "label": "Using the proton NMR data and molecular formula in the original prompt, does Molecule X have any magnetically equivalent protons within an aromatic ring system(s)?  Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "Yes"
+    },
+    {
+      "id": "F2.0.0",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F2.1.1",
+      "label": "How many magnetically equivalent systems are in the aromatic system mentioned in the previous prompt?",
+      "weight": 1,
+      "answer": "8"
+    },
+    {
+      "id": "F2.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F2.1.2",
+      "label": "Label the specific peaks in the text NMR that relate to these magnetically equivalent systems in an aromatic ring?",
+      "weight": 1,
+      "answer": "7.92 & 7.40 & 7.32-7.22"
+    },
+    {
+      "id": "F2.0.1.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F2.1.3",
+      "label": "What does magnetic equivalence tell us about the protons in the aromatic ring and molecule?",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F3",
+      "label": "From the original prompts proton NMR data, specifically peak\u2019s integration values, as well as molecular formula, is the sum of the molecules integration numbers equal to the hydrogen count in the molecular formula?  (Provide answer in a Yes/No format).",
+      "weight": 1,
+      "answer": "Yes"
+    },
+    {
+      "id": "F3.0.0",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F3.1.1",
+      "label": "What is the numerical difference between these values?",
+      "weight": 1,
+      "answer": "0"
+    },
+    {
+      "id": "F3.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F3.1.2",
+      "label": "What heteroatoms could these protons be attached to in molecule X?",
+      "weight": 1,
+      "answer": "O"
+    },
+    {
+      "id": "F3.0.1.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F3.1.3",
+      "label": "What does this numerical difference denote in the molecule?",
+      "weight": 0,
+      "answer": "This numerical difference is equivalent to the number of labile protons in the molecule. These are protons that are directly attached to heteroatoms in the molecule and that exchange rapidly with the NMR solvent, thus resulting in them not appearing in the NMR output."
+    },
+    {
+      "id": "F3.0.1.3",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F4",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an alkyl proton not next to a heteroatom to be present?  Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F4.0.0",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F4.1.1",
+      "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks. values.",
+      "weight": 1,
+      "answer": "No peaks in range"
+    },
+    {
+      "id": "F4.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F4.1.2",
+      "label": "How was this assignment of an alkyl proton made or aromatic alkyl proton made?",
+      "weight": 0,
+      "answer": "The proton(s) were present in a ppm range between 2.5 and 0.25 which is the typical range for alkyl proton(s)."
+    },
+    {
+      "id": "F5",
+      "label": "Using the proton NMR data, molecular formula and unsaturation number, is there possibly for a proton to be attached to a heteroatom (Oxygen, Nitrogen, Sulfur) that is not a part of a carboxylic acid or amide? Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "Yes"
+    },
+    {
+      "id": "F5.0.0",
+      "label": "That is incorrect, provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F5.1.1",
+      "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks values.",
+      "weight": 1,
+      "answer": "5.96, 4.56"
+    },
+    {
+      "id": "F5.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F5.1.2",
+      "label": "Based on your previous answer and the Molecule X\u2019s molecular formula, which heteroatom (either oxygen, nitrogen, or sulfur) would each peak be adjacent to?",
+      "weight": 1,
+      "answer": "5.96 : O; 4.56 : O"
+    },
+    {
+      "id": "F5.0.1.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F5.1.3",
+      "label": "How did you decide the(se) proton peak(s) could possibly be protons attached to a heteroatom?",
+      "weight": 0,
+      "answer": "The proton(s) were present in a ppm range between 7.0 - 1 which is the typical range for proton(s) attached to a heteroatom."
+    },
+    {
+      "id": "F6",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an aldehyde to be present?  Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F6.0.0",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F6.1.1",
+      "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks. values.",
+      "weight": 1,
+      "answer": "No peaks in range"
+    },
+    {
+      "id": "F6.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F6.1.2",
+      "label": "How was this assignment of an aldehyde made?",
+      "weight": 0,
+      "answer": "The proton(s) were present in a ppm range between 10 and 8.5 which is the typical range for aldehyde proton(s)."
+    },
+    {
+      "id": "F7",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of a carboxylic acid, whose protons do not exchange with solvent, to be present?  Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F7.0.0",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F7.1.1",
+      "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks. values.",
+      "weight": 1,
+      "answer": "No peaks in range"
+    },
+    {
+      "id": "F7.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F7.1.2",
+      "label": "How was this assignment of a carboxylic acid made?",
+      "weight": 0,
+      "answer": "The proton(s) were present in a ppm range between 12.5 and 10 which is the typical range for carboxylic acid proton(s)."
+    },
+    {
+      "id": "F8",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an amide to be present?  Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F8.0.0",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F8.1.1",
+      "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks. values.",
+      "weight": 1,
+      "answer": "7.92, 7.52, 7.40, 7.33, 7.22-7.32, 5.96"
+    },
+    {
+      "id": "F8.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F8.1.2",
+      "label": "How was this assignment of an amide made?",
+      "weight": 0,
+      "answer": "The proton(s) were present in a ppm range between 9 and 5 which is the typical range for amide proton(s)."
+    },
+    {
+      "id": "F9",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of a protonated carbon attached to a non-carbonyl heteroatom to be present?  Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F9.0.0",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F9.1.1",
+      "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks. values.",
+      "weight": 1,
+      "answer": "No peaks in range"
+    },
+    {
+      "id": "F9.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F9.1.2",
+      "label": "How was this assignment of this proton made?",
+      "weight": 0,
+      "answer": "The proton(s) were present in a ppm range between 4.5 and 3 which is the typical range for protons attached to a carbon that is attached to a heteroatom(s)."
+    },
+    {
+      "id": "F10",
+      "label": "From the original prompts proton NMR data, specifically peak\u2019s J values and multiplicity, list protons that have a high possibility of being adjacent to each other.  Don\u2019t consider singlets in your answers. Provide them in a format (Peak1 Value: Adjacent Peak Value).",
+      "weight": 1,
+      "answer": "7.92 ppm: No adjacency found\n7.52 ppm: Adjacent to 7.40, 7.92?\n7.40 ppm: Adjacent to 7.52, 7.33, 7.92?\n7.33 ppm: Adjacent to 7.40, 7.92?\n7.22-7.32 ppm: No adjacency found"
+    },
+    {
+      "id": "F10.0.0",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F10.1.1",
+      "label": "How were the previous answer\u2019s decisions made?",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F11",
+      "label": "From the original prompts proton NMR data, specifically peak\u2019s J values and multiplicity, are there peaks that have no splitting.  Provide your answer in a Yes/No format. ",
+      "weight": 1,
+      "answer": "Yes"
+    },
+    {
+      "id": "F11.0.0",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F11.1.1",
+      "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X? . Provide them in a format (Peak Value 1, Peak Value 2).",
+      "weight": 1,
+      "answer": "5.96, 4.56"
+    },
+    {
+      "id": "F11.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F11.1.2",
+      "label": "Are any of these protons attached to a carbon which is bonded to a heteroatom?",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F11.0.1.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F11.1.3",
+      "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks. values.",
+      "weight": 1,
+      "answer": "No peaks in range"
+    },
+    {
+      "id": "F11.0.1.3",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F11.1.4",
+      "label": "How were the previous answer\u2019s decisions made?",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F12",
+      "label": "From the original prompts proton NMR data, specifically peak\u2019s integration values, are any of these peaks integration numbers greater than three, and produce an integer when divided by 3?  Provide answer in a Yes/No format).",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F12.0.0",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F12.1.1",
+      "label": "Which peak(s) represent this?  Provide your answer as a a list of peaks and their integration numbers.",
+      "weight": 1,
+      "answer": "None"
+    },
+    {
+      "id": "F12.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F12.1.2",
+      "label": "What group(s) do this(ese) peak represent?",
+      "weight": 1,
+      "answer": "A proton NMR peak that has an integration number greater than 3, but produces an integer when divided by 3 represents multiple methyl groups (CH3) that are magnetically equivalent to each other and are thus represented in one peak on the NMR spectra"
+    },
+    {
+      "id": "F12.0.1.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F12.1.3",
+      "label": "Store that each peak from the previous questions answers represent a multiplet methyl groups",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    },
+    {
+      "id": "F13",
+      "label": "Combine all information gathered about each proton NMR peak and what it could structurally represent in a molecule and provide it in a list format of {Peak Label: Structural Possibility 1, Structural Possibility 2,...",
+      "weight": 0,
+      "answer": "N/A- Manual spot-checking required"
+    },
+    {
+      "id": "F14",
+      "label": "Using this information, provide any reasonable molecular structures for Molecule X, your answer should be structured as: SMILES string; SMILES string;\u2026",
+      "weight": 0,
+      "answer": "O=C(c1ccccc1)C(O)c1ccccc1"
+    },
+    {
+      "id": "F14.1.1",
+      "label": "Provide reasoning using the spectra input data for why you chose each one of these molecular structures?",
+      "weight": 0,
+      "answer": "N/A- Just an explanation"
+    }
+  ]
+}

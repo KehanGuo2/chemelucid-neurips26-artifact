@@ -1,0 +1,434 @@
+{
+  "molecule_id": "3_nitro_benzoic_acid__DMSO_",
+  "agent": "random_tool_roulette",
+  "model": "dummy/random_tool_roulette",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "partial",
+  "condition": "partial_autonomous",
+  "scaffold": false,
+  "seed": 1047,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 24,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "O=C(O)c1cccc([N+](=O)[O-])c1",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 4.89,
+        "ppm_max": 6.33
+      },
+      "result": {
+        "range": [
+          4.89,
+          6.33
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "CC(=O)O",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "CC(=O)O",
+        "nucleus": "13C",
+        "predicted_shifts": [
+          195.0,
+          23.0
+        ],
+        "num_carbons": 2,
+        "details": [
+          {
+            "atom_idx": 0,
+            "predicted_shift": 23.0,
+            "environment": "alkyl"
+          },
+          {
+            "atom_idx": 1,
+            "predicted_shift": 195.0,
+            "environment": "carbonyl"
+          }
+        ],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H5NO4"
+      },
+      "result": {
+        "formula": "C7H5NO4",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 1 - 5 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 72.33,
+        "ppm_max": 95.94
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          72.33,
+          95.94
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "CC(=O)O",
+        "pattern": "c1ccccc1"
+      },
+      "result": {
+        "smiles": "CC(=O)O",
+        "pattern": "c1ccccc1",
+        "has_match": false,
+        "num_matches": 0
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C7H5NO4"
+      },
+      "result": {
+        "formula": "C7H5NO4",
+        "molecular_weight": 167.12,
+        "breakdown": [
+          "C7=84.077",
+          "H5=5.040",
+          "N1=14.007",
+          "O4=63.996"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CCN"
+      },
+      "result": {
+        "smiles": "CCN",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CC(=O)O"
+      },
+      "result": {
+        "smiles": "CC(=O)O",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H5NO4"
+      },
+      "result": {
+        "formula": "C7H5NO4",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 1 - 5 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "smiles": "CCO",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "c1ccncc1",
+        "pattern": "C#N"
+      },
+      "result": {
+        "smiles": "c1ccncc1",
+        "pattern": "C#N",
+        "has_match": false,
+        "num_matches": 0
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.43,
+        "ppm_max": 2.07
+      },
+      "result": {
+        "range": [
+          1.43,
+          2.07
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "CCN",
+        "pattern": "[NH2]"
+      },
+      "result": {
+        "smiles": "CCN",
+        "pattern": "[NH2]",
+        "has_match": true,
+        "num_matches": 1
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "CC(=O)O"
+      },
+      "result": {
+        "smiles": "CC(=O)O",
+        "total_carbons": 2,
+        "unique_carbon_environments": 2,
+        "has_symmetry": false,
+        "symmetry_note": "No carbon symmetry: all 2 carbons are in unique environments"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H5NO4"
+      },
+      "result": {
+        "formula": "C7H5NO4",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 1 - 5 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H5NO4"
+      },
+      "result": {
+        "formula": "C7H5NO4",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 1 - 5 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H5NO4"
+      },
+      "result": {
+        "formula": "C7H5NO4",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 1 - 5 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 2.46,
+        "ppm_max": 5.39
+      },
+      "result": {
+        "range": [
+          2.46,
+          5.39
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 8.6,
+        "ppm_max": 11.19
+      },
+      "result": {
+        "range": [
+          8.6,
+          11.19
+        ],
+        "peaks": [
+          {
+            "ppm": 8.62,
+            "j_values": [],
+            "multiplicity": "m"
+          }
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 1.01,
+        "ppm_max": 3.18
+      },
+      "result": {
+        "range": [
+          1.01,
+          3.18
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "c1ccccc1",
+        "pattern": "[NH2]"
+      },
+      "result": {
+        "smiles": "c1ccccc1",
+        "pattern": "[NH2]",
+        "has_match": false,
+        "num_matches": 0
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 9.29,
+        "ppm_max": 10.55
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          9.29,
+          10.55
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 1.28,
+        "ppm_max": 2.28
+      },
+      "result": {
+        "range": [
+          1.28,
+          2.28
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.9375,
+    "unique_regions": 7,
+    "regions": [
+      "13C_72_95",
+      "1H_1_2",
+      "1H_1_3",
+      "1H_2_5",
+      "1H_4_6",
+      "1H_8_11",
+      "1H_9_10"
+    ],
+    "categories_used": 5,
+    "categories": [
+      "computation",
+      "prediction",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "elapsed_seconds": 0.001,
+  "timestamp": "2026-04-28T09:10:48.453829"
+}

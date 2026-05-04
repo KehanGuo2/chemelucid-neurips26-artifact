@@ -1,0 +1,17 @@
+{
+  "molecule_id": "3_nitro_benzoic_acid__DMSO_",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C7H5NO4",
+  "solvent": "DMSO-d6",
+  "mhz": "101MHz",
+  "spectrum_peaks": [
+    165.48,
+    147.81,
+    135.37,
+    132.37,
+    130.5,
+    127.38,
+    123.63
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

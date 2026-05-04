@@ -1,0 +1,99 @@
+# Keep the Docker image small and reproducible: ship only the verification
+# subset, not the dev tree.
+
+# Version control / IDE
+.git
+.github
+.idea
+.vscode
+.claude
+.codex
+
+# Python build/test artefacts
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache
+.mypy_cache
+.coverage
+*.egg-info
+build
+dist
+htmlcov
+
+# Virtual environments
+.venv
+venv
+env
+
+# Editor / OS noise
+.DS_Store
+*.swp
+*.swo
+
+# Secrets — must not enter the image
+.env
+.env.*
+!*.env.example
+release/.env
+
+# Paper sources are not needed by the reviewer harness.
+paper
+
+# Lab-side / development scratch files (already in repo root)
+_morning_status.md
+_neurips_log.txt
+__l.txt
+__p.txt
+_pstat.txt
+_push2.txt
+_push_result.txt
+_todo_check.txt
+_dup_bibkeys.txt
+_dup_labels.txt
+
+# Annotation / chemist data not in scope for review verification.
+annotations_GG_*.json
+r3_kappa_dag_annotations_GG.json
+r5_failure_class_annotations_full_GG.json
+annotation_chemist_v*.zip
+annotation/
+
+# Tests that depend on excluded artefacts. test_manifests.py asserts that
+# every path in manifests/episode_manifest.jsonl exists on disk; the slim
+# reviewer image deliberately excludes those large episode trees, so this
+# test would always fail inside the container and is therefore not built in.
+interactive/tests/test_manifests.py
+
+# Logs and large episode trees that the reviewer harness does not need.
+logs
+interactive_results
+interactive/results/v3_multimodel
+interactive/results/v2_dual
+interactive/results/v2_full_benchmark
+interactive/results/v2_graphs
+interactive/results/v4_repeated
+interactive/results/repeated_sampling
+interactive/results/medium25
+interactive/results/withheld_probe
+interactive/results/canary_probe
+interactive/results/_regrade_submit
+interactive/results/bug3_spotcheck
+interactive/results/run_log_*.txt
+
+# Figures cache (regenerable from analysis scripts).
+figures
+
+# Large NMRShiftDB ingestion blobs (provenance only; not used for verification).
+data/dynamic/raw
+data/dynamic/nmrshiftdb_ingested.csv
+
+# Release tarball staging (this is itself a Docker-compatible subset; we keep
+# the dev tree as the canonical source for the image).
+release
+
+# Anonymous artifact zip / tarballs
+*.zip
+*.tar
+*.tar.gz

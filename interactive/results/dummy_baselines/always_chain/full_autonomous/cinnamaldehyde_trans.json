@@ -1,0 +1,533 @@
+{
+  "molecule_id": "cinnamaldehyde_trans",
+  "agent": "always_chain",
+  "model": "dummy/always_chain",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "full",
+  "condition": "full_autonomous",
+  "scaffold": false,
+  "seed": 152,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 20,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "O=CC=Cc1ccccc1",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "CCO",
+        "canonical_smiles": "CCO",
+        "molecular_formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "num_atoms": 3,
+        "num_heavy_atoms": 3
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 3.0,
+        "ppm_max": 4.5
+      },
+      "result": {
+        "range": [
+          3.0,
+          4.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "CCO",
+        "canonical_smiles": "CCO",
+        "molecular_formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "num_atoms": 3,
+        "num_heavy_atoms": 3
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "C2H6O",
+        "pattern": "CCO"
+      },
+      "result": {
+        "error": "Invalid SMILES: C2H6O"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C9H8O"
+      },
+      "result": {
+        "formula": "C9H8O",
+        "degree": 6,
+        "explanation": "DBE = (2*9 + 2 + 0 - 8 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 6.0,
+        "ppm_max": 7.5
+      },
+      "result": {
+        "range": [
+          6.0,
+          7.5
+        ],
+        "peaks": [
+          {
+            "ppm": 7.44,
+            "integration": 3
+          },
+          {
+            "ppm": 6.71,
+            "integration": 1
+          }
+        ],
+        "count": 2,
+        "total_integration": 4
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C9H8O"
+      },
+      "result": {
+        "formula": "C9H8O",
+        "degree": 6,
+        "explanation": "DBE = (2*9 + 2 + 0 - 8 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 6.0,
+        "ppm_max": 7.5
+      },
+      "result": {
+        "range": [
+          6.0,
+          7.5
+        ],
+        "peaks": [
+          {
+            "ppm": 7.44,
+            "j_values": [],
+            "multiplicity": "m"
+          },
+          {
+            "ppm": 6.71,
+            "j_values": [
+              15.9,
+              7.7
+            ],
+            "multiplicity": "dd"
+          }
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 6.71,
+        "ppm_max": 12.0
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          6.71,
+          12.0
+        ],
+        "peaks": [
+          {
+            "ppm": 9.7,
+            "multiplicity": "d",
+            "integration": 1,
+            "j_values": [
+              7.7
+            ],
+            "raw_text": "9.70 (d, J = 7.7 Hz, 1H)"
+          },
+          {
+            "ppm": 7.55,
+            "multiplicity": "m",
+            "integration": 3,
+            "ppm_range": [
+              7.53,
+              7.58
+            ],
+            "raw_text": "7.58 \u2013 7.53 (m, 3H)"
+          },
+          {
+            "ppm": 7.44,
+            "multiplicity": "m",
+            "integration": 3,
+            "ppm_range": [
+              7.37,
+              7.51
+            ],
+            "raw_text": "7.51 \u2013 7.37 (m, 3H)"
+          },
+          {
+            "ppm": 6.71,
+            "multiplicity": "dd",
+            "integration": 1,
+            "j_values": [
+              15.9,
+              7.7
+            ],
+            "raw_text": "6.71 (dd, J = 15.9, 7.7 Hz, 1H)"
+          }
+        ],
+        "count": 4
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 3.0,
+        "ppm_max": 4.5
+      },
+      "result": {
+        "range": [
+          3.0,
+          4.5
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "CCO",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "CCO",
+        "nucleus": "13C",
+        "predicted_shifts": [
+          65.0,
+          23.0
+        ],
+        "num_carbons": 2,
+        "details": [
+          {
+            "atom_idx": 0,
+            "predicted_shift": 23.0,
+            "environment": "alkyl"
+          },
+          {
+            "atom_idx": 1,
+            "predicted_shift": 65.0,
+            "environment": "C-O alkyl"
+          }
+        ],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "alkyl",
+        "pattern": "CCO"
+      },
+      "result": {
+        "error": "Invalid SMILES: alkyl"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C9H8O"
+      },
+      "result": {
+        "formula": "C9H8O",
+        "degree": 6,
+        "explanation": "DBE = (2*9 + 2 + 0 - 8 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "C9H8O"
+      },
+      "result": {
+        "error": "Invalid SMILES: C9H8O"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 0.0,
+        "ppm_max": 1.5
+      },
+      "result": {
+        "range": [
+          0.0,
+          1.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 0.0,
+        "ppm_max": 10.0
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          0.0,
+          10.0
+        ],
+        "peaks": [
+          {
+            "ppm": 9.7,
+            "multiplicity": "d",
+            "integration": 1,
+            "j_values": [
+              7.7
+            ],
+            "raw_text": "9.70 (d, J = 7.7 Hz, 1H)"
+          },
+          {
+            "ppm": 7.55,
+            "multiplicity": "m",
+            "integration": 3,
+            "ppm_range": [
+              7.53,
+              7.58
+            ],
+            "raw_text": "7.58 \u2013 7.53 (m, 3H)"
+          },
+          {
+            "ppm": 7.44,
+            "multiplicity": "m",
+            "integration": 3,
+            "ppm_range": [
+              7.37,
+              7.51
+            ],
+            "raw_text": "7.51 \u2013 7.37 (m, 3H)"
+          },
+          {
+            "ppm": 6.71,
+            "multiplicity": "dd",
+            "integration": 1,
+            "j_values": [
+              15.9,
+              7.7
+            ],
+            "raw_text": "6.71 (dd, J = 15.9, 7.7 Hz, 1H)"
+          }
+        ],
+        "count": 4
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "9.70 (d, J = 7.7 Hz, 1H)"
+      },
+      "result": {
+        "error": "Invalid SMILES: 9.70 (d, J = 7.7 Hz, 1H)"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "Invalid SMILES: 9.70 (d, J = 7.7 Hz, 1H)",
+        "nucleus": "1H"
+      },
+      "result": {
+        "error": "Invalid SMILES: Invalid SMILES: 9.70 (d, J = 7.7 Hz, 1H)"
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.875,
+    "unique_regions": 6,
+    "regions": [
+      "1H_0_1",
+      "1H_0_10",
+      "1H_1_2",
+      "1H_3_4",
+      "1H_6_12",
+      "1H_6_7"
+    ],
+    "categories_used": 5,
+    "categories": [
+      "computation",
+      "prediction",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "layer3_dependency_rate": 0.7368,
+  "layer3_dependency_rate_v1_edgecount": 1.6316,
+  "layer3_conflict_reactivity": 1.0,
+  "layer3_num_edges": 31,
+  "layer3_edge_types": [
+    "numeric",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string"
+  ],
+  "layer3_strict_dependency_rate": 0.7368,
+  "layer3_strict_num_edges": 31,
+  "layer3_strict_edge_types": [
+    "numeric",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string"
+  ],
+  "elapsed_seconds": 0.001,
+  "timestamp": "2026-04-28T13:57:13.391892"
+}

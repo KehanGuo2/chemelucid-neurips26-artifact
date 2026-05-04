@@ -1,0 +1,9 @@
+{
+  "molecule_id": "saccharine",
+  "spectrum_type": "HNMR",
+  "molecular_formula": "C7H5NO3S",
+  "solvent": "DMSO-d6",
+  "mhz": "400MHz",
+  "spectrum_peaks_raw": "7.65 (dd, J = 3.7, 1.0 Hz, 2H), 7.59 (d, J = 0.6 Hz, 2H)",
+  "task_prompt": "You are given the molecular formula and a 1H NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

@@ -1,0 +1,388 @@
+{
+  "molecule_id": "2_4_dimethyl_aniline",
+  "spectrum_type": "CNMR",
+  "ground_truth": {
+    "smiles": "Cc1ccc(N)c(C)c1",
+    "molecular_formula": "C8H11N"
+  },
+  "dag_nodes": [
+    {
+      "id": "BIG QUESTION",
+      "label": "Here is the text carbon NMR spectra of Molecule X: {Spectra:  \u03b4 142.20, 131.28, 127.88, 127.49, 122.57, 115.23, 20.60, 17.48}.   This NMR was taken in {Solvent: Chloroform-d} solvent, on a machine with a frequency of {MHz Value: 101MHz}. Molecule X has a Molecular formula of {Molecular Formula:  C8H11N}. Given Molecule X\u2019s carbon NMR and molecular formula to provide the corresponding SMILES string of the molecule.",
+      "weight": 0,
+      "answer": "Cc1ccc(N)c(C)c1"
+    },
+    {
+      "id": "F1",
+      "label": "What is the unsaturation number of this molecule?",
+      "weight": 1,
+      "answer": "4"
+    },
+    {
+      "id": "F1.0.0",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.1.1",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an alkene? Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F1.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.1.2",
+      "label": "Now label the ppm value of the peaks from the original question that might represent the alkene carbons in Molecule X?  Provide your answer as a only a list of peak values.",
+      "weight": 1,
+      "answer": "142.20, 131.28, 127.88, 127.49, 122.57, 115.23"
+    },
+    {
+      "id": "F1.0.1.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.2.1",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of a carbonyl? Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F1.0.2.1",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.2.2",
+      "label": "Now label the ppm value of the peaks from the original question that might represent the carbonyl carbon(s) in Molecule X?  Provide your answer as a only a list of peak values.",
+      "weight": 1,
+      "answer": "No peaks in range"
+    },
+    {
+      "id": "F1.0.2.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.3.1",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an imine? Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F1.0.3.1",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.3.2",
+      "label": "Now label the ppm value of the peaks from the original question that might represent the imine carbon(s) in Molecule X?  Provide your answer as a only a list of peak values.",
+      "weight": 1,
+      "answer": "No peaks in range"
+    },
+    {
+      "id": "F1.0.3.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.4.1",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an aromatic ring? Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "Yes"
+    },
+    {
+      "id": "F1.0.4.1",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.4.2",
+      "label": "Now label the ppm value of the peaks from the original question that might represent the aromatic ring carbons in Molecule X?  Provide your answer as a only a list of peak values.",
+      "weight": 1,
+      "answer": "142.20, 131.28, 127.88, 127.49, 122.57, 115.23"
+    },
+    {
+      "id": "F1.0.4.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.5.1",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an alkyne(s)? Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F1.0.5.1",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.5.2",
+      "label": "Now label the ppm value of the peaks from the original question that might represent the alkyne(s) carbon(s) in Molecule X?  Provide your answer as a only a list of peak values.",
+      "weight": 1,
+      "answer": "131.28, 127.88, 127.49, 122.57, 115.23"
+    },
+    {
+      "id": "F1.0.5.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.6.1",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of a nitrile(cyanide)? Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F1.0.6.1",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.6.2",
+      "label": "Now label the ppm value of the peaks from the original question that might represent the nitrile(s) carbon(s) in Molecule X?  Provide your answer as a only a list of peak values.",
+      "weight": 1,
+      "answer": "131.28, 127.88, 127.49, 122.57, 115.23"
+    },
+    {
+      "id": "F1.0.6.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.7.1",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of a carbonyl, alkene, and/or imine in addition to an aromatic ring? Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F1.0.7.1",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.8.1",
+      "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of a alkyne or cyanide in addition to an aromatic ring? Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F1.0.8.1",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.9.1",
+      "label": "Provide reasoning for how the unsaturated number was calculated",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.10.1",
+      "label": "Provide reasoning for how you determined if carbonyl(s) or alkene(s) had the possibility of being present.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F1.11.1",
+      "label": "Provide reasoning for how you determined if an aromatic ring(s)had the possibility of being present.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F2",
+      "label": "Does the Molecule X have a plane of symmetry based off of its carbon NMR data and molecular formula?  Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F2.0.0",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F2.1.1",
+      "label": "Given this, how many chemically equivalent carbon environments are in Molecule X?   Provide your answer as a number (NUMBER)",
+      "weight": 1,
+      "answer": ""
+    },
+    {
+      "id": "F2.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F2.1.2",
+      "label": "Explain in detail how the plane of symmetry was determined",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F3",
+      "label": "Based on the molecule\u2019s molecular formula and text spectra in the original prompt, is there a possibility for a structural motif of an alkyl carbon? Provide your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "Yes"
+    },
+    {
+      "id": "F3.0.0",
+      "label": "Provide your reasoning for the previous prompt answer.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F3.1.1",
+      "label": "Now label the ppm value of the peaks from the original question that might represent the alkyl carbon(s) in Molecule X?  Provide your answer as a only a list of peak values.",
+      "weight": 1,
+      "answer": "20.60, 17.48"
+    },
+    {
+      "id": "F3.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F3.2.1",
+      "label": "Provide reasoning for how you determined if alkyl carbons had the possibility of being present.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F4",
+      "label": "This is a list of common carbonyl groups along with their ppm ranges for carbon NMR Aldehyde: 220-170 ppm\nKetone: 220-170 ppm\nCarboxylic Acid: 185-165 ppm\nEster: 185-165 ppm\nAmide: 185-155 ppm.  Keep in mind these ranges can vary slightly from the actual experimental data.  Based off of this list, provide all possible functional groups for each carbon NMR peak in the original prompt.  Your answer should be structured as \u201cPeak Number: Functional Group Name 1, Functional Group Name 2",
+      "weight": 1,
+      "answer": "No peaks in carbonyl range"
+    },
+    {
+      "id": "F4.0.0",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F5",
+      "label": "Given the original prompt\u2019s carbon NMR data and molecular formula, are there any peaks that represent a carbon next to an Oxygen/Nitrogen/Sulfur that are not directly in a functional group listed in the previous question?  Give your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F5.0.0",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F5.1.1",
+      "label": "State which peak(s) could represent this.  Provide you answer as a list of peak values.",
+      "weight": 1,
+      "answer": "No peaks in range"
+    },
+    {
+      "id": "F5.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F5.1.2",
+      "label": "Based on your previous answer and the Molecule X\u2019s molecular formula, which heteroatom (either oxygen, nitrogen, or sulfur) would MOST LIKELY each peak be adjacent to?",
+      "weight": 1,
+      "answer": ""
+    },
+    {
+      "id": "F5.0.1.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F5.1.3",
+      "label": "Provide reasoning to your previous prompt answer.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F6",
+      "label": "Given the original prompt\u2019s carbon NMR data and molecular formula, are there any peaks that represent a carbon next to a halogen(s) that are not directly in a functional group listed in the previous question?  Give your answer in a Yes/No format",
+      "weight": 1,
+      "answer": "No"
+    },
+    {
+      "id": "F6.0.0",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F6.1.1",
+      "label": "State which peak(s) could represent this.  Provide you answer as a list of peak values.",
+      "weight": 1,
+      "answer": "20.60"
+    },
+    {
+      "id": "F6.0.1.1",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F6.1.2",
+      "label": "Based on your previous answer and the Molecule X\u2019s molecular formula, which halogen would each peak be adjacent to?",
+      "weight": 1,
+      "answer": "No halogens"
+    },
+    {
+      "id": "F6.0.1.2",
+      "label": "Provide your reasoning for the previous prompt answers.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F6.1.3",
+      "label": "Provide reasoning to your previous prompt answer.",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F7",
+      "label": "Combine all information gathered about each carbon NMR peak and what it could structurally represent in a molecule and provide it in a list format of {Peak Label: Structural Possibility 1, Structural Possibility 2,...",
+      "weight": 0,
+      "answer": ""
+    },
+    {
+      "id": "F8",
+      "label": "Using this information, provide any reasonable molecular structures for Molecule X, your answer should be structured as: SMILES string; SMILES string;\u2026",
+      "weight": 0,
+      "answer": "Cc1ccc(N)c(C)c1"
+    },
+    {
+      "id": "F8.1.1",
+      "label": "Provide reasoning using the spectra input data for why you chose each one of these molecular structures?",
+      "weight": 0,
+      "answer": ""
+    }
+  ]
+}

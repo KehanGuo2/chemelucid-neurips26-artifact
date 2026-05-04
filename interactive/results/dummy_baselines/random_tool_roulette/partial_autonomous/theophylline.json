@@ -1,0 +1,399 @@
+{
+  "molecule_id": "theophylline",
+  "agent": "random_tool_roulette",
+  "model": "dummy/random_tool_roulette",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "partial",
+  "condition": "partial_autonomous",
+  "scaffold": false,
+  "seed": 1058,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 16,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "Cn1c(=O)c2[nH]cnc2n(C)c1=O",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "smiles": "CCO",
+        "total_carbons": 2,
+        "unique_carbon_environments": 2,
+        "has_symmetry": false,
+        "symmetry_note": "No carbon symmetry: all 2 carbons are in unique environments"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H8N4O2"
+      },
+      "result": {
+        "formula": "C7H8N4O2",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 4 - 8 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "CCO",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "CCO",
+        "nucleus": "13C",
+        "predicted_shifts": [
+          65.0,
+          23.0
+        ],
+        "num_carbons": 2,
+        "details": [
+          {
+            "atom_idx": 0,
+            "predicted_shift": 23.0,
+            "environment": "alkyl"
+          },
+          {
+            "atom_idx": 1,
+            "predicted_shift": 65.0,
+            "environment": "C-O alkyl"
+          }
+        ],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 91.92,
+        "ppm_max": 119.53
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          91.92,
+          119.53
+        ],
+        "peaks": [
+          111.6
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 9.55,
+        "ppm_max": 10.52
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          9.55,
+          10.52
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 2.59,
+        "ppm_max": 4.94
+      },
+      "result": {
+        "range": [
+          2.59,
+          4.94
+        ],
+        "peaks": [
+          {
+            "ppm": 3.44,
+            "j_values": [],
+            "multiplicity": "s"
+          },
+          {
+            "ppm": 3.24,
+            "j_values": [],
+            "multiplicity": "s"
+          }
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "c1ccncc1",
+        "nucleus": "1H"
+      },
+      "result": {
+        "smiles": "c1ccncc1",
+        "nucleus": "1H",
+        "predicted_shifts": [
+          7.2
+        ],
+        "num_groups": 5,
+        "note": "Heuristic prediction \u2014 approximate only."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "CC(=O)O",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "CC(=O)O",
+        "nucleus": "13C",
+        "predicted_shifts": [
+          195.0,
+          23.0
+        ],
+        "num_carbons": 2,
+        "details": [
+          {
+            "atom_idx": 0,
+            "predicted_shift": 23.0,
+            "environment": "alkyl"
+          },
+          {
+            "atom_idx": 1,
+            "predicted_shift": 195.0,
+            "environment": "carbonyl"
+          }
+        ],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H8N4O2"
+      },
+      "result": {
+        "formula": "C7H8N4O2",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 4 - 8 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 1.93,
+        "ppm_max": 3.12
+      },
+      "result": {
+        "range": [
+          1.93,
+          3.12
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "c1ccncc1",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "c1ccncc1",
+        "nucleus": "13C",
+        "predicted_shifts": [
+          148.0,
+          148.0,
+          131.0,
+          128.0,
+          128.0
+        ],
+        "num_carbons": 5,
+        "details": [
+          {
+            "atom_idx": 0,
+            "predicted_shift": 128.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 1,
+            "predicted_shift": 131.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 2,
+            "predicted_shift": 148.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 4,
+            "predicted_shift": 148.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 5,
+            "predicted_shift": 128.0,
+            "environment": "aromatic"
+          }
+        ],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C7H8N4O2"
+      },
+      "result": {
+        "formula": "C7H8N4O2",
+        "molecular_weight": 180.167,
+        "breakdown": [
+          "C7=84.077",
+          "H8=8.064",
+          "N4=56.028",
+          "O2=31.998"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.56,
+        "ppm_max": 3.89
+      },
+      "result": {
+        "range": [
+          1.56,
+          3.89
+        ],
+        "peaks": [
+          {
+            "ppm": 3.44,
+            "j_values": [],
+            "multiplicity": "s"
+          },
+          {
+            "ppm": 3.24,
+            "j_values": [],
+            "multiplicity": "s"
+          }
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "CCN",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "CCN",
+        "nucleus": "13C",
+        "predicted_shifts": [
+          45.0,
+          23.0
+        ],
+        "num_carbons": 2,
+        "details": [
+          {
+            "atom_idx": 0,
+            "predicted_shift": 23.0,
+            "environment": "alkyl"
+          },
+          {
+            "atom_idx": 1,
+            "predicted_shift": 45.0,
+            "environment": "C-N alkyl"
+          }
+        ],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CCN"
+      },
+      "result": {
+        "smiles": "CCN",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.75,
+    "unique_regions": 4,
+    "regions": [
+      "13C_91_119",
+      "1H_1_3",
+      "1H_2_4",
+      "1H_9_10"
+    ],
+    "categories_used": 5,
+    "categories": [
+      "computation",
+      "prediction",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "elapsed_seconds": 0.001,
+  "timestamp": "2026-04-28T09:10:48.509572"
+}

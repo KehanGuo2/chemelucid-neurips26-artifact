@@ -1,0 +1,572 @@
+{
+  "molecule_id": "canary_001",
+  "model": "claude-opus-4-20250514",
+  "provider": "anthropic",
+  "stateful": true,
+  "spectrum_type": "CNMR",
+  "info_mode": "full",
+  "accuracy": {
+    "exact_match": false,
+    "tanimoto": 0.2059,
+    "submitted": "COC(=O)c1ccc(C(=O)O)cc1",
+    "submitted_canonical": "COC(=O)c1ccc(C(=O)O)cc1",
+    "gt": "O=C(O)C(O)=Cc1ccc(O)cc1",
+    "gt_canonical": "O=C(O)C(O)=Cc1ccc(O)cc1"
+  },
+  "efficiency": 0.24,
+  "coverage": 0.1154,
+  "cf_coverage": 0.1154,
+  "cnmr_coverage": null,
+  "hnmr_coverage": null,
+  "node_results": {
+    "F1": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "compute_unsaturation returned 6 (GT=6)"
+    },
+    "F1.1.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.1.1"
+    },
+    "F1.1.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.1.2"
+    },
+    "F1.2.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.2.1"
+    },
+    "F1.2.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.2.2"
+    },
+    "F1.3.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.3.1"
+    },
+    "F1.3.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.3.2"
+    },
+    "F1.4.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.4.1"
+    },
+    "F1.4.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.4.2"
+    },
+    "F1.5.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.5.1"
+    },
+    "F1.5.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.5.2"
+    },
+    "F1.6.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.6.1"
+    },
+    "F1.6.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.6.2"
+    },
+    "F1.7.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.7.1"
+    },
+    "F1.8.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.8.1"
+    },
+    "F2": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "check_symmetry matched GT (sym=False)"
+    },
+    "F2.1.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F2.1.1"
+    },
+    "F3": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F3"
+    },
+    "F3.1.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F3.1.1"
+    },
+    "F4": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F4"
+    },
+    "F5": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F5"
+    },
+    "F5.1.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F5.1.1"
+    },
+    "F5.1.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F5.1.2"
+    },
+    "F6": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "No halogens in formula; GT=No"
+    },
+    "F6.1.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F6.1.1"
+    },
+    "F6.1.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F6.1.2"
+    }
+  },
+  "failure_analysis": {
+    "knowledge": [],
+    "reasoning": [],
+    "tool_use": [],
+    "strategy": [
+      "F1.1.1",
+      "F1.1.2",
+      "F1.2.1",
+      "F1.2.2",
+      "F1.3.1",
+      "F1.3.2",
+      "F1.4.1",
+      "F1.4.2",
+      "F1.5.1",
+      "F1.5.2",
+      "F1.6.1",
+      "F1.6.2",
+      "F1.7.1",
+      "F1.8.1",
+      "F2.1.1",
+      "F3",
+      "F3.1.1",
+      "F4",
+      "F5",
+      "F5.1.1",
+      "F5.1.2",
+      "F6.1.1",
+      "F6.1.2"
+    ]
+  },
+  "grading_summary": "DAG Coverage: 3/26 nodes (11.5% weighted, cf=11.5%). Failures: strategy=23",
+  "submitted_smiles": "COC(=O)c1ccc(C(=O)O)cc1",
+  "gt_smiles": "O=C(O)C(O)=Cc1ccc(O)cc1",
+  "total_cost": 19,
+  "budget": 25,
+  "num_turns": 12,
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C9H8O4"
+      },
+      "result": {
+        "formula": "C9H8O4",
+        "degree": 6,
+        "explanation": "DBE = (2*9 + 2 + 0 - 8 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_full_spectrum",
+      "args": {
+        "nucleus": "1H"
+      },
+      "result": {
+        "nucleus": "1H",
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "O=C(O)c1ccccc1C(=O)O"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "O=C(O)c1ccccc1C(=O)O",
+        "canonical_smiles": "O=C(O)c1ccccc1C(=O)O",
+        "molecular_formula": "C8H6O4",
+        "molecular_weight": 166.132,
+        "num_atoms": 12,
+        "num_heavy_atoms": 12
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "Cc1ccc(C(=O)O)c(C(=O)O)c1"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "Cc1ccc(C(=O)O)c(C(=O)O)c1",
+        "canonical_smiles": "Cc1ccc(C(=O)O)c(C(=O)O)c1",
+        "molecular_formula": "C9H8O4",
+        "molecular_weight": 180.159,
+        "num_atoms": 13,
+        "num_heavy_atoms": 13
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "Cc1ccc(C(=O)O)c(C(=O)O)c1"
+      },
+      "result": {
+        "smiles": "Cc1ccc(C(=O)O)c(C(=O)O)c1",
+        "total_carbons": 9,
+        "unique_carbon_environments": 9,
+        "has_symmetry": false,
+        "symmetry_note": "No carbon symmetry: all 9 carbons are in unique environments"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "O=C(O)c1cc(C)cc(C(=O)O)c1"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "O=C(O)c1cc(C)cc(C(=O)O)c1",
+        "canonical_smiles": "Cc1cc(C(=O)O)cc(C(=O)O)c1",
+        "molecular_formula": "C9H8O4",
+        "molecular_weight": 180.159,
+        "num_atoms": 13,
+        "num_heavy_atoms": 13
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "Cc1cc(C(=O)O)cc(C(=O)O)c1"
+      },
+      "result": {
+        "smiles": "Cc1cc(C(=O)O)cc(C(=O)O)c1",
+        "total_carbons": 9,
+        "unique_carbon_environments": 6,
+        "has_symmetry": true,
+        "symmetry_note": "Molecule has a plane of symmetry: 9 carbons map to 6 unique environments"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "Cc1cc(C(=O)O)cc(C(=O)O)c1",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "Cc1cc(C(=O)O)cc(C(=O)O)c1",
+        "nucleus": "13C",
+        "predicted_shifts": [
+          195.0,
+          195.0,
+          137.0,
+          137.0,
+          134.0,
+          134.0,
+          134.0,
+          131.0,
+          23.0
+        ],
+        "num_carbons": 9,
+        "details": [
+          {
+            "atom_idx": 0,
+            "predicted_shift": 23.0,
+            "environment": "alkyl"
+          },
+          {
+            "atom_idx": 1,
+            "predicted_shift": 131.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 2,
+            "predicted_shift": 134.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 3,
+            "predicted_shift": 137.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 4,
+            "predicted_shift": 195.0,
+            "environment": "carbonyl"
+          },
+          {
+            "atom_idx": 7,
+            "predicted_shift": 134.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 8,
+            "predicted_shift": 137.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 9,
+            "predicted_shift": 195.0,
+            "environment": "carbonyl"
+          },
+          {
+            "atom_idx": 12,
+            "predicted_shift": 134.0,
+            "environment": "aromatic"
+          }
+        ],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "COC(=O)c1ccc(C(=O)O)cc1"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "COC(=O)c1ccc(C(=O)O)cc1",
+        "canonical_smiles": "COC(=O)c1ccc(C(=O)O)cc1",
+        "molecular_formula": "C9H8O4",
+        "molecular_weight": 180.159,
+        "num_atoms": 13,
+        "num_heavy_atoms": 13
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "COC(=O)c1ccc(C(=O)O)cc1"
+      },
+      "result": {
+        "smiles": "COC(=O)c1ccc(C(=O)O)cc1",
+        "total_carbons": 9,
+        "unique_carbon_environments": 7,
+        "has_symmetry": true,
+        "symmetry_note": "Molecule has a plane of symmetry: 9 carbons map to 7 unique environments"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "COC(=O)c1ccc(C(=O)O)cc1",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "COC(=O)c1ccc(C(=O)O)cc1",
+        "nucleus": "13C",
+        "predicted_shifts": [
+          195.0,
+          195.0,
+          140.0,
+          134.0,
+          134.0,
+          131.0,
+          131.0,
+          128.0,
+          65.0
+        ],
+        "num_carbons": 9,
+        "details": [
+          {
+            "atom_idx": 0,
+            "predicted_shift": 65.0,
+            "environment": "C-O alkyl"
+          },
+          {
+            "atom_idx": 2,
+            "predicted_shift": 195.0,
+            "environment": "carbonyl"
+          },
+          {
+            "atom_idx": 4,
+            "predicted_shift": 140.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 5,
+            "predicted_shift": 128.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 6,
+            "predicted_shift": 131.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 7,
+            "predicted_shift": 134.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 8,
+            "predicted_shift": 195.0,
+            "environment": "carbonyl"
+          },
+          {
+            "atom_idx": 11,
+            "predicted_shift": 131.0,
+            "environment": "aromatic"
+          },
+          {
+            "atom_idx": 12,
+            "predicted_shift": 134.0,
+            "environment": "aromatic"
+          }
+        ],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "COC(=O)c1ccc(C(=O)O)cc1"
+      },
+      "result": {
+        "submitted": "COC(=O)c1ccc(C(=O)O)cc1",
+        "canonical": "COC(=O)c1ccc(C(=O)O)cc1",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.5,
+    "unique_regions": 0,
+    "regions": [],
+    "categories_used": 5,
+    "categories": [
+      "computation",
+      "prediction",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "layer3_dependency_rate": 0.5455,
+  "layer3_conflict_reactivity": 1.0,
+  "layer3_edges": [
+    {
+      "from_idx": 3,
+      "to_idx": 4,
+      "type": "string",
+      "detail": "smiles='Cc1ccc(C(=O)O)c(C(=O)O)c1' \u2192 smiles"
+    },
+    {
+      "from_idx": 5,
+      "to_idx": 6,
+      "type": "string",
+      "detail": "canonical_smiles='Cc1cc(C(=O)O)cc(C(=O)O)c1' \u2192 smiles"
+    },
+    {
+      "from_idx": 5,
+      "to_idx": 7,
+      "type": "string",
+      "detail": "canonical_smiles='Cc1cc(C(=O)O)cc(C(=O)O)c1' \u2192 smiles"
+    },
+    {
+      "from_idx": 6,
+      "to_idx": 7,
+      "type": "string",
+      "detail": "smiles='Cc1cc(C(=O)O)cc(C(=O)O)c1' \u2192 smiles"
+    },
+    {
+      "from_idx": 8,
+      "to_idx": 9,
+      "type": "string",
+      "detail": "smiles='COC(=O)c1ccc(C(=O)O)cc1' \u2192 smiles"
+    },
+    {
+      "from_idx": 8,
+      "to_idx": 10,
+      "type": "string",
+      "detail": "smiles='COC(=O)c1ccc(C(=O)O)cc1' \u2192 smiles"
+    },
+    {
+      "from_idx": 9,
+      "to_idx": 10,
+      "type": "string",
+      "detail": "smiles='COC(=O)c1ccc(C(=O)O)cc1' \u2192 smiles"
+    },
+    {
+      "from_idx": 8,
+      "to_idx": 11,
+      "type": "string",
+      "detail": "smiles='COC(=O)c1ccc(C(=O)O)cc1' \u2192 smiles"
+    },
+    {
+      "from_idx": 9,
+      "to_idx": 11,
+      "type": "string",
+      "detail": "smiles='COC(=O)c1ccc(C(=O)O)cc1' \u2192 smiles"
+    },
+    {
+      "from_idx": 10,
+      "to_idx": 11,
+      "type": "string",
+      "detail": "smiles='COC(=O)c1ccc(C(=O)O)cc1' \u2192 smiles"
+    }
+  ],
+  "layer3_conflicts": [],
+  "elapsed_seconds": 53.99,
+  "timestamp": "2026-04-28T13:58:45.423989",
+  "condition": "full_autonomous",
+  "scaffold": false
+}

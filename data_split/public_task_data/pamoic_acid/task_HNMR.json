@@ -1,0 +1,9 @@
+{
+  "molecule_id": "pamoic_acid",
+  "spectrum_type": "HNMR",
+  "molecular_formula": "C23H16O6",
+  "solvent": "DMSO-d6",
+  "mhz": "400MHz",
+  "spectrum_peaks_raw": "8.52 (s, 2H), 8.17 (dd, J = 8.7, 1.1 Hz, 2H), 7.91 (dd, J = 8.3, 1.4 Hz, 2H), 7.41 (ddd, J = 8.5, 6.8, 1.4 Hz, 2H), 7.25 (ddd, J = 8.0, 6.8, 1.1 Hz, 2H), 4.84 (s, 2H)",
+  "task_prompt": "You are given the molecular formula and a 1H NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

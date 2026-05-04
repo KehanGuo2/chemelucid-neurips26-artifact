@@ -1,0 +1,42 @@
+# Example custom reasoning DAG for ChemElucid-Gym local extension.
+#
+# IMPORTANT: outputs computed against this DAG are LOCAL EXTENSION
+# DIAGNOSTICS. They are NOT comparable to ChemElucid-Gym official scores,
+# which are computed only against the frozen manifests under
+# `data_split/private_grader_data/` and the grader in
+# `interactive/grade.py`. See `docs/TASK_BUNDLE_FORMAT.md`.
+
+schema_version: 1
+name: "minimal-illustrative-dag"
+description: |
+  A four-node illustrative DAG showing the schema accepted by
+  `python -m interactive.task_bundle validate-dag`. Real DAGs in the
+  benchmark have ~26 weighted nodes per molecule; this is a stub.
+
+nodes:
+  - id: "BIG QUESTION"
+    type: "root"
+    weight: 0
+    label: "Given the molecular formula and CNMR spectrum, propose a structure."
+  - id: "F1"
+    type: "F-stage"
+    weight: 1
+    label: "What is the degree of unsaturation?"
+    answer_type: "integer"
+  - id: "F1.1.1"
+    type: "motif-detection"
+    weight: 1
+    label: "Does the molecule contain a C=C double bond outside an aromatic ring?"
+    answer_type: "yes_no"
+    rdkit_smarts: "[C;!a]=[C;!a]"
+  - id: "F2"
+    type: "F-stage"
+    weight: 1
+    label: "Is there carbon-environment symmetry consistent with the peak count?"
+    answer_type: "yes_no"
+    deterministic_source: "rdkit_canonical_rank_v1"
+
+edges:
+  - {from: "BIG QUESTION", to: "F1"}
+  - {from: "F1", to: "F1.1.1"}
+  - {from: "F1", to: "F2"}

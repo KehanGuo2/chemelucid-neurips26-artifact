@@ -1,0 +1,371 @@
+{
+  "molecule_id": "theophylline",
+  "agent": "always_chain",
+  "model": "dummy/always_chain",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "partial",
+  "condition": "partial_autonomous",
+  "scaffold": false,
+  "seed": 58,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 19,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "Cn1c(=O)c2[nH]cnc2n(C)c1=O",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 4.0
+      },
+      "result": {
+        "range": [
+          1.0,
+          4.0
+        ],
+        "peaks": [
+          {
+            "ppm": 3.44,
+            "integration": 3
+          },
+          {
+            "ppm": 3.24,
+            "integration": 3
+          }
+        ],
+        "count": 2,
+        "total_integration": 6
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "CCO",
+        "pattern": "[OH]"
+      },
+      "result": {
+        "smiles": "CCO",
+        "pattern": "[OH]",
+        "has_match": true,
+        "num_matches": 1
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "[OH]",
+        "pattern": "CCO"
+      },
+      "result": {
+        "smiles": "[OH]",
+        "pattern": "CCO",
+        "has_match": false,
+        "num_matches": 0
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 0.0,
+        "ppm_max": 1.5
+      },
+      "result": {
+        "range": [
+          0.0,
+          1.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 1.5,
+        "ppm_max": 11.5
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          1.5,
+          11.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "CCO",
+        "canonical_smiles": "CCO",
+        "molecular_formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "num_atoms": 3,
+        "num_heavy_atoms": 3
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "C2H6O"
+      },
+      "result": {
+        "error": "Invalid SMILES: C2H6O"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "Invalid SMILES: C2H6O"
+      },
+      "result": {
+        "error": "Invalid SMILES: Invalid SMILES: C2H6O"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "Invalid SMILES: Invalid SMILES: C2H6O"
+      },
+      "result": {
+        "error": "Invalid SMILES: Invalid SMILES: Invalid SMILES: C2H6O"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "Invalid SMILES: Invalid SMILES: Invalid SMILES: C2H6O",
+        "nucleus": "1H"
+      },
+      "result": {
+        "error": "Invalid SMILES: Invalid SMILES: Invalid SMILES: Invalid SMILES: C2H6O"
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "Invalid SMILES: Invalid SMILES: Invalid SMILES: Invalid SMILES: C2H6O"
+      },
+      "result": {
+        "error": "Invalid SMILES: Invalid SMILES: Invalid SMILES: Invalid SMILES: Invalid SMILES: C2H6O"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H8N4O2"
+      },
+      "result": {
+        "formula": "C7H8N4O2",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 4 - 8 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 6.0,
+        "ppm_max": 12.0
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          6.0,
+          12.0
+        ],
+        "peaks": [
+          {
+            "ppm": 8.04,
+            "multiplicity": "s",
+            "integration": 1,
+            "raw_text": "8.04 (s, 1H)"
+          }
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "8.04 (s, 1H)",
+        "nucleus": "13C"
+      },
+      "result": {
+        "error": "Invalid SMILES: 8.04 (s, 1H)"
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "Invalid SMILES: 8.04 (s, 1H)",
+        "nucleus": "1H"
+      },
+      "result": {
+        "error": "Invalid SMILES: Invalid SMILES: 8.04 (s, 1H)"
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "Invalid SMILES: Invalid SMILES: 8.04 (s, 1H)"
+      },
+      "result": {
+        "error": "Invalid SMILES: Invalid SMILES: Invalid SMILES: 8.04 (s, 1H)"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 20.0,
+        "ppm_max": 30.0
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          20.0,
+          30.0
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.875,
+    "unique_regions": 6,
+    "regions": [
+      "13C_1_11",
+      "13C_20_30",
+      "1H_0_1",
+      "1H_1_2",
+      "1H_1_4",
+      "1H_6_12"
+    ],
+    "categories_used": 5,
+    "categories": [
+      "computation",
+      "prediction",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "layer3_dependency_rate": 0.6667,
+  "layer3_dependency_rate_v1_edgecount": 0.8333,
+  "layer3_conflict_reactivity": 1.0,
+  "layer3_num_edges": 15,
+  "layer3_edge_types": [
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "string",
+    "string",
+    "string"
+  ],
+  "layer3_strict_dependency_rate": 0.6667,
+  "layer3_strict_num_edges": 15,
+  "layer3_strict_edge_types": [
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "string",
+    "string",
+    "string"
+  ],
+  "elapsed_seconds": 0.001,
+  "timestamp": "2026-04-28T13:57:13.291982"
+}

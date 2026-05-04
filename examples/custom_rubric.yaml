@@ -1,0 +1,61 @@
+# Example custom rubric for ChemElucid-Gym local extension.
+#
+# IMPORTANT: this rubric is a LOCAL EXTENSION DIAGNOSTIC. Scores produced by
+# this rubric are NOT comparable to ChemElucid-Gym official scores. Official
+# scores are computed only by the frozen grader (`interactive/grade.py`)
+# against frozen manifests. Use this rubric for in-house ablations, custom
+# stress tests, or pedagogical exercises.
+
+schema_version: 1
+name: "evidence-acquisition-rubric-v0"
+applies_to: "any task bundle"
+description: |
+  Four observable trajectory criteria scored 0..2 each. Total in [0, 8].
+  This is illustrative; benchmark-grade rubrics should be authored by a
+  domain expert and audited.
+
+criteria:
+  - id: "spectral_coverage"
+    description: |
+      Did the agent query distinct CNMR regions (e.g., aromatic, carbonyl,
+      alkyl) before submitting?
+    weight: 2
+    rubric:
+      0: "No region queries."
+      1: "One region query."
+      2: "Two or more disjoint region queries."
+
+  - id: "candidate_validation"
+    description: |
+      Did the agent call `validate_smiles` and use its output before submit?
+    weight: 2
+    rubric:
+      0: "Submitted without validation."
+      1: "Validated once but did not respond to a negative result."
+      2: "Validated, then revised the candidate when validation failed."
+
+  - id: "forward_check"
+    description: |
+      Did the agent call `predict_nmr` on a candidate and compare against
+      the observed spectrum?
+    weight: 2
+    rubric:
+      0: "No forward check."
+      1: "Forward check called but result not visibly used."
+      2: "Forward check called and informed the next action."
+
+  - id: "stopping_decision"
+    description: |
+      Did the agent stop on substantive evidence rather than running out
+      of budget or submitting on turn 1?
+    weight: 2
+    rubric:
+      0: "Submitted on turn <= 2 without investigation."
+      1: "Submitted at budget exhaustion with no clear stopping signal."
+      2: "Stopped after a coherent confirmation (validation + forward-check)."
+
+# Custom rubrics MUST be reported under their own header in any analysis
+# output and MUST NOT be aggregated with official L1/L2/L3 / outcome
+# scores. The reviewer harness will refuse to merge custom rubric output
+# into the official score JSON.
+non_official: true

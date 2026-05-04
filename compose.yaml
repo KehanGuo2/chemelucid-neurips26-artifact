@@ -1,0 +1,33 @@
+# ChemElucid-Gym reviewer harness — Compose v2 (compose.yaml).
+#
+# Usage:
+#   docker compose build           # build the reviewer image
+#   docker compose run --rm reviewer
+#                                 # → drops into the default list-molecules check
+#   docker compose run --rm reviewer python -m interactive.experiments.smoke_test
+#   docker compose run --rm reviewer pytest interactive/tests/ -q
+#
+# The container is intentionally non-interactive by default. Pass an explicit
+# command (e.g. `bash`) to start a shell.
+
+services:
+  reviewer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: chemelucid-gym:reviewer
+    # Bind-mount the working tree so reviewers can edit + re-run without rebuild.
+    # Comment out for a strictly frozen image build.
+    volumes:
+      - .:/workspace
+    working_dir: /workspace
+    environment:
+      # No provider keys are passed in by default. The verification path
+      # (list-molecules, smoke_test, grade --episode-log) does not need them.
+      PYTHONPATH: /workspace
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUNBUFFERED: "1"
+    # `init: true` lets pytest's signal handling work cleanly in PID 1.
+    init: true
+    # Default command verifies the package imports and the manifest is readable.
+    command: python -m interactive.cli list-molecules

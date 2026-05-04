@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+.DS_Store
+
+# Side-effects of running scripts/audit_leakage.py and pytest
+analysis/leakage_audit_report.md
+
+# Default output directories for interactive episodes
+interactive_results/
+interactive/results/withheld_probe/

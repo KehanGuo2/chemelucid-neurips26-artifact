@@ -1,0 +1,22 @@
+{
+  "molecule_id": "pamoic_acid",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C23H16O6",
+  "solvent": "DMSO-d6",
+  "mhz": "101MHz",
+  "spectrum_peaks": [
+    173.28,
+    154.05,
+    136.83,
+    132.2,
+    130.8,
+    129.53,
+    127.37,
+    124.04,
+    123.94,
+    121.25,
+    114.67,
+    20.54
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

@@ -1,0 +1,22 @@
+{
+  "molecule_id": "benzoin",
+  "spectrum_type": "COMBO",
+  "ground_truth": {
+    "smiles": "O=C(c1ccccc1)C(O)c1ccccc1",
+    "molecular_formula": "C14H12O2"
+  },
+  "dag_nodes": [
+    {
+      "id": "BIG QUESTION",
+      "label": "Molecule X has a molecular formula of C14H12O2. The text carbon NMR spectra for Molecule X is \u03b4 199.00, 139.07, 133.88, 129.16, 129.13, 128.70, 128.58, 127.80, 114.52. Molecule X\u2019s carbon NMR was taken in Chloroform-d solvent, on a machine with a frequency of 101MHz. From prior analysis of the carbon NMR, a list of potential structural possibilities and impossibilities for each carbon NMR peak has been created, here it is: {Blackboard Summarization of CNMR}. The text proton NMR of molecule X with each peak's shift, integration, multiplicity, and J value, listed respectively is: 7.92 (dd, J = 7.1, 1.2 Hz, 2H), 7.52 (t, J = 7.3, 7.3 Hz, 1H), 7.40 (t, J = 8.3, 7.5 Hz, 2H), 7.33 (t, J = 2.8, 2.1 Hz, 1H), 7.32 \u2013 7.22 (m, 4H), 5.96 (s, 1H), 4.56 (s, 1H). Molecule X\u2019s proton NMR was taken in Chloroform-d solvent, on a machine with a frequency of 400MHz. From prior analysis of the proton NMR, a list of potential structural possibilities and impossibilities for each proton NMR peak has been created, here it is: {Blackboard Summarization of HNMR}.\n\nGiven Molecule X\u2019s molecular formula, carbon NMR, proton NMR, and potential peak possibilities provide 5 potential SMILES strings which could represent Molecule X. Rank these 1-5 with position 1 being the most likely and 5 being the least likely",
+      "weight": 1,
+      "answer": "O=C(c1ccccc1)C(O)c1ccccc1"
+    },
+    {
+      "id": "F1",
+      "label": "For each SMILES string listed above, provide a Tanimoto Similarity score between the molecule and this SMILES string O=C(c1ccccc1)C(O)c1ccccc1. Provide the answer in the format: Prediction1: Similarity Score, Prediction2: Similarity Score",
+      "weight": 1,
+      "answer": "O=C(c1ccccc1)C(O)c1ccccc1"
+    }
+  ]
+}

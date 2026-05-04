@@ -1,0 +1,29 @@
+[project]
+name = "chemelucid"
+version = "0.1.0"
+description = "ChemElucid: an interactive evaluation environment for AI agents on molecular structure elucidation from NMR spectroscopy."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "openai>=1.0.0",
+    "anthropic>=0.20.0",
+    "numpy>=1.21.0",
+    "matplotlib>=3.5.0",
+    "scipy>=1.8.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0.0"]
+rdkit = ["rdkit-pypi>=2022.9.0"]
+all = [
+    "rdkit-pypi>=2022.9.0",
+    "py2opsin>=1.0.0",
+    "pytest>=7.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["interactive*", "chem_defense*"]

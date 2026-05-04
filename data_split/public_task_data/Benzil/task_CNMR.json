@@ -1,0 +1,15 @@
+{
+  "molecule_id": "Benzil",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C14H10O2",
+  "solvent": "Chloroform-d",
+  "mhz": "101MHz",
+  "spectrum_peaks": [
+    194.67,
+    134.99,
+    133.01,
+    129.94,
+    129.1
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

@@ -1,0 +1,386 @@
+{
+  "molecule_id": "2_chloro_benzoic_Acid",
+  "agent": "random_tool_roulette",
+  "model": "dummy/random_tool_roulette",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "partial",
+  "condition": "partial_autonomous",
+  "scaffold": false,
+  "seed": 1043,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 20,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "O=C(O)c1ccccc1Cl",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CCN"
+      },
+      "result": {
+        "smiles": "CCN",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H5ClO2"
+      },
+      "result": {
+        "formula": "C7H5ClO2",
+        "degree": 5,
+        "explanation": "DBE = (2*7 + 2 + 0 - 5 - 1) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 2.59,
+        "ppm_max": 4.75
+      },
+      "result": {
+        "range": [
+          2.59,
+          4.75
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H5ClO2"
+      },
+      "result": {
+        "formula": "C7H5ClO2",
+        "degree": 5,
+        "explanation": "DBE = (2*7 + 2 + 0 - 5 - 1) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "CC(=O)O",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "CC(=O)O",
+        "nucleus": "13C",
+        "predicted_shifts": [
+          195.0,
+          23.0
+        ],
+        "num_carbons": 2,
+        "details": [
+          {
+            "atom_idx": 0,
+            "predicted_shift": 23.0,
+            "environment": "alkyl"
+          },
+          {
+            "atom_idx": 1,
+            "predicted_shift": 195.0,
+            "environment": "carbonyl"
+          }
+        ],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "CC(=O)O",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "CC(=O)O",
+        "nucleus": "13C",
+        "predicted_shifts": [
+          195.0,
+          23.0
+        ],
+        "num_carbons": 2,
+        "details": [
+          {
+            "atom_idx": 0,
+            "predicted_shift": 23.0,
+            "environment": "alkyl"
+          },
+          {
+            "atom_idx": 1,
+            "predicted_shift": 195.0,
+            "environment": "carbonyl"
+          }
+        ],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "CC(=O)O"
+      },
+      "result": {
+        "smiles": "CC(=O)O",
+        "total_carbons": 2,
+        "unique_carbon_environments": 2,
+        "has_symmetry": false,
+        "symmetry_note": "No carbon symmetry: all 2 carbons are in unique environments"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H5ClO2"
+      },
+      "result": {
+        "formula": "C7H5ClO2",
+        "degree": 5,
+        "explanation": "DBE = (2*7 + 2 + 0 - 5 - 1) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "c1ccncc1",
+        "pattern": "c1ccccc1"
+      },
+      "result": {
+        "smiles": "c1ccncc1",
+        "pattern": "c1ccccc1",
+        "has_match": false,
+        "num_matches": 0
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "c1ccccc1",
+        "pattern": "[OH]"
+      },
+      "result": {
+        "smiles": "c1ccccc1",
+        "pattern": "[OH]",
+        "has_match": false,
+        "num_matches": 0
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 2.17,
+        "ppm_max": 4.13
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          2.17,
+          4.13
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CC(=O)O"
+      },
+      "result": {
+        "smiles": "CC(=O)O",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 10.36,
+        "ppm_max": 11.22
+      },
+      "result": {
+        "range": [
+          10.36,
+          11.22
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H5ClO2"
+      },
+      "result": {
+        "formula": "C7H5ClO2",
+        "degree": 5,
+        "explanation": "DBE = (2*7 + 2 + 0 - 5 - 1) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "c1ccncc1",
+        "nucleus": "1H"
+      },
+      "result": {
+        "smiles": "c1ccncc1",
+        "nucleus": "1H",
+        "predicted_shifts": [
+          7.2
+        ],
+        "num_groups": 5,
+        "note": "Heuristic prediction \u2014 approximate only."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "CC(=O)O",
+        "pattern": "C=O"
+      },
+      "result": {
+        "smiles": "CC(=O)O",
+        "pattern": "C=O",
+        "has_match": true,
+        "num_matches": 1
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "c1ccncc1"
+      },
+      "result": {
+        "smiles": "c1ccncc1",
+        "total_carbons": 5,
+        "aromatic_carbons": 5,
+        "aliphatic_carbons": 0
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 4.21,
+        "ppm_max": 5.41
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          4.21,
+          5.41
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 108.64,
+        "ppm_max": 135.24
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          108.64,
+          135.24
+        ],
+        "peaks": [
+          131.72,
+          131.09,
+          130.08,
+          129.87,
+          129.59,
+          125.49
+        ],
+        "count": 6
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.75,
+    "unique_regions": 4,
+    "regions": [
+      "13C_108_135",
+      "1H_10_11",
+      "1H_2_4",
+      "1H_4_5"
+    ],
+    "categories_used": 5,
+    "categories": [
+      "computation",
+      "prediction",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "elapsed_seconds": 0.001,
+  "timestamp": "2026-04-28T09:10:48.434697"
+}

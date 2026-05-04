@@ -1,0 +1,22 @@
+{
+  "molecule_id": "cinnamaldehyde_trans",
+  "spectrum_type": "COMBO",
+  "ground_truth": {
+    "smiles": "O=CC=Cc1ccccc1",
+    "molecular_formula": "C9H8O"
+  },
+  "dag_nodes": [
+    {
+      "id": "BIG QUESTION",
+      "label": "Molecule X has a molecular formula of C9H8O. The text carbon NMR spectra for Molecule X is \u03b4 194.00, 153.09, 134.23, 131.54, 129.36, 128.80, 128.76. Molecule X\u2019s carbon NMR was taken in Chloroform-d solvent, on a machine with a frequency of 101MHz. From prior analysis of the carbon NMR, a list of potential structural possibilities and impossibilities for each carbon NMR peak has been created, here it is: {Blackboard Summarization of CNMR}. The text proton NMR of molecule X with each peak's shift, integration, multiplicity, and J value, listed respectively is: 9.70 (d, J = 7.7 Hz, 1H), 7.58 \u2013 7.53 (m, 3H), 7.51 \u2013 7.37 (m, 3H), 6.71 (dd, J = 15.9, 7.7 Hz, 1H). Molecule X\u2019s proton NMR was taken in Chloroform-d solvent, on a machine with a frequency of 400MHz. From prior analysis of the proton NMR, a list of potential structural possibilities and impossibilities for each proton NMR peak has been created, here it is: {Blackboard Summarization of HNMR}.\n\nGiven Molecule X\u2019s molecular formula, carbon NMR, proton NMR, and potential peak possibilities provide 5 potential SMILES strings which could represent Molecule X. Rank these 1-5 with position 1 being the most likely and 5 being the least likely",
+      "weight": 1,
+      "answer": "O=CC=Cc1ccccc1"
+    },
+    {
+      "id": "F1",
+      "label": "For each SMILES string listed above, provide a Tanimoto Similarity score between the molecule and this SMILES string O=CC=Cc1ccccc1. Provide the answer in the format: Prediction1: Similarity Score, Prediction2: Similarity Score",
+      "weight": 1,
+      "answer": "O=CC=Cc1ccccc1"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "molecule_id": "theophylline",
+  "spectrum_type": "COMBO",
+  "molecular_formula": "C7H8N4O2",
+  "cnmr_solvent": "Chloroform-d",
+  "cnmr_mhz": "101MHz",
+  "hnmr_solvent": "DMSO-d6",
+  "hnmr_mhz": "400MHz",
+  "cnmr_spectrum_peaks": [
+    159.64,
+    156.42,
+    153.1,
+    145.73,
+    111.6,
+    34.95,
+    32.96
+  ],
+  "hnmr_spectrum_peaks_raw": "13.57 (s, 1H), 8.04 (s, 1H), 3.44 (s, 3H), 3.24 (s, 3H)",
+  "task_prompt": "You are given the molecular formula along with both the 13C NMR and 1H NMR spectra of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

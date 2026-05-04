@@ -1,0 +1,25 @@
+{
+  "molecule_id": "pamoic_acid",
+  "spectrum_type": "COMBO",
+  "molecular_formula": "C23H16O6",
+  "cnmr_solvent": "DMSO-d6",
+  "cnmr_mhz": "101MHz",
+  "hnmr_solvent": "DMSO-d6",
+  "hnmr_mhz": "400MHz",
+  "cnmr_spectrum_peaks": [
+    173.28,
+    154.05,
+    136.83,
+    132.2,
+    130.8,
+    129.53,
+    127.37,
+    124.04,
+    123.94,
+    121.25,
+    114.67,
+    20.54
+  ],
+  "hnmr_spectrum_peaks_raw": "8.52 (s, 2H), 8.17 (dd, J = 8.7, 1.1 Hz, 2H), 7.91 (dd, J = 8.3, 1.4 Hz, 2H), 7.41 (ddd, J = 8.5, 6.8, 1.4 Hz, 2H), 7.25 (ddd, J = 8.0, 6.8, 1.1 Hz, 2H), 4.84 (s, 2H)",
+  "task_prompt": "You are given the molecular formula along with both the 13C NMR and 1H NMR spectra of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

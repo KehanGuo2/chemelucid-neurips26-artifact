@@ -1,0 +1,9 @@
+{
+  "molecule_id": "vanillin_acetate",
+  "spectrum_type": "HNMR",
+  "molecular_formula": "C10H10O4",
+  "solvent": "Chloroform-d",
+  "mhz": "400MHz",
+  "spectrum_peaks_raw": "9.95 (s, 1H), 7.50 (d, J = 3.3 Hz, 1H), 7.47 (d, J = 1.8 Hz, 1H), 7.22 (d, J = 7.9 Hz, 1H), 3.91 (s, 3H), 2.35 (s, 3H)",
+  "task_prompt": "You are given the molecular formula and a 1H NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

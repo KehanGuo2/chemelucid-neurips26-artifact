@@ -1,0 +1,380 @@
+{
+  "molecule_id": "canary_006",
+  "model": "claude-opus-4-20250514",
+  "provider": "anthropic",
+  "stateful": true,
+  "spectrum_type": "CNMR",
+  "info_mode": "full",
+  "accuracy": {
+    "exact_match": false,
+    "tanimoto": 0.2034,
+    "submitted": "COC(=O)c1cc(=O)oc2cc(C(=O)O)ccc12",
+    "submitted_canonical": "COC(=O)c1cc(=O)oc2cc(C(=O)O)ccc12",
+    "gt": "O=C(C=C1C=CC(=O)O1)COC(=O)c1ccccc1",
+    "gt_canonical": "O=C(C=C1C=CC(=O)O1)COC(=O)c1ccccc1"
+  },
+  "efficiency": 0.36,
+  "coverage": 0.0769,
+  "cf_coverage": 0.0769,
+  "cnmr_coverage": null,
+  "hnmr_coverage": null,
+  "node_results": {
+    "F1": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "compute_unsaturation returned 10 (GT=10)"
+    },
+    "F1.1.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.1.1"
+    },
+    "F1.1.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.1.2"
+    },
+    "F1.2.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.2.1"
+    },
+    "F1.2.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.2.2"
+    },
+    "F1.3.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.3.1"
+    },
+    "F1.3.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.3.2"
+    },
+    "F1.4.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.4.1"
+    },
+    "F1.4.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.4.2"
+    },
+    "F1.5.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.5.1"
+    },
+    "F1.5.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.5.2"
+    },
+    "F1.6.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.6.1"
+    },
+    "F1.6.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.6.2"
+    },
+    "F1.7.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.7.1"
+    },
+    "F1.8.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F1.8.1"
+    },
+    "F2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F2"
+    },
+    "F2.1.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F2.1.1"
+    },
+    "F3": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F3"
+    },
+    "F3.1.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F3.1.1"
+    },
+    "F4": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F4"
+    },
+    "F5": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F5"
+    },
+    "F5.1.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F5.1.1"
+    },
+    "F5.1.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F5.1.2"
+    },
+    "F6": {
+      "covered": true,
+      "method": "tool_match",
+      "details": "No halogens in formula; GT=No"
+    },
+    "F6.1.1": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F6.1.1"
+    },
+    "F6.1.2": {
+      "covered": false,
+      "method": "no_match",
+      "details": "No tool call or heuristic matched node F6.1.2"
+    }
+  },
+  "failure_analysis": {
+    "knowledge": [],
+    "reasoning": [],
+    "tool_use": [],
+    "strategy": [
+      "F1.1.1",
+      "F1.1.2",
+      "F1.2.1",
+      "F1.2.2",
+      "F1.3.1",
+      "F1.3.2",
+      "F1.4.1",
+      "F1.4.2",
+      "F1.5.1",
+      "F1.5.2",
+      "F1.6.1",
+      "F1.6.2",
+      "F1.7.1",
+      "F1.8.1",
+      "F2",
+      "F2.1.1",
+      "F3",
+      "F3.1.1",
+      "F4",
+      "F5",
+      "F5.1.1",
+      "F5.1.2",
+      "F6.1.1",
+      "F6.1.2"
+    ]
+  },
+  "grading_summary": "DAG Coverage: 2/26 nodes (7.7% weighted, cf=7.7%). Failures: strategy=24",
+  "submitted_smiles": "COC(=O)c1cc(=O)oc2cc(C(=O)O)ccc12",
+  "gt_smiles": "O=C(C=C1C=CC(=O)O1)COC(=O)c1ccccc1",
+  "total_cost": 16,
+  "budget": 25,
+  "num_turns": 10,
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C14H10O5"
+      },
+      "result": {
+        "formula": "C14H10O5",
+        "degree": 10,
+        "explanation": "DBE = (2*14 + 2 + 0 - 10 - 0) / 2 = 10"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_full_spectrum",
+      "args": {
+        "nucleus": "1H"
+      },
+      "result": {
+        "nucleus": "1H",
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "O=C1C=C(OC2=CC=CC=C2C1=O)C(=O)O"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "O=C1C=C(OC2=CC=CC=C2C1=O)C(=O)O",
+        "canonical_smiles": "O=C(O)c1cc(=O)c(=O)c2ccccc2o1",
+        "molecular_formula": "C11H6O5",
+        "molecular_weight": 218.164,
+        "num_atoms": 16,
+        "num_heavy_atoms": 16
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "COC(=O)c1cc2c(=O)c(=O)c3ccccc3oc2c1"
+      },
+      "result": {
+        "valid": false,
+        "smiles": "COC(=O)c1cc2c(=O)c(=O)c3ccccc3oc2c1",
+        "error": "Invalid SMILES string"
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "CCOC(=O)c1cc(=O)c(=O)c2ccccc2o1"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "CCOC(=O)c1cc(=O)c(=O)c2ccccc2o1",
+        "canonical_smiles": "CCOC(=O)c1cc(=O)c(=O)c2ccccc2o1",
+        "molecular_formula": "C13H10O5",
+        "molecular_weight": 246.218,
+        "num_atoms": 18,
+        "num_heavy_atoms": 18
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "CCOC(=O)c1cc(=O)c(=O)c2c(C)cccc2o1"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "CCOC(=O)c1cc(=O)c(=O)c2c(C)cccc2o1",
+        "canonical_smiles": "CCOC(=O)c1cc(=O)c(=O)c2c(C)cccc2o1",
+        "molecular_formula": "C14H12O5",
+        "molecular_weight": 260.245,
+        "num_atoms": 19,
+        "num_heavy_atoms": 19
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "O=C(OC)c1cc2oc3ccccc3c(=O)c2c(=O)c1"
+      },
+      "result": {
+        "valid": false,
+        "smiles": "O=C(OC)c1cc2oc3ccccc3c(=O)c2c(=O)c1",
+        "error": "Invalid SMILES string"
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "COC(=O)c1ccc2oc3ccccc3c(=O)c2c1"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "COC(=O)c1ccc2oc3ccccc3c(=O)c2c1",
+        "canonical_smiles": "COC(=O)c1ccc2oc3ccccc3c(=O)c2c1",
+        "molecular_formula": "C15H10O4",
+        "molecular_weight": 254.241,
+        "num_atoms": 19,
+        "num_heavy_atoms": 19
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "O=C1c2ccccc2OC(C(=O)OC)=C1C(=O)O"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "O=C1c2ccccc2OC(C(=O)OC)=C1C(=O)O",
+        "canonical_smiles": "COC(=O)c1oc2ccccc2c(=O)c1C(=O)O",
+        "molecular_formula": "C12H8O6",
+        "molecular_weight": 248.19,
+        "num_atoms": 18,
+        "num_heavy_atoms": 18
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "COC(=O)c1cc(=O)oc2cc(C(=O)O)ccc12"
+      },
+      "result": {
+        "submitted": "COC(=O)c1cc(=O)oc2cc(C(=O)O)ccc12",
+        "canonical": "COC(=O)c1cc(=O)oc2cc(C(=O)O)ccc12",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.4,
+    "unique_regions": 0,
+    "regions": [],
+    "categories_used": 4,
+    "categories": [
+      "computation",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "layer3_dependency_rate": 0.0,
+  "layer3_conflict_reactivity": 0.0,
+  "layer3_edges": [],
+  "layer3_conflicts": [
+    {
+      "idx": 3,
+      "tool": "validate_smiles",
+      "signal": "invalid",
+      "reactive": false,
+      "followup_idx": null,
+      "followup_tool": null
+    },
+    {
+      "idx": 6,
+      "tool": "validate_smiles",
+      "signal": "invalid",
+      "reactive": false,
+      "followup_idx": null,
+      "followup_tool": null
+    }
+  ],
+  "elapsed_seconds": 46.44,
+  "timestamp": "2026-04-28T14:00:12.150402",
+  "condition": "full_autonomous",
+  "scaffold": false
+}

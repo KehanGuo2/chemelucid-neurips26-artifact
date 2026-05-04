@@ -1,0 +1,21 @@
+{
+  "molecule_id": "phenacetin",
+  "spectrum_type": "COMBO",
+  "molecular_formula": "C10H13NO2",
+  "cnmr_solvent": "Chloroform-d",
+  "cnmr_mhz": "101MHz",
+  "hnmr_solvent": "Chloroform-d",
+  "hnmr_mhz": "400MHz",
+  "cnmr_spectrum_peaks": [
+    168.41,
+    155.82,
+    130.9,
+    121.98,
+    114.74,
+    63.71,
+    24.37,
+    14.89
+  ],
+  "hnmr_spectrum_peaks_raw": "7.38 (d, J = 9.0 Hz, 4H), 6.83 (d, J = 9.0 Hz, 2H), 4.00 (q, J = 6.9, 6.9, 6.6 Hz, 2H), 2.14 (s, 3H), 1.40 (t, J = 6.9, 6.7 Hz, 3H)",
+  "task_prompt": "You are given the molecular formula along with both the 13C NMR and 1H NMR spectra of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

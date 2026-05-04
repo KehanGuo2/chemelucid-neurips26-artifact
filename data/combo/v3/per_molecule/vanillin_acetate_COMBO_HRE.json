@@ -1,0 +1,43 @@
+{
+    "nodes": [
+        {
+            "id": "BIG QUESTION",
+            "label": "Molecule X has a molecular formula of C10H10O4. The text carbon NMR spectra for Molecule X is δ 191.11, 168.42, 151.99, 144.95, 135.25, 124.81, 123.46, 110.81, 56.12, 20.69. Molecule X’s carbon NMR was taken in Chloroform-d solvent, on a machine with a frequency of 101MHz. From prior analysis of the carbon NMR, a list of potential structural possibilities and impossibilities for each carbon NMR peak has been created, here it is: {F7 Summarization of CNMR}. The text proton NMR of molecule X with each peak's shift, integration, multiplicity, and J value, listed respectively is: 9.95 (s, 1H), 7.50 (d, J = 3.3 Hz, 1H), 7.47 (d, J = 1.8 Hz, 1H), 7.22 (d, J = 7.9 Hz, 1H), 3.91 (s, 3H), 2.35 (s, 3H). Molecule X’s proton NMR was taken in Chloroform-d solvent, on a machine with a frequency of 101MHz. From prior analysis of the proton NMR, a list of potential structural possibilities and impossibilities for each proton NMR peak has been created, here it is: {F13 Summarization of HNMR}.\n\nGiven Molecule X’s molecular formula, carbon NMR, proton NMR, and potential peak possibilities provide 5 potential SMILES strings which could represent Molecule X. Rank these 1-5 with position 1 being the most likely and 5 being the least likely",
+            "answer": "COc1cc(C=O)ccc1OC(C)=O",
+            "weight": 1
+        },
+        {
+            "id": "F1",
+            "label": "Take your answers from the previous prompt and ensure that each predicted molecule’s molecular formula and unsaturation number match Molecule X’s molecular formula and unsaturation number.",
+            "answer": "COc1cc(C=O)ccc1OC(C)=O",
+            "weight": 1
+        },
+        {
+            "id": "F2",
+            "label": "For each SMILES string listed above, provide a Tannimoto Similarity score between the molecule and this SMILES string COc1cc(C=O)ccc1OC(C)=O. Provide the answer in the format: Prediction1: Similarity Score, Prediction2: Similarity Score",
+            "answer": "COc1cc(C=O)ccc1OC(C)=O",
+            "weight": 1
+        }
+    ],
+    "edges": [
+        {
+            "source": "BIG QUESTION",
+            "target": "F1"
+        },
+        {
+            "source": "F1",
+            "target": "F2"
+        }
+    ],
+    "metadata": {
+        "molecule_name": "vanillin_acetate",
+        "molecular_formula": "C10H10O4",
+        "gt_smiles": "COc1cc(C=O)ccc1OC(C)=O",
+        "cnmr_source": "vanillin_acetate_CNMR_HRE",
+        "hnmr_source": "vanillin_acetate_HNMR_HRE",
+        "cnmr_solvent": "Chloroform-d",
+        "hnmr_solvent": "Chloroform-d",
+        "cnmr_mhz": "101MHz",
+        "hnmr_mhz": "400MHz"
+    }
+}

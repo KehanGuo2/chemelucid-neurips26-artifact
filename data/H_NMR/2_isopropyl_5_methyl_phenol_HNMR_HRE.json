@@ -1,0 +1,1388 @@
+{
+    "Nodes": [
+        {
+            "id": "BIG QUESTION",
+            "label": "Here is the text proton NMR of Molecule X with each peak's shift, integration, multiplicity, and J value, respectively: {Spectra: 7.08 (d, J = 7.8 Hz, 2H), 6.74 (dd, J = 1.2, 0.6 Hz, 2H), 6.55 (s, 1H), 4.75 (s, 1H), 3.16 (pent, J = 6.9, 6.9, 6.9, 6.9 Hz, 1H), 2.26 (s, 3H), 1.23 (d, J = 6.9 Hz, 6H)}. This NMR was taken in {Solvent: Chloroform-d} solvent, on a machine with a frequency of {MHz Value: 400MHz}. Molecule X has a Molecular formula of {Molecular Formula: C10H14O}. Given Molecule X's proton NMR and molecular formula, provide the corresponding SMILES string of the molecule.",
+            "weight": 0,
+            "answer": "Cc1ccc(C(C)C)c(O)c1"
+        },
+        {
+            "id": "F1",
+            "label": "What is the unsaturation number of this molecule?",
+            "weight": 1,
+            "answer": "4"
+        },
+        {
+            "id": "F1.0.0",
+            "label": "Provide your reasoning for the previous prompt answer.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.1.1",
+            "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of a protonated alkene?  Provide your answer in a Yes/No format",
+            "weight": 1,
+            "answer": "Yes"
+        },
+        {
+            "id": "F1.0.1.1",
+            "label": "Provide your reasoning for the previous prompt answer.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.1.2",
+            "label": "Provide peaks from the original question that might represent the(se) alkene proton(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peak values.",
+            "weight": 1,
+            "answer": "6.74, 6.55, 4.75"
+        },
+        {
+            "id": "F1.0.1.2",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.1.3",
+            "label": "Using the J coupling values, state whether the proton's relationship to another proton would be Cis/Trans/Geminal.  State this answer for every peak combination.  Provide your answer in the format (Peak 1 & Peak 2: Cis/Trans/Geminal; Peak 3 & Peak 4: Cis/Trans/Geminal;...",
+            "weight": 1,
+            "answer": "6.74: Geminal (J=1.2 Hz); 6.74: Geminal (J=0.6 Hz)"
+        },
+        {
+            "id": "F1.0.1.3",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.2.1",
+            "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an aromatic ring?  Provide your answer in a Yes/No format",
+            "weight": 1,
+            "answer": "Yes"
+        },
+        {
+            "id": "F1.0.2.1",
+            "label": "Provide your reasoning for the previous prompt answer.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.2.2",
+            "label": "Provide peaks from the original question that might represent the(se) aromatic ring proton(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peak values.",
+            "weight": 1,
+            "answer": "7.08, 6.74, 6.55"
+        },
+        {
+            "id": "F1.0.2.2",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.2.3",
+            "label": "From the peak list in the previous answer, provide the integration number for each peak.  Provide your answer as (peak values: integration number)",
+            "weight": 1,
+            "answer": "7.08: 2H, 6.74: 2H, 6.55: 1H"
+        },
+        {
+            "id": "F1.0.2.3",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.2.4",
+            "label": "Why is knowing the integration number for peaks within this region important?",
+            "weight": 0,
+            "answer": "Knowing the integration numbers for peaks in this range is important because the amount of protons on an aromatic ring can tell chemists how many substituents are coming off of that ring"
+        },
+        {
+            "id": "F1.0.2.4",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.3.1",
+            "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of a terminal alkyne?  Provide your answer in a Yes/No format",
+            "weight": 1,
+            "answer": "Yes"
+        },
+        {
+            "id": "F1.0.3.1",
+            "label": "Provide your reasoning for the previous prompt answer.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.3.2",
+            "label": "Provide peaks from the original question that might represent the terminal alkyne proton in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peak values.",
+            "weight": 1,
+            "answer": "2.26"
+        },
+        {
+            "id": "F1.0.3.2",
+            "label": "Provide your reasoning for the previous prompt answer.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.4.1",
+            "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an protonated alkene in addition to an aromatic ring?  Provide your answer in a Yes/No format",
+            "weight": 1,
+            "answer": "No"
+        },
+        {
+            "id": "F1.0.4.1",
+            "label": "Provide your reasoning for the previous prompt answer.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.5.1",
+            "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an alkyne in addition to an aromatic ring?  Provide your answer in a Yes/No format",
+            "weight": 1,
+            "answer": "No"
+        },
+        {
+            "id": "F1.0.5.1",
+            "label": "Provide your reasoning for the previous prompt answer.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.6.1",
+            "label": "Provide reasoning for how the unsaturated number was calculated",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.7.1",
+            "label": "Provide reasoning for how you determined if alkene(s) had the possibility of being present.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.8.1",
+            "label": "Provide reasoning for how you determined if an aromatic ring(s) had the possibility of being present.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F1.9.1",
+            "label": "Provide reasoning for how you determined if a terminal alkyne had the possibility of being present.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F2",
+            "label": "Using the proton NMR data and molecular formula in the original prompt, does Molecule X have any magnetically equivalent protons within an aromatic ring system(s)?  Provide your answer in a Yes/No format",
+            "weight": 1,
+            "answer": "No"
+        },
+        {
+            "id": "F2.0.0",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F2.1.1",
+            "label": "How many magnetically equivalent systems are in the aromatic system mentioned in the previous prompt?",
+            "weight": 1,
+            "answer": "0"
+        },
+        {
+            "id": "F2.0.1.1",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F2.1.2",
+            "label": "Label the specific peaks in the text NMR that relate to these magnetically equivalent systems in an aromatic ring?",
+            "weight": 1,
+            "answer": ""
+        },
+        {
+            "id": "F2.0.1.2",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F2.1.3",
+            "label": "What does magnetic equivalence tell us about the protons in the aromatic ring and molecule?",
+            "weight": 0
+        },
+        {
+            "id": "F3",
+            "label": "From the original prompts proton NMR data, specifically peak\u2019s integration values, as well as molecular formula, is the sum of the molecules integration numbers equal to the hydrogen count in the molecular formula?  (Provide answer in a Yes/No format).",
+            "weight": 1,
+            "answer": "No"
+        },
+        {
+            "id": "F3.0.0",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F3.1.1",
+            "label": "What is the numerical difference between these values?",
+            "weight": 1,
+            "answer": "2"
+        },
+        {
+            "id": "F3.0.1.1",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F3.1.2",
+            "label": "What heteroatoms could these protons be attached to in molecule X?",
+            "weight": 1,
+            "answer": "O"
+        },
+        {
+            "id": "F3.0.1.2",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F3.1.3",
+            "label": "What does this numerical difference denote in the molecule?",
+            "weight": 0,
+            "answer": "This numerical difference is equivalent to the number of labile protons in the molecule. These are protons that are directly attached to heteroatoms in the molecule and that exchange rapidly with the NMR solvent, thus resulting in them not appearing in the NMR output."
+        },
+        {
+            "id": "F3.0.1.3",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F4",
+            "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an alkyl proton not next to a heteroatom to be present?  Provide your answer in a Yes/No format",
+            "weight": 1,
+            "answer": "Yes"
+        },
+        {
+            "id": "F4.0.0",
+            "label": "Provide your reasoning for the previous prompt answer.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F4.1.1",
+            "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks. values.",
+            "weight": 1,
+            "answer": "2.26: potential normal alkyl, potential aromatic alkyl; 1.23: potential normal alkyl"
+        },
+        {
+            "id": "F4.0.1.1",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F4.1.2",
+            "label": "How was this assignment of an alkyl proton made or aromatic alkyl proton made?",
+            "weight": 0,
+            "answer": "The proton(s) were present in a ppm range between 2.5 and 0.25 which is the typical range for alkyl proton(s)."
+        },
+        {
+            "id": "F5",
+            "label": "Using the proton NMR data, molecular formula and unsaturation number, is there possibly for a proton to be attached to a heteroatom (Oxygen, Nitrogen, Sulfur) that is not a part of a carboxylic acid or amide? Provide your answer in a Yes/No format",
+            "weight": 1,
+            "answer": "Yes"
+        },
+        {
+            "id": "F5.0.0",
+            "label": "That is incorrect, provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F5.1.1",
+            "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks values.",
+            "weight": 1,
+            "answer": "6.55, 4.75"
+        },
+        {
+            "id": "F5.0.1.1",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F5.1.2",
+            "label": "Based on your previous answer and the Molecule X\u2019s molecular formula, which heteroatom (either oxygen, nitrogen, or sulfur) would each peak be adjacent to?",
+            "weight": 1,
+            "answer": "6.55 : O; 4.75 : O"
+        },
+        {
+            "id": "F5.0.1.2",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F5.1.3",
+            "label": "How did you decide the(se) proton peak(s) could possibly be protons attached to a heteroatom?",
+            "weight": 0,
+            "answer": "The proton(s) were present in a ppm range between 7.0 - 1 which is the typical range for proton(s) attached to a heteroatom."
+        },
+        {
+            "id": "F6",
+            "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an aldehyde to be present?  Provide your answer in a Yes/No format",
+            "weight": 1,
+            "answer": "No"
+        },
+        {
+            "id": "F6.0.0",
+            "label": "Provide your reasoning for the previous prompt answer.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F6.1.1",
+            "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks. values.",
+            "weight": 1,
+            "answer": "No peaks in range"
+        },
+        {
+            "id": "F6.0.1.1",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F6.1.2",
+            "label": "How was this assignment of an aldehyde made?",
+            "weight": 0,
+            "answer": "The proton(s) were present in a ppm range between 10 and 8.5 which is the typical range for aldehyde proton(s)."
+        },
+        {
+            "id": "F7",
+            "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of a carboxylic acid, whose protons do not exchange with solvent, to be present?  Provide your answer in a Yes/No format",
+            "weight": 1,
+            "answer": "No"
+        },
+        {
+            "id": "F7.0.0",
+            "label": "Provide your reasoning for the previous prompt answer.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F7.1.1",
+            "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks. values.",
+            "weight": 1,
+            "answer": "No peaks in range"
+        },
+        {
+            "id": "F7.0.1.1",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F7.1.2",
+            "label": "How was this assignment of a carboxylic acid made?",
+            "weight": 0,
+            "answer": "The proton(s) were present in a ppm range between 12.5 and 10 which is the typical range for carboxylic acid proton(s)."
+        },
+        {
+            "id": "F8",
+            "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of an amide to be present?  Provide your answer in a Yes/No format",
+            "weight": 1,
+            "answer": "No"
+        },
+        {
+            "id": "F8.0.0",
+            "label": "Provide your reasoning for the previous prompt answer.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F8.1.1",
+            "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks. values.",
+            "weight": 1,
+            "answer": "7.08, 6.74, 6.55"
+        },
+        {
+            "id": "F8.0.1.1",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F8.1.2",
+            "label": "How was this assignment of an amide made?",
+            "weight": 0,
+            "answer": "The proton(s) were present in a ppm range between 9 and 5 which is the typical range for amide proton(s)."
+        },
+        {
+            "id": "F9",
+            "label": "Based on the molecule\u2019s unsaturation number, molecular formula, and text spectra in the original prompt, is there a possibility for a structural motif of a protonated carbon attached to a non-carbonyl heteroatom to be present?  Provide your answer in a Yes/No format",
+            "weight": 1,
+            "answer": "Yes"
+        },
+        {
+            "id": "F9.0.0",
+            "label": "Provide your reasoning for the previous prompt answer.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F9.1.1",
+            "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks. values.",
+            "weight": 1,
+            "answer": "3.16"
+        },
+        {
+            "id": "F9.0.1.1",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F9.1.2",
+            "label": "How was this assignment of this proton made?",
+            "weight": 0,
+            "answer": "The proton(s) were present in a ppm range between 4.5 and 3 which is the typical range for protons attached to a carbon that is attached to a heteroatom(s)."
+        },
+        {
+            "id": "F10",
+            "label": "From the original prompts proton NMR data, specifically peak\u2019s J values and multiplicity, list protons that have a high possibility of being adjacent to each other.  Don\u2019t consider singlets in your answers. Provide them in a format (Peak1 Value: Adjacent Peak Value).",
+            "weight": 1,
+            "answer": "7.08 ppm: Adjacent to 3.16\n6.74 ppm: No adjacency found\n3.16 ppm: Adjacent to 7.08, 6.74?\n1.23 ppm: Adjacent to 3.16?"
+        },
+        {
+            "id": "F10.0.0",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F10.1.1",
+            "label": "How were the previous answer\u2019s decisions made?",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F11",
+            "label": "From the original prompts proton NMR data, specifically peak\u2019s J values and multiplicity, are there peaks that have no splitting.  Provide your answer in a Yes/No format. ",
+            "weight": 1,
+            "answer": "Yes"
+        },
+        {
+            "id": "F11.0.0",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F11.1.1",
+            "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X? . Provide them in a format (Peak Value 1, Peak Value 2).",
+            "weight": 1,
+            "answer": "6.55, 4.75, 2.26"
+        },
+        {
+            "id": "F11.0.1.1",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F11.1.2",
+            "label": "Are any of these protons attached to a carbon which is bonded to a heteroatom?",
+            "weight": 1,
+            "answer": "Yes"
+        },
+        {
+            "id": "F11.0.1.2",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F11.1.3",
+            "label": "Provide peaks from the original question that might represent the(se) peak(s) in Molecule X?  Keep in mind that experimental values can deviate slightly from theoretical ranges for peak values.  Provide your answer as only a list of peaks. values.",
+            "weight": 1,
+            "answer": "2.26"
+        },
+        {
+            "id": "F11.0.1.3",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F11.1.4",
+            "label": "How were the previous answer\u2019s decisions made?",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F12",
+            "label": "From the original prompts proton NMR data, specifically peak\u2019s integration values, are any of these peaks integration numbers greater than three, and produce an integer when divided by 3?  Provide answer in a Yes/No format).",
+            "weight": 1,
+            "answer": "Yes"
+        },
+        {
+            "id": "F12.0.0",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F12.1.1",
+            "label": "Which peak(s) represent this?  Provide your answer as a a list of peaks and their integration numbers.",
+            "weight": 1,
+            "answer": "1.23: 6H"
+        },
+        {
+            "id": "F12.0.1.1",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F12.1.2",
+            "label": "What group(s) do this(ese) peak represent?",
+            "weight": 1,
+            "answer": "A proton NMR peak that has an integration number greater than 3, but produces an integer when divided by 3 represents multiple methyl groups (CH3) that are magnetically equivalent to each other and are thus represented in one peak on the NMR spectra"
+        },
+        {
+            "id": "F12.0.1.2",
+            "label": "Provide your reasoning for the previous prompt answers.",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F12.1.3",
+            "label": "Store that each peak from the previous questions answers represent a multiplet methyl groups",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        },
+        {
+            "id": "F13",
+            "label": "Combine all information gathered about each proton NMR peak and what it could structurally represent in a molecule and provide it in a list format of {Peak Label: Structural Possibility 1, Structural Possibility 2,...",
+            "weight": 0,
+            "answer": "N/A- Manual spot-checking required"
+        },
+        {
+            "id": "F14",
+            "label": "Using this information, provide any reasonable molecular structures for Molecule X, your answer should be structured as: SMILES string; SMILES string;\u2026",
+            "weight": 0,
+            "answer": "Cc1ccc(C(C)C)c(O)c1"
+        },
+        {
+            "id": "F14.1.1",
+            "label": "Provide reasoning using the spectra input data for why you chose each one of these molecular structures?",
+            "weight": 0,
+            "answer": "N/A- Just an explanation"
+        }
+    ],
+    "edges": [
+        {
+            "source": "BIG QUESTION",
+            "target": "F1"
+        },
+        {
+            "source": "F1",
+            "target": "F1.0.0",
+            "condition": "Not True"
+        },
+        {
+            "source": "F1",
+            "target": "F1.1.1",
+            "condition": "True"
+        },
+        {
+            "source": "F1.0.0",
+            "target": "F2"
+        },
+        {
+            "source": "F1.1.1",
+            "target": "F1.1.2",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F1.1.1",
+            "target": "F1.2.1",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F1.1.1",
+            "target": "F1.0.1.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F1.0.1.1",
+            "target": "F1.2.1"
+        },
+        {
+            "source": "F1.1.2",
+            "target": "F1.1.3",
+            "condition": "True"
+        },
+        {
+            "source": "F1.1.2",
+            "target": "F1.0.1.2",
+            "condition": "Not True"
+        },
+        {
+            "source": "F1.0.1.2",
+            "target": "F1.2.1"
+        },
+        {
+            "source": "F1.1.3",
+            "target": "F1.2.1",
+            "condition": "True"
+        },
+        {
+            "source": "F1.1.3",
+            "target": "F1.0.1.3",
+            "condition": "Not True"
+        },
+        {
+            "source": "F1.0.1.3",
+            "target": "F1.2.1"
+        },
+        {
+            "source": "F1.2.1",
+            "target": "F1.2.2",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F1.2.1",
+            "target": "F1.3.1",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F1.2.1",
+            "target": "F1.0.2.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F1.2.2",
+            "target": "F1.2.3",
+            "condition": "True"
+        },
+        {
+            "source": "F1.2.2",
+            "target": "F1.0.2.2",
+            "condition": "Not True"
+        },
+        {
+            "source": "F1.2.3",
+            "target": "F1.2.4",
+            "condition": "True"
+        },
+        {
+            "source": "F1.2.3",
+            "target": "F1.0.2.3",
+            "condition": "Not True"
+        },
+        {
+            "source": "F1.2.4",
+            "target": "F1.3.1",
+            "condition": "True"
+        },
+        {
+            "source": "F1.2.4",
+            "target": "F1.0.2.4",
+            "condition": "Not True"
+        },
+        {
+            "source": "F1.0.2.1",
+            "target": "F1.3.1"
+        },
+        {
+            "source": "F1.0.2.2",
+            "target": "F1.3.1"
+        },
+        {
+            "source": "F1.0.2.3",
+            "target": "F1.2.4"
+        },
+        {
+            "source": "F1.0.2.4",
+            "target": "F1.3.1"
+        },
+        {
+            "source": "F1.3.1",
+            "target": "F1.3.2",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F1.3.1",
+            "target": "F1.4.1",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F1.3.1",
+            "target": "F1.0.3.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F1.3.2",
+            "target": "F1.4.1",
+            "condition": "True"
+        },
+        {
+            "source": "F1.3.2",
+            "target": "F1.0.3.2",
+            "condition": "Not True"
+        },
+        {
+            "source": "F1.0.3.1",
+            "target": "F1.4.1"
+        },
+        {
+            "source": "F1.0.3.2",
+            "target": "F1.4.1"
+        },
+        {
+            "source": "F1.4.1",
+            "target": "F1.5.1",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F1.4.1",
+            "target": "F1.5.1",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F1.4.1",
+            "target": "F1.0.4.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F1.0.4.1",
+            "target": "F1.5.1"
+        },
+        {
+            "source": "F1.5.1",
+            "target": "F1.6.1",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F1.5.1",
+            "target": "F1.6.1",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F1.5.1",
+            "target": "F1.0.5.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F1.0.5.1",
+            "target": "F1.6.1"
+        },
+        {
+            "source": "F1.6.1",
+            "target": "F1.7.1"
+        },
+        {
+            "source": "F1.7.1",
+            "target": "F1.8.1"
+        },
+        {
+            "source": "F1.8.1",
+            "target": "F1.9.1"
+        },
+        {
+            "source": "F1.9.1",
+            "target": "F2"
+        },
+        {
+            "source": "F2",
+            "target": "F2.0.0",
+            "condition": "Not True"
+        },
+        {
+            "source": "F2",
+            "target": "F3",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F2",
+            "target": "F2.1.1",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F2.1.1",
+            "target": "F2.1.2",
+            "condition": "True"
+        },
+        {
+            "source": "F2.1.1",
+            "target": "F2.0.1.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F2.1.2",
+            "target": "F2.1.3",
+            "condition": "True"
+        },
+        {
+            "source": "F2.1.2",
+            "target": "F2.0.1.2",
+            "condition": "Not True"
+        },
+        {
+            "source": "F2.1.3",
+            "target": "F3",
+            "condition": "True"
+        },
+        {
+            "source": "F2.1.3",
+            "target": "F3",
+            "condition": "Not True"
+        },
+        {
+            "source": "F2.0.0",
+            "target": "F3"
+        },
+        {
+            "source": "F2.0.1.1",
+            "target": "F3"
+        },
+        {
+            "source": "F2.0.1.2",
+            "target": "F3"
+        },
+        {
+            "source": "F3",
+            "target": "F3.0.0",
+            "condition": "Not True"
+        },
+        {
+            "source": "F3",
+            "target": "F3.1.1",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F3",
+            "target": "F4",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F3.1.1",
+            "target": "F3.1.2",
+            "condition": "True"
+        },
+        {
+            "source": "F3.1.1",
+            "target": "F3.0.1.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F3.1.2",
+            "target": "F3.1.3",
+            "condition": "True"
+        },
+        {
+            "source": "F3.1.2",
+            "target": "F3.0.1.2",
+            "condition": "Not True"
+        },
+        {
+            "source": "F3.1.3",
+            "target": "F4",
+            "condition": "True"
+        },
+        {
+            "source": "F3.1.3",
+            "target": "F3.0.1.3",
+            "condition": "Not True"
+        },
+        {
+            "source": "F3.0.1.1",
+            "target": "F4"
+        },
+        {
+            "source": "F3.0.0",
+            "target": "F4"
+        },
+        {
+            "source": "F3.0.1.2",
+            "target": "F4"
+        },
+        {
+            "source": "F3.0.1.3",
+            "target": "F4"
+        },
+        {
+            "source": "F4",
+            "target": "F4.0.0",
+            "condition": "Not True"
+        },
+        {
+            "source": "F4",
+            "target": "F5",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F4",
+            "target": "F4.1.1",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F4.1.1",
+            "target": "F4.1.2",
+            "condition": "True"
+        },
+        {
+            "source": "F4.1.1",
+            "target": "F4.0.1.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F4.1.2",
+            "target": "F5",
+            "condition": "True"
+        },
+        {
+            "source": "F4.1.2",
+            "target": "F5",
+            "condition": "Not True"
+        },
+        {
+            "source": "F4.0.0",
+            "target": "F5"
+        },
+        {
+            "source": "F4.0.1.1",
+            "target": "F5"
+        },
+        {
+            "source": "F5",
+            "target": "F5.0.0",
+            "condition": "Not True"
+        },
+        {
+            "source": "F5",
+            "target": "F6",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F5",
+            "target": "F5.1.1",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F5.1.1",
+            "target": "F5.1.2",
+            "condition": "True"
+        },
+        {
+            "source": "F5.1.1",
+            "target": "F5.0.1.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F5.1.2",
+            "target": "F5.1.3",
+            "condition": "True"
+        },
+        {
+            "source": "F5.1.2",
+            "target": "F5.0.1.2",
+            "condition": "Not True"
+        },
+        {
+            "source": "F5.1.3",
+            "target": "F6",
+            "condition": "True"
+        },
+        {
+            "source": "F5.1.3",
+            "target": "F6",
+            "condition": "Not True"
+        },
+        {
+            "source": "F5.0.0",
+            "target": "F6"
+        },
+        {
+            "source": "F5.0.1.1",
+            "target": "F6"
+        },
+        {
+            "source": "F5.0.1.2",
+            "target": "F6"
+        },
+        {
+            "source": "F6",
+            "target": "F6.0.0",
+            "condition": "Not True"
+        },
+        {
+            "source": "F6",
+            "target": "F7",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F6",
+            "target": "F6.1.1",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F6.1.1",
+            "target": "F6.1.2",
+            "condition": "True"
+        },
+        {
+            "source": "F6.1.1",
+            "target": "F6.0.1.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F6.1.2",
+            "target": "F7",
+            "condition": "True"
+        },
+        {
+            "source": "F6.1.2",
+            "target": "F7",
+            "condition": "Not True"
+        },
+        {
+            "source": "F6.0.0",
+            "target": "F7"
+        },
+        {
+            "source": "F6.0.1.1",
+            "target": "F7"
+        },
+        {
+            "source": "F7",
+            "target": "F7.0.0",
+            "condition": "Not True"
+        },
+        {
+            "source": "F7",
+            "target": "F8",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F7",
+            "target": "F7.1.1",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F7.1.1",
+            "target": "F7.1.2",
+            "condition": "True"
+        },
+        {
+            "source": "F7.1.1",
+            "target": "F7.0.1.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F7.1.2",
+            "target": "F8",
+            "condition": "True"
+        },
+        {
+            "source": "F7.1.2",
+            "target": "F8",
+            "condition": "Not True"
+        },
+        {
+            "source": "F7.0.0",
+            "target": "F8"
+        },
+        {
+            "source": "F7.0.1.1",
+            "target": "F8"
+        },
+        {
+            "source": "F8",
+            "target": "F8.0.0",
+            "condition": "Not True"
+        },
+        {
+            "source": "F8",
+            "target": "F9",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F8",
+            "target": "F8.1.1",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F8.1.1",
+            "target": "F8.1.2",
+            "condition": "True"
+        },
+        {
+            "source": "F8.1.1",
+            "target": "F8.0.1.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F8.1.2",
+            "target": "F9",
+            "condition": "True"
+        },
+        {
+            "source": "F8.1.2",
+            "target": "F9",
+            "condition": "Not True"
+        },
+        {
+            "source": "F8.0.0",
+            "target": "F9"
+        },
+        {
+            "source": "F8.0.1.1",
+            "target": "F9"
+        },
+        {
+            "source": "F9",
+            "target": "F9.0.0",
+            "condition": "Not True"
+        },
+        {
+            "source": "F9",
+            "target": "F10",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F9",
+            "target": "F9.1.1",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F9.1.1",
+            "target": "F9.1.2",
+            "condition": "True"
+        },
+        {
+            "source": "F9.1.1",
+            "target": "F9.0.1.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F9.1.2",
+            "target": "F10",
+            "condition": "True"
+        },
+        {
+            "source": "F9.1.2",
+            "target": "F10",
+            "condition": "Not True"
+        },
+        {
+            "source": "F9.0.0",
+            "target": "F10"
+        },
+        {
+            "source": "F9.0.1.1",
+            "target": "F10"
+        },
+        {
+            "source": "F10",
+            "target": "F10.0.0",
+            "condition": "Not True"
+        },
+        {
+            "source": "F10",
+            "target": "F10.1.1",
+            "condition": "Partially True"
+        },
+        {
+            "source": "F10",
+            "target": "F10.1.1",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F10.1.1",
+            "target": "F11"
+        },
+        {
+            "source": "F10.0.0",
+            "target": "F11"
+        },
+        {
+            "source": "F11",
+            "target": "F11.0.0",
+            "condition": "Not True"
+        },
+        {
+            "source": "F11",
+            "target": "F12",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F11",
+            "target": "F11.1.1",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F11.1.1",
+            "target": "F11.1.2",
+            "condition": "True"
+        },
+        {
+            "source": "F11.1.1",
+            "target": "F11.0.1.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F11.1.2",
+            "target": "F11.0.1.2",
+            "condition": "Not True"
+        },
+        {
+            "source": "F11.1.2",
+            "target": "F11.1.4",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F11.1.2",
+            "target": "F11.1.3",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F11.1.3",
+            "target": "F11.1.4",
+            "condition": "True"
+        },
+        {
+            "source": "F11.1.3",
+            "target": "F11.0.1.3",
+            "condition": "Not True"
+        },
+        {
+            "source": "F11.1.4",
+            "target": "F12"
+        },
+        {
+            "source": "F11.0.0",
+            "target": "F12"
+        },
+        {
+            "source": "F11.0.1.1",
+            "target": "F12"
+        },
+        {
+            "source": "F11.0.1.2",
+            "target": "F12"
+        },
+        {
+            "source": "F11.0.1.3",
+            "target": "F11.1.4"
+        },
+        {
+            "source": "F12",
+            "target": "F12.0.0",
+            "condition": "Not True"
+        },
+        {
+            "source": "F12",
+            "target": "F13",
+            "condition": "True",
+            "answer": "No"
+        },
+        {
+            "source": "F12",
+            "target": "F12.1.1",
+            "condition": "True",
+            "answer": "Yes"
+        },
+        {
+            "source": "F12.1.1",
+            "target": "F12.1.2",
+            "condition": "True"
+        },
+        {
+            "source": "F12.1.1",
+            "target": "F12.0.1.1",
+            "condition": "Not True"
+        },
+        {
+            "source": "F12.1.2",
+            "target": "F12.1.3",
+            "condition": "True"
+        },
+        {
+            "source": "F12.1.2",
+            "target": "F12.0.1.2",
+            "condition": "Not True"
+        },
+        {
+            "source": "F12.1.3",
+            "target": "F13"
+        },
+        {
+            "source": "F12.0.0",
+            "target": "F13"
+        },
+        {
+            "source": "F12.0.1.1",
+            "target": "F13"
+        },
+        {
+            "source": "F12.0.1.2",
+            "target": "F13"
+        },
+        {
+            "source": "F13",
+            "target": "F14"
+        },
+        {
+            "source": "F14",
+            "target": "F14.1.1"
+        }
+    ],
+    "metadata": {
+        "molecule_name": "2_isopropyl_5_methyl_phenol_HNMR",
+        "molecular_formula": "C10H14O",
+        "solvent": "Chloroform-d",
+        "mhz": "400MHz",
+        "spectra_type": "HNMR"
+    }
+}

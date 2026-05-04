@@ -1,0 +1,20 @@
+{
+  "molecule_id": "3_methylbutyl_2_methyl_propanoate",
+  "spectrum_type": "COMBO",
+  "molecular_formula": "C9H18O2",
+  "cnmr_solvent": "Chloroform-d",
+  "cnmr_mhz": "101MHz",
+  "hnmr_solvent": "Chloroform-d",
+  "hnmr_mhz": "400MHz",
+  "cnmr_spectrum_peaks": [
+    177.23,
+    62.89,
+    37.36,
+    34.04,
+    25.09,
+    22.46,
+    18.99
+  ],
+  "hnmr_spectrum_peaks_raw": "4.10 (t, J = 6.8, 6.8 Hz, 2H), 2.53 (hept, J = 7.0, 7.0, 7.0, 7.0, 7.0, 7.0 Hz, 1H), 1.70 (dp, J = 13.3, 6.7, 6.7, 6.7, 6.7 Hz, 1H), 1.52 (q, J = 6.9, 6.9, 6.9 Hz, 2H), 1.16 (d, J = 7.0 Hz, 6H), 0.93 (d, J = 6.6 Hz, 6H)",
+  "task_prompt": "You are given the molecular formula along with both the 13C NMR and 1H NMR spectra of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

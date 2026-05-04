@@ -1,0 +1,20 @@
+{
+  "molecule_id": "saccharine",
+  "spectrum_type": "COMBO",
+  "molecular_formula": "C7H5NO3S",
+  "cnmr_solvent": "Chloroform-d",
+  "cnmr_mhz": "101MHz",
+  "hnmr_solvent": "DMSO-d6",
+  "hnmr_mhz": "400MHz",
+  "cnmr_spectrum_peaks": [
+    173.11,
+    150.55,
+    140.07,
+    136.81,
+    136.24,
+    127.74,
+    124.37
+  ],
+  "hnmr_spectrum_peaks_raw": "7.65 (dd, J = 3.7, 1.0 Hz, 2H), 7.59 (d, J = 0.6 Hz, 2H)",
+  "task_prompt": "You are given the molecular formula along with both the 13C NMR and 1H NMR spectra of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

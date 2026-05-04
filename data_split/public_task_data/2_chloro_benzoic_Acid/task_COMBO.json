@@ -1,0 +1,20 @@
+{
+  "molecule_id": "2_chloro_benzoic_Acid",
+  "spectrum_type": "COMBO",
+  "molecular_formula": "C7H5ClO2",
+  "cnmr_solvent": "Chloroform-d",
+  "cnmr_mhz": "101MHz",
+  "hnmr_solvent": "Chloroform-d",
+  "hnmr_mhz": "400MHz",
+  "cnmr_spectrum_peaks": [
+    165.98,
+    131.72,
+    131.09,
+    130.08,
+    129.87,
+    129.59,
+    125.49
+  ],
+  "hnmr_spectrum_peaks_raw": "7.84 (t, J = 1.1, 1.1 Hz, 1H), 7.83 (d, J = 1.8 Hz, 1H) 7.44 (d, J = 5.4 Hz, 1H), 7.38 \u2013 7.28 (m, 1H)",
+  "task_prompt": "You are given the molecular formula along with both the 13C NMR and 1H NMR spectra of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

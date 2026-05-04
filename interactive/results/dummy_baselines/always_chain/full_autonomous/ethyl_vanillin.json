@@ -1,0 +1,551 @@
+{
+  "molecule_id": "ethyl_vanillin",
+  "agent": "always_chain",
+  "model": "dummy/always_chain",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "full",
+  "condition": "full_autonomous",
+  "scaffold": false,
+  "seed": 153,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 22,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "CCOc1cc(C=O)ccc1O",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "CCO",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "CCO",
+        "nucleus": "13C",
+        "predicted_shifts": [
+          65.0,
+          23.0
+        ],
+        "num_carbons": 2,
+        "details": [
+          {
+            "atom_idx": 0,
+            "predicted_shift": 23.0,
+            "environment": "alkyl"
+          },
+          {
+            "atom_idx": 1,
+            "predicted_shift": 65.0,
+            "environment": "C-O alkyl"
+          }
+        ],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C9H10O3"
+      },
+      "result": {
+        "formula": "C9H10O3",
+        "degree": 5,
+        "explanation": "DBE = (2*9 + 2 + 0 - 10 - 0) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 5.0,
+        "ppm_max": 12.0
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          5.0,
+          12.0
+        ],
+        "peaks": [
+          {
+            "ppm": 9.82,
+            "multiplicity": "s",
+            "integration": 1,
+            "raw_text": "9.82 (s, 1H)"
+          },
+          {
+            "ppm": 7.41,
+            "multiplicity": "d",
+            "integration": 1,
+            "j_values": [
+              7.8
+            ],
+            "raw_text": "7.41 (d, J = 7.8 Hz, 1H)"
+          },
+          {
+            "ppm": 7.05,
+            "multiplicity": "d",
+            "integration": 1,
+            "j_values": [
+              8.0
+            ],
+            "raw_text": "7.05 (d, J = 8.0 Hz, 1H)"
+          },
+          {
+            "ppm": 6.3,
+            "multiplicity": "s",
+            "integration": 1,
+            "raw_text": "6.30 (s, 1H)"
+          }
+        ],
+        "count": 4
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 6.3,
+        "ppm_max": 7.8
+      },
+      "result": {
+        "range": [
+          6.3,
+          7.8
+        ],
+        "peaks": [
+          {
+            "ppm": 7.41,
+            "integration": 1
+          },
+          {
+            "ppm": 7.05,
+            "integration": 1
+          },
+          {
+            "ppm": 6.3,
+            "integration": 1
+          }
+        ],
+        "count": 3,
+        "total_integration": 3
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 3.0,
+        "ppm_max": 4.5
+      },
+      "result": {
+        "range": [
+          3.0,
+          4.5
+        ],
+        "peaks": [
+          {
+            "ppm": 4.2,
+            "integration": 2
+          }
+        ],
+        "count": 1,
+        "total_integration": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "smiles": "CCO",
+        "total_carbons": 2,
+        "unique_carbon_environments": 2,
+        "has_symmetry": false,
+        "symmetry_note": "No carbon symmetry: all 2 carbons are in unique environments"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "No carbon symmetry: all 2 carbons are in unique environments"
+      },
+      "result": {
+        "valid": false,
+        "smiles": "No carbon symmetry: all 2 carbons are in unique environments",
+        "error": "Invalid SMILES string"
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "No carbon symmetry: all 2 carbons are in unique environments",
+        "pattern": "[OH]"
+      },
+      "result": {
+        "error": "Invalid SMILES: No carbon symmetry: all 2 carbons are in unique environments"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [
+          {
+            "ppm": 1.48,
+            "multiplicity": "t"
+          }
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 1.48,
+        "ppm_max": 2.98
+      },
+      "result": {
+        "range": [
+          1.48,
+          2.98
+        ],
+        "peaks": [
+          {
+            "ppm": 1.48,
+            "multiplicity": "t"
+          }
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 2.98,
+        "ppm_max": 4.48
+      },
+      "result": {
+        "range": [
+          2.98,
+          4.48
+        ],
+        "peaks": [
+          {
+            "ppm": 4.2,
+            "j_values": [
+              7.0,
+              7.0,
+              7.0
+            ],
+            "multiplicity": "q"
+          }
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "CCO",
+        "pattern": "q"
+      },
+      "result": {
+        "error": "Invalid pattern: q"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "Invalid pattern: q",
+        "pattern": "[OH]"
+      },
+      "result": {
+        "error": "Invalid SMILES: Invalid pattern: q"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "Invalid SMILES: Invalid pattern: q"
+      },
+      "result": {
+        "valid": false,
+        "smiles": "Invalid SMILES: Invalid pattern: q",
+        "error": "Invalid SMILES string"
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [
+          {
+            "ppm": 1.48,
+            "j_values": [
+              7.0,
+              7.0
+            ],
+            "multiplicity": "t"
+          }
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 7.0,
+        "ppm_max": 8.5
+      },
+      "result": {
+        "range": [
+          7.0,
+          8.5
+        ],
+        "peaks": [
+          {
+            "ppm": 7.41,
+            "integration": 1
+          },
+          {
+            "ppm": 7.05,
+            "integration": 1
+          }
+        ],
+        "count": 2,
+        "total_integration": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C9H10O3"
+      },
+      "result": {
+        "formula": "C9H10O3",
+        "degree": 5,
+        "explanation": "DBE = (2*9 + 2 + 0 - 10 - 0) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 5.0,
+        "ppm_max": 6.5
+      },
+      "result": {
+        "range": [
+          5.0,
+          6.5
+        ],
+        "peaks": [
+          {
+            "ppm": 6.3,
+            "j_values": [],
+            "multiplicity": "s"
+          }
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "CCO",
+        "pattern": "s"
+      },
+      "result": {
+        "smiles": "CCO",
+        "pattern": "s",
+        "has_match": false,
+        "num_matches": 0
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "smiles": "CCO",
+        "total_carbons": 2,
+        "unique_carbon_environments": 2,
+        "has_symmetry": false,
+        "symmetry_note": "No carbon symmetry: all 2 carbons are in unique environments"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "No carbon symmetry: all 2 carbons are in unique environments"
+      },
+      "result": {
+        "error": "Invalid SMILES: No carbon symmetry: all 2 carbons are in unique environments"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.9375,
+    "unique_regions": 7,
+    "regions": [
+      "1H_1_2",
+      "1H_2_4",
+      "1H_3_4",
+      "1H_5_12",
+      "1H_5_6",
+      "1H_6_7",
+      "1H_7_8"
+    ],
+    "categories_used": 5,
+    "categories": [
+      "computation",
+      "prediction",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "layer3_dependency_rate": 0.6667,
+  "layer3_dependency_rate_v1_edgecount": 1.4286,
+  "layer3_conflict_reactivity": 1.0,
+  "layer3_num_edges": 30,
+  "layer3_edge_types": [
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string"
+  ],
+  "layer3_strict_dependency_rate": 0.6667,
+  "layer3_strict_num_edges": 30,
+  "layer3_strict_edge_types": [
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string"
+  ],
+  "elapsed_seconds": 0.001,
+  "timestamp": "2026-04-28T13:57:13.398414"
+}

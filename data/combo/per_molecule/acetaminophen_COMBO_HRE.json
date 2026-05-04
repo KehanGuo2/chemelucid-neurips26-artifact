@@ -1,0 +1,36 @@
+{
+    "nodes": [
+        {
+            "id": "BIG QUESTION",
+            "label": "Molecule X has a molecular formula of C8H9NO2. The text carbon NMR spectra for Molecule X is δ 167.57, 153.53, 132.02, 120.97, 115.13, 23.36. Molecule X’s carbon NMR was taken in Chloroform-d solvent, on a machine with a frequency of 101MHz. From prior analysis of the carbon NMR, a list of potential structural possibilities and impossibilities for each carbon NMR peak has been created, here it is: {Blackboard Summarization of CNMR}. The text proton NMR of molecule X with each peak's shift, integration, multiplicity, and J value, listed respectively is: 8.95 (s, 1H), 8.15 (s, 1H), 7.45 (d, J = 8.9 Hz, 2H), 6.75 (d, J = 8.9 Hz, 1H), 2.02 (s, 3H). Molecule X’s proton NMR was taken in Chloroform-d solvent, on a machine with a frequency of 400MHz. From prior analysis of the proton NMR, a list of potential structural possibilities and impossibilities for each proton NMR peak has been created, here it is: {Blackboard Summarization of HNMR}.\n\nGiven Molecule X’s molecular formula, carbon NMR, proton NMR, and potential peak possibilities provide 5 potential SMILES strings which could represent Molecule X. Rank these 1-5 with position 1 being the most likely and 5 being the least likely",
+            "weight": 1,
+            "answer": "CC(=O)Nc1ccc(O)cc1"
+        },
+        {
+            "id": "F1",
+            "label": "For each SMILES string listed above, provide a Tanimoto Similarity score between the molecule and this SMILES string CC(=O)Nc1ccc(O)cc1. Provide the answer in the format: Prediction1: Similarity Score, Prediction2: Similarity Score",
+            "weight": 1,
+            "answer": "CC(=O)Nc1ccc(O)cc1"
+        }
+    ],
+    "edges": [
+        {
+            "source": "BIG QUESTION",
+            "target": "F1"
+        }
+    ],
+    "metadata": {
+        "molecule_name": "acetaminophen",
+        "molecular_formula": "C8H9NO2",
+        "gt_smiles": "CC(=O)Nc1ccc(O)cc1",
+        "cnmr_source": "acetaminophen_CNMR_HRE",
+        "hnmr_source": "acetaminophen_HNMR_HRE",
+        "cnmr_solvent": "Chloroform-d",
+        "hnmr_solvent": "Chloroform-d",
+        "cnmr_mhz": "101MHz",
+        "hnmr_mhz": "400MHz",
+        "warnings": {
+            "formula_mismatch": "CNMR formula=C8H9NO2 != HNMR formula=C8H8O2. Using CNMR formula."
+        }
+    }
+}

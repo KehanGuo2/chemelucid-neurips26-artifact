@@ -1,0 +1,475 @@
+{
+  "molecule_id": "2_hydroxy_benzoic_acid",
+  "agent": "always_chain",
+  "model": "dummy/always_chain",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "partial",
+  "condition": "partial_autonomous",
+  "scaffold": false,
+  "seed": 44,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 24,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "O=C(O)c1ccccc1O",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "CCO",
+        "canonical_smiles": "CCO",
+        "molecular_formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "num_atoms": 3,
+        "num_heavy_atoms": 3
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 3.0,
+        "ppm_max": 4.5
+      },
+      "result": {
+        "range": [
+          3.0,
+          4.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C7H6O3"
+      },
+      "result": {
+        "formula": "C7H6O3",
+        "molecular_weight": 138.122,
+        "breakdown": [
+          "C7=84.077",
+          "H6=6.048",
+          "O3=47.997"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "C7H6O3"
+      },
+      "result": {
+        "valid": false,
+        "smiles": "C7H6O3",
+        "error": "Invalid SMILES string"
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "C7H6O3",
+        "pattern": "C7H6O3"
+      },
+      "result": {
+        "error": "Invalid SMILES: C7H6O3"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "Invalid SMILES: C7H6O3"
+      },
+      "result": {
+        "error": "Invalid SMILES: Invalid SMILES: C7H6O3"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 20.0,
+        "ppm_max": 30.0
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          20.0,
+          30.0
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H6O3"
+      },
+      "result": {
+        "formula": "C7H6O3",
+        "degree": 5,
+        "explanation": "DBE = (2*7 + 2 + 0 - 6 - 0) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 5.0,
+        "ppm_max": 6.5
+      },
+      "result": {
+        "range": [
+          5.0,
+          6.5
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H6O3"
+      },
+      "result": {
+        "formula": "C7H6O3",
+        "degree": 5,
+        "explanation": "DBE = (2*7 + 2 + 0 - 6 - 0) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C7H6O3"
+      },
+      "result": {
+        "formula": "C7H6O3",
+        "molecular_weight": 138.122,
+        "breakdown": [
+          "C7=84.077",
+          "H6=6.048",
+          "O3=47.997"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "smiles": "CCO",
+        "total_carbons": 2,
+        "aromatic_carbons": 0,
+        "aliphatic_carbons": 2
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 0.0,
+        "ppm_max": 1.5
+      },
+      "result": {
+        "range": [
+          0.0,
+          1.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 1.5,
+        "ppm_max": 3.0
+      },
+      "result": {
+        "range": [
+          1.5,
+          3.0
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 0.0,
+        "ppm_max": 1.5
+      },
+      "result": {
+        "range": [
+          0.0,
+          1.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "smiles": "CCO",
+        "total_carbons": 2,
+        "unique_carbon_environments": 2,
+        "has_symmetry": false,
+        "symmetry_note": "No carbon symmetry: all 2 carbons are in unique environments"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H6O3"
+      },
+      "result": {
+        "formula": "C7H6O3",
+        "degree": 5,
+        "explanation": "DBE = (2*7 + 2 + 0 - 6 - 0) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "C7H6O3"
+      },
+      "result": {
+        "error": "Invalid SMILES: C7H6O3"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "count_carbons",
+      "args": {
+        "smiles": "Invalid SMILES: C7H6O3"
+      },
+      "result": {
+        "error": "Invalid SMILES: Invalid SMILES: C7H6O3"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C7H6O3"
+      },
+      "result": {
+        "formula": "C7H6O3",
+        "molecular_weight": 138.122,
+        "breakdown": [
+          "C7=84.077",
+          "H6=6.048",
+          "O3=47.997"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H6O3"
+      },
+      "result": {
+        "formula": "C7H6O3",
+        "degree": 5,
+        "explanation": "DBE = (2*7 + 2 + 0 - 6 - 0) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.775,
+    "unique_regions": 6,
+    "regions": [
+      "13C_20_30",
+      "1H_0_1",
+      "1H_1_2",
+      "1H_1_3",
+      "1H_3_4",
+      "1H_5_6"
+    ],
+    "categories_used": 4,
+    "categories": [
+      "computation",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "layer3_dependency_rate": 0.7391,
+  "layer3_dependency_rate_v1_edgecount": 1.3913,
+  "layer3_conflict_reactivity": 1.0,
+  "layer3_num_edges": 32,
+  "layer3_edge_types": [
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string"
+  ],
+  "layer3_strict_dependency_rate": 0.7391,
+  "layer3_strict_num_edges": 32,
+  "layer3_strict_edge_types": [
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string"
+  ],
+  "elapsed_seconds": 0.001,
+  "timestamp": "2026-04-28T13:57:13.176722"
+}

@@ -1,0 +1,20 @@
+{
+  "molecule_id": "ibuprofen",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C13H18O2",
+  "solvent": "Chloroform-d",
+  "mhz": "101MHz",
+  "spectrum_peaks": [
+    181.48,
+    141.13,
+    137.2,
+    129.66,
+    127.55,
+    45.3,
+    45.24,
+    30.44,
+    22.66,
+    18.34
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

@@ -1,0 +1,22 @@
+{
+  "molecule_id": "probe_011",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C12H19NO5S",
+  "solvent": "Chloroform-d",
+  "mhz": "100MHz",
+  "spectrum_peaks": [
+    203.43,
+    164.8,
+    130.95,
+    129.93,
+    70.19,
+    65.92,
+    57.44,
+    44.91,
+    26.93,
+    25.81,
+    21.47,
+    21.41
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

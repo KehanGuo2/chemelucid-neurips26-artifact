@@ -1,0 +1,43 @@
+{
+    "nodes": [
+        {
+            "id": "BIG QUESTION",
+            "label": "Molecule X has a molecular formula of C9H8O. The text carbon NMR spectra for Molecule X is δ 194.00, 153.09, 134.23, 131.54, 129.36, 128.80, 128.76. Molecule X’s carbon NMR was taken in Chloroform-d solvent, on a machine with a frequency of 101MHz. From prior analysis of the carbon NMR, a list of potential structural possibilities and impossibilities for each carbon NMR peak has been created, here it is: {Blackboard Summarization of CNMR}. The text proton NMR of molecule X with each peak's shift, integration, multiplicity, and J value, listed respectively is: 9.70 (d, J = 7.7 Hz, 1H), 7.58 – 7.53 (m, 3H), 7.51 – 7.37 (m, 3H), 6.71 (dd, J = 15.9, 7.7 Hz, 1H). Molecule X’s proton NMR was taken in Chloroform-d solvent, on a machine with a frequency of 101MHz. From prior analysis of the proton NMR, a list of potential structural possibilities and impossibilities for each proton NMR peak has been created, here it is: {Blackboard Summarization of HNMR}.\n\nGiven Molecule X’s molecular formula, carbon NMR, proton NMR, and potential peak possibilities provide 5 potential molecules which could represent Molecule X. Rank these 1-5 with position 1 being the most likely and 5 being the least likely.  Use any representation or naming convention, as long as it represents a unique molecule.",
+            "answer": "O=CC=Cc1ccccc1",
+            "weight": 1
+        },
+        {
+            "id": "F1",
+            "label": "Take your answers from the previous prompt and ensure that each predicted molecule’s molecular formula and unsaturation number match Molecule X’s molecular formula and unsaturation number.",
+            "answer": "O=CC=Cc1ccccc1",
+            "weight": 1
+        },
+        {
+            "id": "F2",
+            "label": "For each SMILES string listed above, provide a Tannimoto Similarity score between the molecule and this SMILES string O=CC=Cc1ccccc1. Provide the answer in the format: Prediction1: Similarity Score, Prediction2: Similarity Score",
+            "answer": "O=CC=Cc1ccccc1",
+            "weight": 1
+        }
+    ],
+    "edges": [
+        {
+            "source": "BIG QUESTION",
+            "target": "F1"
+        },
+        {
+            "source": "F1",
+            "target": "F2"
+        }
+    ],
+    "metadata": {
+        "molecule_name": "cinnamaldehyde_trans",
+        "molecular_formula": "C9H8O",
+        "gt_smiles": "O=CC=Cc1ccccc1",
+        "cnmr_source": "cinnamaldehyde_trans_CNMR_HRE",
+        "hnmr_source": "cinnamaldehyde_trans_HNMR_HRE",
+        "cnmr_solvent": "Chloroform-d",
+        "hnmr_solvent": "Chloroform-d",
+        "cnmr_mhz": "101MHz",
+        "hnmr_mhz": "400MHz"
+    }
+}

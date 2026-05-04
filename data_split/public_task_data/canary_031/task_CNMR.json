@@ -1,0 +1,25 @@
+{
+  "molecule_id": "canary_031",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C15H10O5",
+  "solvent": "DMSO-d6",
+  "mhz": "100MHz",
+  "spectrum_peaks": [
+    192.2,
+    181.4,
+    162.7,
+    162.0,
+    153.15,
+    137.0,
+    133.6,
+    133.45,
+    124.5,
+    122.95,
+    119.4,
+    118.7,
+    115.85,
+    115.1,
+    63.8
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

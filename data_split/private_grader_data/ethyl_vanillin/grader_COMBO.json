@@ -1,0 +1,22 @@
+{
+  "molecule_id": "ethyl_vanillin",
+  "spectrum_type": "COMBO",
+  "ground_truth": {
+    "smiles": "CCOc1cc(C=O)ccc1O",
+    "molecular_formula": "C9H10O3"
+  },
+  "dag_nodes": [
+    {
+      "id": "BIG QUESTION",
+      "label": "Molecule X has a molecular formula of C9H10O3. The text carbon NMR spectra for Molecule X is \u03b4 191.02, 151.78, 146.44, 129.87, 127.43, 114.35, 109.51, 64.81, 14.75. Molecule X\u2019s carbon NMR was taken in Chloroform-d solvent, on a machine with a frequency of 101MHz. From prior analysis of the carbon NMR, a list of potential structural possibilities and impossibilities for each carbon NMR peak has been created, here it is: {Blackboard Summarization of CNMR}. The text proton NMR of molecule X with each peak's shift, integration, multiplicity, and J value, listed respectively is: 9.82 (s, 1H), 7.41 (d, J = 7.8 Hz, 1H), 7.05 (d, J = 8.0 Hz, 1H), 6.30 (s, 1H), 4.20 (q, J = 7.0, 7.0, 7.0 Hz, 2H), 1.48 (t, J = 7.0, 7.0 Hz, 3H). Molecule X\u2019s proton NMR was taken in Chloroform-d solvent, on a machine with a frequency of 400MHz. From prior analysis of the proton NMR, a list of potential structural possibilities and impossibilities for each proton NMR peak has been created, here it is: {Blackboard Summarization of HNMR}.\n\nGiven Molecule X\u2019s molecular formula, carbon NMR, proton NMR, and potential peak possibilities provide 5 potential SMILES strings which could represent Molecule X. Rank these 1-5 with position 1 being the most likely and 5 being the least likely",
+      "weight": 1,
+      "answer": "CCOc1cc(C=O)ccc1O"
+    },
+    {
+      "id": "F1",
+      "label": "For each SMILES string listed above, provide a Tanimoto Similarity score between the molecule and this SMILES string CCOc1cc(C=O)ccc1O. Provide the answer in the format: Prediction1: Similarity Score, Prediction2: Similarity Score",
+      "weight": 1,
+      "answer": "CCOc1cc(C=O)ccc1O"
+    }
+  ]
+}

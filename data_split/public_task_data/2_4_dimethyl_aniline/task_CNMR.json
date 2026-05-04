@@ -1,0 +1,18 @@
+{
+  "molecule_id": "2_4_dimethyl_aniline",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C8H11N",
+  "solvent": "Chloroform-d",
+  "mhz": "101MHz",
+  "spectrum_peaks": [
+    142.2,
+    131.28,
+    127.88,
+    127.49,
+    122.57,
+    115.23,
+    20.6,
+    17.48
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

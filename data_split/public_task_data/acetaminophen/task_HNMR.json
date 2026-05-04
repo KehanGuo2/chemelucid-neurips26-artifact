@@ -1,0 +1,9 @@
+{
+  "molecule_id": "acetaminophen",
+  "spectrum_type": "HNMR",
+  "molecular_formula": "C8H8O2",
+  "solvent": "Chloroform-d",
+  "mhz": "400MHz",
+  "spectrum_peaks_raw": "8.95 (s, 1H), 8.15 (s, 1H), 7.45 (d, J = 8.9 Hz, 2H), 6.75 (d, J = 8.9 Hz, 1H), 2.02 (s, 3H)",
+  "task_prompt": "You are given the molecular formula and a 1H NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

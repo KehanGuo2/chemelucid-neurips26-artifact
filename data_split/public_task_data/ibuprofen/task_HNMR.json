@@ -1,0 +1,9 @@
+{
+  "molecule_id": "ibuprofen",
+  "spectrum_type": "HNMR",
+  "molecular_formula": "C13H18O2",
+  "solvent": "Chloroform-d",
+  "mhz": "400MHz",
+  "spectrum_peaks_raw": "7.22 (d, J=7.8 Hz, 2H), 7.09 (d, J=8.3 Hz, 2H), 3.70 (q, J = 7.2, 7.1, 7.1 Hz, 1H), 2.44 (d, J = 7.2 Hz, 2H), 1.84 (hept, J = 6.8, 6.8, 6.8, 6.8, 6.8, 6.8 Hz, 1H), 1.49 (d, J = 7.2 Hz, 3H), 0.89 (d, J = 6.6 Hz, 6H)",
+  "task_prompt": "You are given the molecular formula and a 1H NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

@@ -1,0 +1,18 @@
+{
+  "molecule_id": "6_methyl_5_hepten_2_one",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C8H14O",
+  "solvent": "Chloroform-d",
+  "mhz": "101MHz",
+  "spectrum_peaks": [
+    208.78,
+    132.62,
+    122.66,
+    43.67,
+    29.85,
+    25.62,
+    22.47,
+    17.58
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

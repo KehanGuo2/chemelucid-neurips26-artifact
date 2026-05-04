@@ -1,0 +1,348 @@
+{
+  "molecule_id": "ibuprofen",
+  "agent": "always_chain",
+  "model": "dummy/always_chain",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "full",
+  "condition": "full_autonomous",
+  "scaffold": false,
+  "seed": 154,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 13,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "CC(C)Cc1ccc(C(C)C(=O)O)cc1",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "CCO",
+        "pattern": "[OH]"
+      },
+      "result": {
+        "smiles": "CCO",
+        "pattern": "[OH]",
+        "has_match": true,
+        "num_matches": 1
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "[OH]"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "[OH]",
+        "canonical_smiles": "[OH]",
+        "molecular_formula": "HO",
+        "molecular_weight": 17.007,
+        "num_atoms": 1,
+        "num_heavy_atoms": 1
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "[OH]",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "[OH]",
+        "nucleus": "13C",
+        "predicted_shifts": [],
+        "num_carbons": 0,
+        "details": [],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "[OH]",
+        "nucleus": "13C"
+      },
+      "result": {
+        "smiles": "[OH]",
+        "nucleus": "13C",
+        "predicted_shifts": [],
+        "num_carbons": 0,
+        "details": [],
+        "note": "Heuristic prediction \u2014 approximate only. Use compare_spectra for quantitative validation."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "[OH]",
+        "nucleus": "1H"
+      },
+      "result": {
+        "smiles": "[OH]",
+        "nucleus": "1H",
+        "predicted_shifts": [
+          4.5
+        ],
+        "num_groups": 1,
+        "note": "Heuristic prediction \u2014 approximate only."
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "[OH]"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "[OH]",
+        "canonical_smiles": "[OH]",
+        "molecular_formula": "HO",
+        "molecular_weight": 17.007,
+        "num_atoms": 1,
+        "num_heavy_atoms": 1
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "[OH]"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "[OH]",
+        "canonical_smiles": "[OH]",
+        "molecular_formula": "HO",
+        "molecular_weight": 17.007,
+        "num_atoms": 1,
+        "num_heavy_atoms": 1
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [
+          {
+            "ppm": 2.44,
+            "j_values": [
+              7.2
+            ],
+            "multiplicity": "d"
+          },
+          {
+            "ppm": 1.84,
+            "j_values": [
+              6.8,
+              6.8,
+              6.8,
+              6.8,
+              6.8,
+              6.8
+            ],
+            "multiplicity": "hept"
+          },
+          {
+            "ppm": 1.49,
+            "j_values": [
+              7.2
+            ],
+            "multiplicity": "d"
+          }
+        ],
+        "count": 3
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "hept",
+        "nucleus": "13C"
+      },
+      "result": {
+        "error": "Invalid SMILES: hept"
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "Invalid SMILES: hept"
+      },
+      "result": {
+        "valid": false,
+        "smiles": "Invalid SMILES: hept",
+        "error": "Invalid SMILES string"
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [
+          {
+            "ppm": 2.44,
+            "multiplicity": "d"
+          },
+          {
+            "ppm": 1.84,
+            "multiplicity": "hept"
+          },
+          {
+            "ppm": 1.49,
+            "multiplicity": "d"
+          }
+        ],
+        "count": 3
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "hept"
+      },
+      "result": {
+        "valid": false,
+        "smiles": "hept",
+        "error": "Invalid SMILES string"
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.4625,
+    "unique_regions": 1,
+    "regions": [
+      "1H_1_2"
+    ],
+    "categories_used": 4,
+    "categories": [
+      "prediction",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "layer3_dependency_rate": 0.9167,
+  "layer3_dependency_rate_v1_edgecount": 2.5,
+  "layer3_conflict_reactivity": 0.5,
+  "layer3_num_edges": 30,
+  "layer3_edge_types": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string"
+  ],
+  "layer3_strict_dependency_rate": 0.9167,
+  "layer3_strict_num_edges": 30,
+  "layer3_strict_edge_types": [
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string"
+  ],
+  "elapsed_seconds": 0.001,
+  "timestamp": "2026-04-28T13:57:13.404636"
+}

@@ -1,0 +1,43 @@
+{
+    "nodes": [
+        {
+            "id": "BIG QUESTION",
+            "label": "Molecule X has a molecular formula of C13H18O2. The text carbon NMR spectra for Molecule X is δ 181.48, 141.13, 137.20, 129.66, 127.55, 45.30, 45.24, 30.44, 22.66, 18.34. Molecule X’s carbon NMR was taken in Chloroform-d solvent, on a machine with a frequency of 101MHz. From prior analysis of the carbon NMR, a list of potential structural possibilities and impossibilities for each carbon NMR peak has been created, here it is: {F7 Summarization of CNMR}. The text proton NMR of molecule X with each peak's shift, integration, multiplicity, and J value, listed respectively is: 7.22 (d, J=7.8 Hz, 2H), 7.09 (d, J=8.3 Hz, 2H), 3.70 (q, J = 7.2, 7.1, 7.1 Hz, 1H), 2.44 (d, J = 7.2 Hz, 2H), 1.84 (hept, J = 6.8, 6.8, 6.8, 6.8, 6.8, 6.8 Hz, 1H), 1.49 (d, J = 7.2 Hz, 3H), 0.89 (d, J = 6.6 Hz, 6H). Molecule X’s proton NMR was taken in Chloroform-d solvent, on a machine with a frequency of 101MHz. From prior analysis of the proton NMR, a list of potential structural possibilities and impossibilities for each proton NMR peak has been created, here it is: {F13 Summarization of HNMR}.\n\nGiven Molecule X’s molecular formula, carbon NMR, proton NMR, and potential peak possibilities provide 5 potential SMILES strings which could represent Molecule X. Rank these 1-5 with position 1 being the most likely and 5 being the least likely",
+            "answer": "CC(C)Cc1ccc(C(C)C(=O)O)cc1",
+            "weight": 1
+        },
+        {
+            "id": "F1",
+            "label": "Take your answers from the previous prompt and ensure that each predicted molecule’s molecular formula and unsaturation number match Molecule X’s molecular formula and unsaturation number.",
+            "answer": "CC(C)Cc1ccc(C(C)C(=O)O)cc1",
+            "weight": 1
+        },
+        {
+            "id": "F2",
+            "label": "For each SMILES string listed above, provide a Tannimoto Similarity score between the molecule and this SMILES string CC(C)Cc1ccc(C(C)C(=O)O)cc1. Provide the answer in the format: Prediction1: Similarity Score, Prediction2: Similarity Score",
+            "answer": "CC(C)Cc1ccc(C(C)C(=O)O)cc1",
+            "weight": 1
+        }
+    ],
+    "edges": [
+        {
+            "source": "BIG QUESTION",
+            "target": "F1"
+        },
+        {
+            "source": "F1",
+            "target": "F2"
+        }
+    ],
+    "metadata": {
+        "molecule_name": "ibuprofen",
+        "molecular_formula": "C13H18O2",
+        "gt_smiles": "CC(C)Cc1ccc(C(C)C(=O)O)cc1",
+        "cnmr_source": "ibuprofen_CNMR_HRE",
+        "hnmr_source": "ibuprofen_HNMR_HRE",
+        "cnmr_solvent": "Chloroform-d",
+        "hnmr_solvent": "Chloroform-d",
+        "cnmr_mhz": "101MHz",
+        "hnmr_mhz": "400MHz"
+    }
+}

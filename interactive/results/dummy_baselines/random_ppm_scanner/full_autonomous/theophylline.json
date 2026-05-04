@@ -1,0 +1,597 @@
+{
+  "molecule_id": "theophylline",
+  "agent": "random_ppm_scanner",
+  "model": "dummy/random_ppm_scanner",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "full",
+  "condition": "full_autonomous",
+  "scaffold": false,
+  "seed": 158,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 26,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "Cn1c(=O)c2[nH]cnc2n(C)c1=O",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 177.61,
+        "ppm_max": 207.52
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          177.61,
+          207.52
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 155.45,
+        "ppm_max": 173.82
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          155.45,
+          173.82
+        ],
+        "peaks": [
+          159.64,
+          156.42
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 126.39,
+        "ppm_max": 149.05
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          126.39,
+          149.05
+        ],
+        "peaks": [
+          145.73
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 115.72,
+        "ppm_max": 128.0
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          115.72,
+          128.0
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 125.78,
+        "ppm_max": 137.41
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          125.78,
+          137.41
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 6.53,
+        "ppm_max": 27.18
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          6.53,
+          27.18
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 137.42,
+        "ppm_max": 148.52
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          137.42,
+          148.52
+        ],
+        "peaks": [
+          145.73
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 161.83,
+        "ppm_max": 178.13
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          161.83,
+          178.13
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 15.99,
+        "ppm_max": 43.57
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          15.99,
+          43.57
+        ],
+        "peaks": [
+          34.95,
+          32.96
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 6.61,
+        "ppm_max": 7.46
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          6.61,
+          7.46
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 135.21,
+        "ppm_max": 162.78
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          135.21,
+          162.78
+        ],
+        "peaks": [
+          159.64,
+          156.42,
+          153.1,
+          145.73
+        ],
+        "count": 4
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 112.7,
+        "ppm_max": 129.22
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          112.7,
+          129.22
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 2.76,
+        "ppm_max": 4.04
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          2.76,
+          4.04
+        ],
+        "peaks": [
+          {
+            "ppm": 3.44,
+            "multiplicity": "s",
+            "integration": 3,
+            "raw_text": "3.44 (s, 3H)"
+          },
+          {
+            "ppm": 3.24,
+            "multiplicity": "s",
+            "integration": 3,
+            "raw_text": "3.24 (s, 3H)"
+          }
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 98.92,
+        "ppm_max": 126.58
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          98.92,
+          126.58
+        ],
+        "peaks": [
+          111.6
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 140.85,
+        "ppm_max": 153.98
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          140.85,
+          153.98
+        ],
+        "peaks": [
+          153.1,
+          145.73
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 88.51,
+        "ppm_max": 113.33
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          88.51,
+          113.33
+        ],
+        "peaks": [
+          111.6
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 39.76,
+        "ppm_max": 60.05
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          39.76,
+          60.05
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 156.01,
+        "ppm_max": 174.85
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          156.01,
+          174.85
+        ],
+        "peaks": [
+          159.64,
+          156.42
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 66.18,
+        "ppm_max": 77.46
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          66.18,
+          77.46
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 147.69,
+        "ppm_max": 160.48
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          147.69,
+          160.48
+        ],
+        "peaks": [
+          159.64,
+          156.42,
+          153.1
+        ],
+        "count": 3
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 4.35,
+        "ppm_max": 6.39
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          4.35,
+          6.39
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 6.24,
+        "ppm_max": 35.4
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          6.24,
+          35.4
+        ],
+        "peaks": [
+          34.95,
+          32.96
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 17.38,
+        "ppm_max": 28.49
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          17.38,
+          28.49
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 6.96,
+        "ppm_max": 9.83
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          6.96,
+          9.83
+        ],
+        "peaks": [
+          {
+            "ppm": 8.04,
+            "multiplicity": "s",
+            "integration": 1,
+            "raw_text": "8.04 (s, 1H)"
+          }
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 35.81,
+        "ppm_max": 48.04
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          35.81,
+          48.04
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.7,
+    "unique_regions": 25,
+    "regions": [
+      "13C_112_129",
+      "13C_115_128",
+      "13C_125_137",
+      "13C_126_149",
+      "13C_135_162",
+      "13C_137_148",
+      "13C_140_153",
+      "13C_147_160",
+      "13C_155_173",
+      "13C_156_174",
+      "13C_15_43",
+      "13C_161_178",
+      "13C_177_207",
+      "13C_17_28",
+      "13C_35_48",
+      "13C_39_60",
+      "13C_66_77",
+      "13C_6_27",
+      "13C_6_35",
+      "13C_88_113",
+      "13C_98_126",
+      "1H_2_4",
+      "1H_4_6",
+      "1H_6_7",
+      "1H_6_9"
+    ],
+    "categories_used": 2,
+    "categories": [
+      "spectrum_query",
+      "submit"
+    ]
+  },
+  "elapsed_seconds": 0.0,
+  "timestamp": "2026-04-28T09:10:48.415640"
+}

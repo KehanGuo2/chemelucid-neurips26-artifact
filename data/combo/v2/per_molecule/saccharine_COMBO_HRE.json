@@ -1,0 +1,43 @@
+{
+    "nodes": [
+        {
+            "id": "BIG QUESTION",
+            "label": "Molecule X has a molecular formula of C7H5NO3S. The text carbon NMR spectra for Molecule X is δ 173.11, 150.55, 140.07, 136.81, 136.24, 127.74, 124.37. Molecule X’s carbon NMR was taken in Chloroform-d solvent, on a machine with a frequency of 101MHz. From prior analysis of the carbon NMR, a list of potential structural possibilities and impossibilities for each carbon NMR peak has been created, here it is: {Blackboard Summarization of CNMR}. The text proton NMR of molecule X with each peak's shift, integration, multiplicity, and J value, listed respectively is: 7.65 (dd, J = 3.7, 1.0 Hz, 2H), 7.59 (d, J = 0.6 Hz, 2H). Molecule X’s proton NMR was taken in Chloroform-d solvent, on a machine with a frequency of 101MHz. From prior analysis of the proton NMR, a list of potential structural possibilities and impossibilities for each proton NMR peak has been created, here it is: {Blackboard Summarization of HNMR}.\n\nGiven Molecule X’s molecular formula, carbon NMR, proton NMR, and potential peak possibilities provide 5 potential SMILES strings which could represent Molecule X. Rank these 1-5 with position 1 being the most likely and 5 being the least likely",
+            "answer": "O=C1NS(=O)(=O)c2ccccc21",
+            "weight": 1
+        },
+        {
+            "id": "F1",
+            "label": "Take your answers from the previous prompt and ensure that each predicted molecule’s molecular formula and unsaturation number match Molecule X’s molecular formula and unsaturation number.",
+            "answer": "O=C1NS(=O)(=O)c2ccccc21",
+            "weight": 1
+        },
+        {
+            "id": "F2",
+            "label": "For each SMILES string listed above, provide a Tannimoto Similarity score between the molecule and this SMILES string O=C1NS(=O)(=O)c2ccccc21. Provide the answer in the format: Prediction1: Similarity Score, Prediction2: Similarity Score",
+            "answer": "O=C1NS(=O)(=O)c2ccccc21",
+            "weight": 1
+        }
+    ],
+    "edges": [
+        {
+            "source": "BIG QUESTION",
+            "target": "F1"
+        },
+        {
+            "source": "F1",
+            "target": "F2"
+        }
+    ],
+    "metadata": {
+        "molecule_name": "saccharine",
+        "molecular_formula": "C7H5NO3S",
+        "gt_smiles": "O=C1NS(=O)(=O)c2ccccc21",
+        "cnmr_source": "saccharine_CNMR_HRE",
+        "hnmr_source": "saccharine_HNMR_HRE",
+        "cnmr_solvent": "Chloroform-d",
+        "hnmr_solvent": "DMSO-d6",
+        "cnmr_mhz": "101MHz",
+        "hnmr_mhz": "400MHz"
+    }
+}

@@ -1,0 +1,9 @@
+{
+  "molecule_id": "2_isopropyl_5_methyl_phenol",
+  "spectrum_type": "HNMR",
+  "molecular_formula": "C10H14O",
+  "solvent": "Chloroform-d",
+  "mhz": "400MHz",
+  "spectrum_peaks_raw": "7.08 (d, J = 7.8 Hz, 2H), 6.74 (dd, J = 1.2, 0.6 Hz, 2H), 6.55 (s, 1H), 4.75 (s, 1H), 3.16 (pent, J = 6.9, 6.9, 6.9, 6.9 Hz, 1H), 2.26 (s, 3H), 1.23 (d, J = 6.9 Hz, 6H)",
+  "task_prompt": "You are given the molecular formula and a 1H NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

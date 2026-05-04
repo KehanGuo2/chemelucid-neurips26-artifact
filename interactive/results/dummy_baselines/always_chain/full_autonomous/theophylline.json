@@ -1,0 +1,588 @@
+{
+  "molecule_id": "theophylline",
+  "agent": "always_chain",
+  "model": "dummy/always_chain",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "full",
+  "condition": "full_autonomous",
+  "scaffold": false,
+  "seed": 158,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 25,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "Cn1c(=O)c2[nH]cnc2n(C)c1=O",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 4.0
+      },
+      "result": {
+        "range": [
+          1.0,
+          4.0
+        ],
+        "peaks": [
+          {
+            "ppm": 3.44,
+            "j_values": [],
+            "multiplicity": "s"
+          },
+          {
+            "ppm": 3.24,
+            "j_values": [],
+            "multiplicity": "s"
+          }
+        ],
+        "count": 2
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "CCO",
+        "pattern": "s"
+      },
+      "result": {
+        "smiles": "CCO",
+        "pattern": "s",
+        "has_match": false,
+        "num_matches": 0
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H8N4O2"
+      },
+      "result": {
+        "formula": "C7H8N4O2",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 4 - 8 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 6.0,
+        "ppm_max": 12.0
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          6.0,
+          12.0
+        ],
+        "peaks": [
+          {
+            "ppm": 8.04,
+            "multiplicity": "s",
+            "integration": 1,
+            "raw_text": "8.04 (s, 1H)"
+          }
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H8N4O2"
+      },
+      "result": {
+        "formula": "C7H8N4O2",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 4 - 8 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H8N4O2"
+      },
+      "result": {
+        "formula": "C7H8N4O2",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 4 - 8 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 6.0,
+        "ppm_max": 12.0
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          6.0,
+          12.0
+        ],
+        "peaks": [
+          {
+            "ppm": 8.04,
+            "multiplicity": "s",
+            "integration": 1,
+            "raw_text": "8.04 (s, 1H)"
+          }
+        ],
+        "count": 1
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 1.0,
+        "ppm_max": 11.0
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          1.0,
+          11.0
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 0.0,
+        "ppm_max": 1.5
+      },
+      "result": {
+        "range": [
+          0.0,
+          1.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 1.5,
+        "ppm_max": 3.0
+      },
+      "result": {
+        "range": [
+          1.5,
+          3.0
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 0.0,
+        "ppm_max": 10.0
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          0.0,
+          10.0
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 0.0,
+        "ppm_max": 10.0
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          0.0,
+          10.0
+        ],
+        "peaks": [
+          {
+            "ppm": 8.04,
+            "multiplicity": "s",
+            "integration": 1,
+            "raw_text": "8.04 (s, 1H)"
+          },
+          {
+            "ppm": 3.44,
+            "multiplicity": "s",
+            "integration": 3,
+            "raw_text": "3.44 (s, 3H)"
+          },
+          {
+            "ppm": 3.24,
+            "multiplicity": "s",
+            "integration": 3,
+            "raw_text": "3.24 (s, 3H)"
+          }
+        ],
+        "count": 3
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "substructure_check",
+      "args": {
+        "smiles": "8.04 (s, 1H)",
+        "pattern": "1H"
+      },
+      "result": {
+        "error": "Invalid SMILES: 8.04 (s, 1H)"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H8N4O2"
+      },
+      "result": {
+        "formula": "C7H8N4O2",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 4 - 8 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "C7H8N4O2"
+      },
+      "result": {
+        "valid": false,
+        "smiles": "C7H8N4O2",
+        "error": "Invalid SMILES string"
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "check_symmetry",
+      "args": {
+        "smiles": "C7H8N4O2"
+      },
+      "result": {
+        "error": "Invalid SMILES: C7H8N4O2"
+      },
+      "cost": 1,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H8N4O2"
+      },
+      "result": {
+        "formula": "C7H8N4O2",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 4 - 8 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C7H8N4O2"
+      },
+      "result": {
+        "formula": "C7H8N4O2",
+        "molecular_weight": 180.167,
+        "breakdown": [
+          "C7=84.077",
+          "H8=8.064",
+          "N4=56.028",
+          "O2=31.998"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H8N4O2"
+      },
+      "result": {
+        "formula": "C7H8N4O2",
+        "degree": 6,
+        "explanation": "DBE = (2*7 + 2 + 4 - 8 - 0) / 2 = 6"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C7H8N4O2"
+      },
+      "result": {
+        "formula": "C7H8N4O2",
+        "molecular_weight": 180.167,
+        "breakdown": [
+          "C7=84.077",
+          "H8=8.064",
+          "N4=56.028",
+          "O2=31.998"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.9,
+    "unique_regions": 8,
+    "regions": [
+      "13C_0_10",
+      "13C_1_11",
+      "1H_0_1",
+      "1H_0_10",
+      "1H_1_2",
+      "1H_1_3",
+      "1H_1_4",
+      "1H_6_12"
+    ],
+    "categories_used": 4,
+    "categories": [
+      "computation",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "layer3_dependency_rate": 0.8333,
+  "layer3_dependency_rate_v1_edgecount": 2.0833,
+  "layer3_conflict_reactivity": 1.0,
+  "layer3_num_edges": 50,
+  "layer3_edge_types": [
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric"
+  ],
+  "layer3_strict_dependency_rate": 0.8333,
+  "layer3_strict_num_edges": 50,
+  "layer3_strict_edge_types": [
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric"
+  ],
+  "elapsed_seconds": 0.001,
+  "timestamp": "2026-04-28T13:57:13.427302"
+}

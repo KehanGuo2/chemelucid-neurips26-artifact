@@ -1,0 +1,480 @@
+{
+  "molecule_id": "2_chloro_benzoic_Acid",
+  "agent": "always_chain",
+  "model": "dummy/always_chain",
+  "provider": "dummy",
+  "spectrum_type": "CNMR",
+  "info_mode": "partial",
+  "condition": "partial_autonomous",
+  "scaffold": false,
+  "seed": 43,
+  "budget": 25,
+  "total_cost": 25,
+  "num_turns": 20,
+  "submitted_smiles": "CCO",
+  "gt_smiles": "O=C(O)c1ccccc1Cl",
+  "terminated_by": "submit",
+  "trajectory": [
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 1.0,
+        "ppm_max": 4.0
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          1.0,
+          4.0
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C7H5ClO2"
+      },
+      "result": {
+        "formula": "C7H5ClO2",
+        "molecular_weight": 156.565,
+        "breakdown": [
+          "C7=84.077",
+          "H5=5.040",
+          "Cl1=35.450",
+          "O2=31.998"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "C7H5ClO2",
+        "nucleus": "1H"
+      },
+      "result": {
+        "error": "Invalid SMILES: C7H5ClO2"
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "get_coupling",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C7H5ClO2"
+      },
+      "result": {
+        "formula": "C7H5ClO2",
+        "degree": 5,
+        "explanation": "DBE = (2*7 + 2 + 0 - 5 - 1) / 2 = 5"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "predict_nmr",
+      "args": {
+        "smiles": "C7H5ClO2",
+        "nucleus": "1H"
+      },
+      "result": {
+        "error": "Invalid SMILES: C7H5ClO2"
+      },
+      "cost": 3,
+      "category": "prediction"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "1H",
+        "ppm_min": 0.0,
+        "ppm_max": 10.0
+      },
+      "result": {
+        "nucleus": "1H",
+        "range": [
+          0.0,
+          10.0
+        ],
+        "peaks": [
+          {
+            "ppm": 7.84,
+            "multiplicity": "t",
+            "integration": 1,
+            "j_values": [
+              1.1,
+              1.1
+            ],
+            "raw_text": "7.84 (t, J = 1.1, 1.1 Hz, 1H)"
+          },
+          {
+            "ppm": 7.83,
+            "multiplicity": "d",
+            "integration": 1,
+            "j_values": [
+              1.8
+            ],
+            "raw_text": "7.83 (d, J = 1.8 Hz, 1H)"
+          },
+          {
+            "ppm": 7.44,
+            "multiplicity": "d",
+            "integration": 1,
+            "j_values": [
+              5.4
+            ],
+            "raw_text": "7.44 (d, J = 5.4 Hz, 1H)"
+          },
+          {
+            "ppm": 7.33,
+            "multiplicity": "m",
+            "integration": 1,
+            "ppm_range": [
+              7.28,
+              7.38
+            ],
+            "raw_text": "7.38 \u2013 7.28 (m, 1H)"
+          }
+        ],
+        "count": 4
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_integration",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0,
+        "total_integration": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "CCO",
+        "canonical_smiles": "CCO",
+        "molecular_formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "num_atoms": 3,
+        "num_heavy_atoms": 3
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C2H6O"
+      },
+      "result": {
+        "formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "breakdown": [
+          "C2=24.022",
+          "H6=6.048",
+          "O1=15.999"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "query_spectrum",
+      "args": {
+        "nucleus": "13C",
+        "ppm_min": 46.07,
+        "ppm_max": 56.07
+      },
+      "result": {
+        "nucleus": "13C",
+        "range": [
+          46.07,
+          56.07
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "validate_smiles",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "valid": true,
+        "smiles": "CCO",
+        "canonical_smiles": "CCO",
+        "molecular_formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "num_atoms": 3,
+        "num_heavy_atoms": 3
+      },
+      "cost": 2,
+      "category": "structure_analysis"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C2H6O"
+      },
+      "result": {
+        "formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "breakdown": [
+          "C2=24.022",
+          "H6=6.048",
+          "O1=15.999"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_unsaturation",
+      "args": {
+        "formula": "C2H6O"
+      },
+      "result": {
+        "formula": "C2H6O",
+        "degree": 0,
+        "explanation": "DBE = (2*2 + 2 + 0 - 6 - 0) / 2 = 0"
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "compute_molecular_weight",
+      "args": {
+        "formula": "C2H6O"
+      },
+      "result": {
+        "formula": "C2H6O",
+        "molecular_weight": 46.069,
+        "breakdown": [
+          "C2=24.022",
+          "H6=6.048",
+          "O1=15.999"
+        ]
+      },
+      "cost": 1,
+      "category": "computation"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 1.0,
+        "ppm_max": 2.5
+      },
+      "result": {
+        "range": [
+          1.0,
+          2.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "get_multiplicity",
+      "args": {
+        "ppm_min": 0.0,
+        "ppm_max": 1.5
+      },
+      "result": {
+        "range": [
+          0.0,
+          1.5
+        ],
+        "peaks": [],
+        "count": 0
+      },
+      "cost": 1,
+      "category": "spectrum_query"
+    },
+    {
+      "tool": "submit",
+      "args": {
+        "smiles": "CCO"
+      },
+      "result": {
+        "submitted": "CCO",
+        "canonical": "CCO",
+        "valid": true
+      },
+      "cost": 0,
+      "category": "submit"
+    }
+  ],
+  "layer1": {
+    "score": 0.8125,
+    "unique_regions": 5,
+    "regions": [
+      "13C_46_56",
+      "1H_0_1",
+      "1H_0_10",
+      "1H_1_2",
+      "1H_1_4"
+    ],
+    "categories_used": 5,
+    "categories": [
+      "computation",
+      "prediction",
+      "spectrum_query",
+      "structure_analysis",
+      "submit"
+    ]
+  },
+  "layer3_dependency_rate": 0.7895,
+  "layer3_dependency_rate_v1_edgecount": 1.6842,
+  "layer3_conflict_reactivity": 1.0,
+  "layer3_num_edges": 32,
+  "layer3_edge_types": [
+    "string",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric"
+  ],
+  "layer3_strict_dependency_rate": 0.7895,
+  "layer3_strict_num_edges": 32,
+  "layer3_strict_edge_types": [
+    "string",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "string",
+    "numeric",
+    "numeric",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "string",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric",
+    "numeric"
+  ],
+  "elapsed_seconds": 0.036,
+  "timestamp": "2026-04-28T13:57:13.124069"
+}

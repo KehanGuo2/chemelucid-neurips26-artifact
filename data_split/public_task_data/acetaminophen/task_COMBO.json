@@ -1,0 +1,19 @@
+{
+  "molecule_id": "acetaminophen",
+  "spectrum_type": "COMBO",
+  "molecular_formula": "C8H9NO2",
+  "cnmr_solvent": "Chloroform-d",
+  "cnmr_mhz": "101MHz",
+  "hnmr_solvent": "Chloroform-d",
+  "hnmr_mhz": "400MHz",
+  "cnmr_spectrum_peaks": [
+    167.57,
+    153.53,
+    132.02,
+    120.97,
+    115.13,
+    23.36
+  ],
+  "hnmr_spectrum_peaks_raw": "8.95 (s, 1H), 8.15 (s, 1H), 7.45 (d, J = 8.9 Hz, 2H), 6.75 (d, J = 8.9 Hz, 1H), 2.02 (s, 3H)",
+  "task_prompt": "You are given the molecular formula along with both the 13C NMR and 1H NMR spectra of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

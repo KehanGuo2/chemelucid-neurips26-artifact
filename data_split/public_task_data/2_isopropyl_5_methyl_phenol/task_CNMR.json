@@ -1,0 +1,19 @@
+{
+  "molecule_id": "2_isopropyl_5_methyl_phenol",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C10H14O",
+  "solvent": "Chloroform-d",
+  "mhz": "101MHz",
+  "spectrum_peaks": [
+    152.75,
+    136.9,
+    131.66,
+    126.52,
+    121.99,
+    116.35,
+    26.98,
+    22.98,
+    21.15
+  ],
+  "task_prompt": "You are given the molecular formula and a 13C NMR spectrum of an unknown molecule X. Use the available chemistry tools to determine its structure and submit a SMILES string."
+}

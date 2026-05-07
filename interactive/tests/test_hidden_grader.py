@@ -1,4 +1,4 @@
-"""Tests for the hidden-grader CLI (`python -m interactive.grade`).
+"""Tests for the private-grader CLI (`python -m interactive.grade`).
 
 The CLI must:
 1. Reproduce the inline grader's L2/coverage values within tolerance for a
@@ -7,6 +7,9 @@ The CLI must:
    requested manifest.
 3. Never leak any private answer field (e.g., gt_smiles) into metrics.json.
 4. Always emit metrics.json with the documented schema keys.
+
+The anonymous review package omits the private HRE assets, so tests that need
+exact private grading skip unless those controlled-release assets are present.
 """
 from __future__ import annotations
 
@@ -31,6 +34,11 @@ CANONICAL_EPISODE = (
     / "v3_multimodel"
     / "gpt-5.2_partial_autonomous"
     / "2_4_dimethyl_aniline_gpt-5.2_stateful_20260419_234038.json"
+)
+
+PRIVATE_HRE_AVAILABLE = (
+    (REPO_ROOT / "data" / "CNMR_HRE_v5.json").exists()
+    and any((REPO_ROOT / "data_split" / "private_grader_data").glob("*/grader_*.json"))
 )
 
 EXPECTED_KEYS = {
@@ -76,7 +84,7 @@ def _iter_strings(obj) -> Iterator[str]:
 
 
 def _all_known_smiles() -> list[str]:
-    """Collect every gt_smiles from private grader files (core + canary).
+    """Collect every gt_smiles from private grader files when present.
 
     Used by the privacy test to confirm the metrics output never echoes any
     ground-truth answer string.
@@ -101,8 +109,11 @@ def _all_known_smiles() -> list[str]:
 # ---------------------------------------------------------------------------
 
 @pytest.mark.skipif(
-    not CANONICAL_EPISODE.exists(),
-    reason=f"Canonical episode missing: {CANONICAL_EPISODE}",
+    not CANONICAL_EPISODE.exists() or not PRIVATE_HRE_AVAILABLE,
+    reason=(
+        "Canonical episode or private HRE assets missing; private grader assets "
+        "are intentionally omitted from the anonymous review package."
+    ),
 )
 def test_cli_matches_inline_grader(tmp_path):
     out = tmp_path / "metrics.json"
@@ -163,8 +174,11 @@ def test_unknown_molecule_errors(tmp_path):
 # ---------------------------------------------------------------------------
 
 @pytest.mark.skipif(
-    not CANONICAL_EPISODE.exists(),
-    reason=f"Canonical episode missing: {CANONICAL_EPISODE}",
+    not CANONICAL_EPISODE.exists() or not PRIVATE_HRE_AVAILABLE,
+    reason=(
+        "Canonical episode or private HRE assets missing; private grader assets "
+        "are intentionally omitted from the anonymous review package."
+    ),
 )
 def test_metrics_has_no_private_leakage(tmp_path):
     out = tmp_path / "metrics.json"
@@ -197,8 +211,11 @@ def test_metrics_has_no_private_leakage(tmp_path):
 # ---------------------------------------------------------------------------
 
 @pytest.mark.skipif(
-    not CANONICAL_EPISODE.exists(),
-    reason=f"Canonical episode missing: {CANONICAL_EPISODE}",
+    not CANONICAL_EPISODE.exists() or not PRIVATE_HRE_AVAILABLE,
+    reason=(
+        "Canonical episode or private HRE assets missing; private grader assets "
+        "are intentionally omitted from the anonymous review package."
+    ),
 )
 def test_metrics_schema(tmp_path):
     out = tmp_path / "metrics.json"
@@ -223,4 +240,4 @@ def test_metrics_schema(tmp_path):
     assert metrics["L2_failure_type"] in {
         "none", "knowledge", "reasoning", "tool_use", "strategy",
     }
-    assert metrics["manifest"] in {"core", "canary"}
+    assert metrics["manifest"] == "core"

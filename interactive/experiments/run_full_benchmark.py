@@ -85,8 +85,10 @@ def run_remaining(env: ChemElucidEnv, existing_mols: Dict[str, set]) -> List[Dic
             env.save_diagnostic(diag, str(out_dir))
             acc = diag["accuracy"]
             l1 = diag.get("layer1", {})
+            tani = acc.get("tanimoto")
+            tani_str = f"{tani:.3f}" if isinstance(tani, (int, float)) else "N/A"
             logger.info(
-                f"  exact={acc.get('exact_match')}, tani={acc.get('tanimoto',0):.3f}, "
+                f"  exact={acc.get('exact_match')}, tani={tani_str}, "
                 f"cost={diag['total_cost']}, L1={l1.get('score',0):.3f}, "
                 f"L3dep={diag.get('layer3_dependency_rate',0):.3f}, "
                 f"ended={diag['terminated_by']}"
@@ -100,21 +102,13 @@ def run_remaining(env: ChemElucidEnv, existing_mols: Dict[str, set]) -> List[Dic
 
 
 def get_dou(mol_id: str) -> Optional[int]:
-    """Get degree of unsaturation from the molecule's GT data."""
-    from chem_defense.utils.formula_utils import parse_formula_counts, calculate_unsaturation
-    gt_path = Path(DATA_DIR) / "C_NMR" / f"{mol_id}_CNMR_HRE.json"
-    if not gt_path.exists():
-        return None
-    import re
-    data = json.load(open(gt_path))
-    nodes = data.get("Nodes", data.get("nodes", []))
-    for node in nodes:
-        if node.get("id") == "BIG QUESTION":
-            label = node.get("label", "")
-            m = re.search(r"\{Molecular Formula:\s*([^}]+)\}", label)
-            if m:
-                formula = m.group(1).strip()
-                return calculate_unsaturation(formula)
+    """Get degree of unsaturation from the public task formula."""
+    from chem_defense.utils.formula_utils import calculate_unsaturation
+    from interactive.data_loader import load_public_task
+
+    pub = load_public_task(mol_id, "CNMR", Path(DATA_DIR))
+    if pub and pub.molecular_formula:
+        return calculate_unsaturation(pub.molecular_formula)
     return None
 
 

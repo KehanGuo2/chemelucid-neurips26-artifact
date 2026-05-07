@@ -1,13 +1,13 @@
-# Reviewer Docker quickstart
+# Reviewer Docker Quickstart
 
-This is the no-API verification path for ChemElucid-Gym, suitable for E&D
-reviewers who want to confirm the artifact is reproducible without setting up
-a full Python / RDKit toolchain on the host.
+This is the no-API verification path for the anonymous ChemElucid /
+MolPuzzle-Gym artifact. It lets reviewers inspect the public benchmark
+interface, public task bundles, episode logging, scoring definitions, and
+sanitized toy HRE alignment without installing RDKit on the host.
 
-The container ships only the minimum needed for verification: it intentionally
-does **not** bundle provider API keys, a web UI, a leaderboard, or live LLM
-inference. Live model episodes are reproducible from the dev tree on a host
-that already has provider keys; the container exists for review verification.
+The container intentionally does **not** include provider API keys, full private
+HRE templates, private grader labels, withheld-probe annotations, or complete
+expert-curated reasoning graphs.
 
 ## 1. Build
 
@@ -15,63 +15,39 @@ that already has provider keys; the container exists for review verification.
 docker build -t chemelucid-gym:reviewer .
 ```
 
-Expected build time: ~3–5 minutes on a recent laptop. The image installs
-Python 3.11, RDKit (via the official `rdkit` PyPI wheel), and the project's
-no-API dependencies. `py2opsin` (and its Java dependency) is intentionally
-omitted; the verification path does not exercise it.
+Expected build time: about 3-5 minutes on a recent laptop. The image installs
+Python 3.11, RDKit, and no-API dependencies.
 
-A Compose file is provided as well:
+## 2. Review-Mode Smoke Test
 
-```bash
-docker compose build
-```
-
-## 2. No-API smoke test
-
-The container's default command lists the 18 process-graded core molecules,
-which exercises the package import path:
+The default command lists public review tasks:
 
 ```bash
 docker run --rm chemelucid-gym:reviewer
 ```
 
-Expected output: 18 lines (`2_4_dimethyl_aniline`, `acetaminophen`, …) printed
-to stdout. If this fails, the install is broken; nothing else will work.
-
-The full pipeline smoke test runs an end-to-end episode with mocked LLM calls:
+The review-mode smoke test exercises public task loading, tool logging, L1/L3
+diagnostics, and the sanitized toy L2 path:
 
 ```bash
 docker run --rm chemelucid-gym:reviewer \
     python -m interactive.experiments.smoke_test
 ```
 
-Expected runtime: under 1 second on this host. Expected output: pipeline
-checks for tool server, blackboard, DAG grader, environment.
+Expected result: `REVIEW-MODE SMOKE TEST PASSED`.
 
-## 3. Grade a cached trajectory
-
-The hidden grader can be exercised on a cached non-error trajectory written
-by one of the dummy baselines. No API key is needed:
+## 3. Sanitized Toy HRE Scoring
 
 ```bash
-docker run --rm \
-    -v "$(pwd)/tmp:/tmp" \
-    chemelucid-gym:reviewer \
-    python -m interactive.grade \
-        --episode-log interactive/results/dummy_baselines/random_tool_roulette/partial_autonomous/Benzil.json \
-        --manifest core \
-        --out /tmp/metrics.json
+docker run --rm chemelucid-gym:reviewer \
+    python examples/hre_toy/run_toy_scoring.py
 ```
 
-The grader prints `wrote /tmp/metrics.json` and exits 0. Inspect
-`./tmp/metrics.json`: it must contain `coverage`, `outcome`, `failure_hist`
-fields, and **must not** contain any of `smiles`, `inchi`, `gt_smiles`,
-`canonical_smiles`. The `test_grade_cached_trajectory_emits_no_private_fields`
-test in `interactive/tests/test_task_bundle.py` verifies this invariant.
+This prints a small JSON report containing L1, toy L2 coverage, and L3 fields.
+It demonstrates trajectory alignment and scoring invocation without exposing
+the private grader layer.
 
-## 4. Ingest and validate a task bundle
-
-The reviewer can construct an example task bundle from CLI args (no API):
+## 4. Ingest And Validate A Task Bundle
 
 ```bash
 docker run --rm \
@@ -102,83 +78,72 @@ docker run --rm chemelucid-gym:reviewer \
     python -m interactive.task_bundle validate-rubric examples/custom_rubric.yaml
 ```
 
-Both must succeed with the not-comparable note ("custom rubric outputs are
-local extension diagnostics and are NOT comparable to official scores").
+Both must succeed with the not-comparable note: custom rubric outputs are local
+extension diagnostics and are not comparable to official scores.
 
-## 5. Run the full test suite
+## 5. Run The Test Suite
 
 ```bash
 docker run --rm chemelucid-gym:reviewer pytest interactive/tests/ -q
 ```
 
-Expected: hundreds of tests pass; the harness-specific tests live at
-`interactive/tests/test_task_bundle.py` (10 cases).
+Tests that require the full private HRE assets skip in the anonymous review
+package. The public task, leakage, task-bundle, toy scoring, and metric tests
+run without API keys.
 
-## 6. Where data lives
+## 6. Where Data Lives
 
 | Path | Visibility | Purpose |
 |---|---|---|
-| `data_split/public_task_data/<mol_id>/task_*.json` | **agent-visible** | Formula, peaks, solvent, frequency. No SMILES/InChI/CAS. |
-| `data/withheld_probe/spectra/probe_*_CNMR.json` | **agent-visible** | 48 hidden-answer probe spectra. |
-| `data_split/private_grader_data/<mol_id>/grader_*.json` | grader-only | Ground-truth SMILES + expert DAG nodes. Read by `interactive/grade.py`. |
-| `data/withheld_probe/probe_48_manifest.csv` | grader-only | Hidden SMILES + provenance for the probes. Reviewer-private but shipped because reviewers must be able to grade without a personal request. |
-| `manifests/*.jsonl` | grader-only | Frozen scope manifests (`core18_full_matrix.jsonl`, `private_canary_manifest.jsonl`). |
+| `data_split/public_task_data/<mol_id>/task_*.json` | agent-visible | Formula, peaks, solvent, frequency, and prompt. No SMILES/InChI/CAS/source IDs. |
+| `examples/hre_toy/` | public/sanitized | Toy HRE schema, toy trajectory, and L1/L2/L3 scoring invocation. |
+| `data_split/private_grader_data/` | omitted placeholder | Expected private grader location for controlled releases. |
+| `data/C_NMR/`, `data/H_NMR/`, `data/combo/` | omitted placeholder | Legacy private HRE locations, not shipped in review package. |
+| `data/withheld_probe/` | omitted placeholder | Withheld-probe spectra/labels are not shipped in review package. |
 
-Inside the container, the public surface and the private grader surface are
-on the same disk; the leakage CI test
-(`interactive/tests/test_no_leakage.py`) and the per-bundle `validate`
-command enforce that the agent path never reads the private surface.
+The public surface and private-grader surface are deliberately separated. In
+review mode the private surface contains only placeholder READMEs.
 
-## 7. What agents must NOT see
+## 7. What Agents Must Not See
 
-- canonical SMILES of any task molecule
-- InChI / InChI key of any task molecule
-- CAS numbers, IUPAC names, or chemical names of any task molecule
-- the source database identifier (`nmrshiftdb` row id, DOI of the published
-  spectrum) for the withheld probes
-- the legacy internal alias (`canary_NNN`) of any probe (a private mapping
-  in the manifest)
+- canonical SMILES of benchmark molecules
+- InChI or InChI key of benchmark molecules
+- CAS numbers, IUPAC names, or chemical names of benchmark molecules
+- withheld-probe source identifiers or hidden labels
+- complete chemistry-specific HRE templates or expert-curated reasoning graphs
 
-The `task_bundle validate` command and the `test_task_bundle.py` regression
-tests enforce these invariants by RDKit canonicalization (any token that
-canonicalizes to the hidden answer is a leak) plus a keyed-string scan
-(`"smiles":`, `"inchi":`, `"cas":`, …).
+The `task_bundle validate` command and leakage tests enforce these invariants
+for agent-facing files.
 
-## 8. Expected runtime
+## 8. Expected Runtime
 
 | Command | Approximate runtime |
 |---|---|
-| `docker build` | 3–5 min |
+| `docker build` | 3-5 min |
 | `python -m interactive.cli list-molecules` | < 1 s |
 | `python -m interactive.experiments.smoke_test` | < 1 s |
-| `python -m interactive.grade --episode-log <cached> --manifest core --out /tmp/metrics.json` | < 1 s |
+| `python examples/hre_toy/run_toy_scoring.py` | < 1 s |
 | `python -m interactive.task_bundle ingest ...` | < 1 s |
 | `python -m interactive.task_bundle validate <bundle>` | < 1 s |
-| `pytest interactive/tests/ -q` | ~1 min |
+| `pytest interactive/tests/ -q` | about 1 min |
 
-## 9. Known limitations
+## 9. Known Limitations
 
-- **No live LLM episodes inside the container.** Provider keys are not passed
-  in, and the live `run` / `run-all` / `run-probe` paths intentionally fail
-  fast if `OPENAI_API_KEY` / `ANTHROPIC_API_KEY` are unset.
-- **Java / `py2opsin` is not installed.** The IUPAC→SMILES code path in
-  `chem_defense/utils/smiles_utils.py:resolve_molecule_to_smiles` requires a
-  JRE and is not on the verification path. Authors who want to ingest a
-  molecule from an IUPAC name should use a host install with `pip install
-  py2opsin` and a JRE.
+- **Private HRE assets omitted.** Exact private-grader evaluation used for
+  hidden probes requires controlled-release assets that are intentionally
+  withheld during double-blind review.
+- **No live LLM episodes inside the container by default.** Provider keys are
+  not passed in. Live runs require host-provided keys.
+- **Java / `py2opsin` is not installed.** IUPAC-to-SMILES resolution is outside
+  the no-API review path.
 - **Multi-architecture wheels.** The image builds on linux/amd64 by default;
-  on Apple Silicon Docker Desktop it runs under emulation. `rdkit` ships
-  arm64 wheels since 2024, so a native arm64 build is also feasible.
-- **Compose volume mount.** The provided `compose.yaml` bind-mounts the
-  working tree so reviewers can edit code and re-run without a rebuild;
-  for a strictly frozen image, comment out the `volumes:` block.
+  Apple Silicon Docker Desktop may use emulation.
 
-## 10. What official-vs-custom means
+## 10. Official Versus Custom
 
-The harness lets authors and reviewers attach **custom DAGs** and **custom
-rubrics** for local extension. **These are not part of the official
-ChemElucid-Gym score.** The official score is computed only by the frozen
-grader (`interactive/grade.py`) against the frozen manifests in
-`manifests/*.jsonl` and `data_split/private_grader_data/`. Custom-rubric
-outputs are local diagnostics and must be reported under their own header in
-any analysis output. See `docs/TASK_BUNDLE_FORMAT.md`.
+The harness lets authors and reviewers attach custom DAGs and custom rubrics
+for local extension. These are not official benchmark scores. In the anonymous
+review package, official hidden-grader scoring is represented by scoring code
+and sanitized examples; exact private-grader evaluation requires the withheld
+private HRE assets that will be released in controlled form after public paper
+release.

@@ -6,6 +6,19 @@ from interactive.dag_grader import DAGGrader
 from interactive.config import DATA_DIR
 MOL_ID = "2_4_dimethyl_aniline"
 
+CHEMISTRY_HRE_AVAILABLE = (
+    (DATA_DIR / "CNMR_HRE_v5.json").exists()
+    and (DATA_DIR / "C_NMR" / f"{MOL_ID}_CNMR_HRE.json").exists()
+)
+
+pytestmark = pytest.mark.skipif(
+    not CHEMISTRY_HRE_AVAILABLE,
+    reason=(
+        "Full chemistry-specific HRE assets are omitted from the anonymous "
+        "review package; sanitized alignment coverage lives in examples/hre_toy/."
+    ),
+)
+
 
 @pytest.fixture
 def grader():

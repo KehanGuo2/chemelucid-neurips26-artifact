@@ -13,6 +13,18 @@ from interactive.config import ExperimentConfig, DATA_DIR
 from interactive.environment import ChemElucidEnv
 
 
+PRIVATE_HRE_AVAILABLE = (
+    (DATA_DIR / "CNMR_HRE_v5.json").exists()
+    and (
+        DATA_DIR.parent
+        / "data_split"
+        / "private_grader_data"
+        / "2_4_dimethyl_aniline"
+        / "grader_CNMR.json"
+    ).exists()
+)
+
+
 @pytest.fixture
 def env():
     config = ExperimentConfig(data_dir=str(DATA_DIR))
@@ -68,6 +80,9 @@ class TestGrading:
             trajectory=[],
             spectrum_type="CNMR",
         )
+        if not PRIVATE_HRE_AVAILABLE:
+            assert result is None
+            return
         assert result is not None
         assert result["coverage"] == 0.0
 

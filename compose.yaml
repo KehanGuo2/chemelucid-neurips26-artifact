@@ -23,7 +23,7 @@ services:
     working_dir: /workspace
     environment:
       # No provider keys are passed in by default. The verification path
-      # (list-molecules, smoke_test, grade --episode-log) does not need them.
+      # (list-molecules, smoke_test, toy HRE scoring) does not need them.
       PYTHONPATH: /workspace
       PYTHONDONTWRITEBYTECODE: "1"
       PYTHONUNBUFFERED: "1"

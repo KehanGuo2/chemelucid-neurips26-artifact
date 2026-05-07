@@ -1,16 +1,9 @@
-"""Split-data loader: separates agent-visible task data from grader-only ground truth.
+"""Review-mode data loader for public tasks and optional private grader assets.
 
-Addresses the leak where {mol_id}_CNMR_HRE.json contained the SMILES answer in the
-BIG QUESTION node and F1-F8 reasoning checkpoints — fields that ToolServer also
-read on disk, meaning a Terminal-Bench-style agent with shell access could `cat`
-the file.
-
-This module loads from two parallel directories:
-- public_task_data/{mol_id}/task_{TYPE}.json  -> safe, agent-visible
-- private_grader_data/{mol_id}/grader_{TYPE}.json -> SMILES + DAG checkpoints
-
-All 18 core molecules × {CNMR, HNMR, COMBO} are migrated; data_loader falls
-back to the legacy single-file layout only for molecules outside that set.
+The anonymous review package intentionally ships only agent-visible public task
+bundles plus sanitized toy HRE examples. Full private HRE files, withheld probe
+labels, and expert graphs are omitted. When those controlled-release assets are
+absent, loader helpers return ``None`` rather than failing.
 """
 
 from __future__ import annotations
@@ -50,10 +43,14 @@ def _split_root(data_dir: Path) -> Path:
 
 
 def has_split_data(molecule_id: str, spectrum_type: str, data_dir: Path) -> bool:
-    """Return True iff the molecule has been migrated to split layout."""
+    """Return True iff the public split-layout task exists.
+
+    The anonymous review package does not require the matching private grader
+    file to be present; exact private-grader scoring is a controlled-release
+    path. Call ``load_private_grader`` separately when private assets exist.
+    """
     pub = _split_root(data_dir) / "public_task_data" / molecule_id / f"task_{spectrum_type}.json"
-    priv = _split_root(data_dir) / "private_grader_data" / molecule_id / f"grader_{spectrum_type}.json"
-    return pub.exists() and priv.exists()
+    return pub.exists()
 
 
 def load_public_task(
@@ -97,7 +94,7 @@ def load_public_task(
 def load_private_grader(
     molecule_id: str, spectrum_type: str, data_dir: Path
 ) -> Optional[PrivateGrader]:
-    """Load grader-only ground truth. Returns None if file missing."""
+    """Load grader-only ground truth. Returns None if omitted in review mode."""
     priv = _split_root(data_dir) / "private_grader_data" / molecule_id / f"grader_{spectrum_type}.json"
     if not priv.exists():
         return None
@@ -113,9 +110,9 @@ def load_private_grader(
 
 
 # ---------------------------------------------------------------------------
-# Withheld-probe layer: agent-facing spectra under data/withheld_probe/spectra/
-# Hidden ground truth lives in data/withheld_probe/probe_48_manifest.csv and
-# is only ever loaded by the grader, never by the agent-facing ToolServer path.
+# Withheld-probe layer for controlled releases. The anonymous review package
+# intentionally omits these spectra and hidden labels, so these helpers normally
+# return False/None in review mode.
 # ---------------------------------------------------------------------------
 
 def _probe_root(data_dir: Path) -> Path:

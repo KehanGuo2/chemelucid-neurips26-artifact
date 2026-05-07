@@ -1,7 +1,6 @@
 """Tests for ToolServer — using 2,4-dimethylaniline (C8H11N) as default molecule.
 
-Ground truth:
-- SMILES: Cc1ccc(N)c(C)c1
+Reference public task:
 - Formula: C8H11N
 - DoU: 4
 - 13C peaks: δ 142.20, 131.28, 127.88, 127.49, 122.57, 115.23, 20.60, 17.48
@@ -40,9 +39,9 @@ class TestDataLoading:
         assert any(abs(p - 17.48) < 0.1 for p in peaks), "Missing 17.48 ppm peak"
 
     def test_loads_gt_smiles(self, server):
-        assert server.gt_smiles  # Non-empty
-        # Should be some variant of dimethylaniline
-        assert "c" in server.gt_smiles.lower() or "C" in server.gt_smiles
+        # Private grader answers are intentionally omitted in the anonymous
+        # review package; ToolServer still loads the public spectrum.
+        assert server.gt_smiles == ""
 
     def test_initial_observation(self, server):
         obs = server.get_initial_observation()
@@ -474,14 +473,23 @@ class TestHNMRNoData:
     @pytest.fixture
     def no_hnmr_server(self, tmp_path):
         """Create a server with no HNMR data (only CNMR)."""
-        # Create minimal CNMR data dir
-        cnmr_dir = tmp_path / "C_NMR"
-        cnmr_dir.mkdir()
-        import json, shutil
-        src = Path(DATA_DIR) / "C_NMR" / f"{MOL_ID}_CNMR_HRE.json"
-        shutil.copy(src, cnmr_dir / f"{MOL_ID}_CNMR_HRE.json")
-        # No H_NMR directory → no HNMR data
-        return ToolServer(molecule_id=MOL_ID, data_dir=str(tmp_path), spectrum_type="CNMR")
+        import json
+
+        data_dir = tmp_path / "data"
+        public_dir = tmp_path / "data_split" / "public_task_data" / MOL_ID
+        public_dir.mkdir(parents=True)
+        (data_dir).mkdir()
+        (public_dir / "task_CNMR.json").write_text(json.dumps({
+            "molecule_id": MOL_ID,
+            "spectrum_type": "CNMR",
+            "molecular_formula": "C8H11N",
+            "spectrum_peaks": [142.20, 131.28, 127.88, 127.49, 122.57, 115.23, 20.60, 17.48],
+            "solvent": "CDCl3",
+            "mhz": "100",
+            "task_prompt": "Toy public CNMR-only task for tests.",
+        }))
+        # No task_HNMR.json -> no HNMR data.
+        return ToolServer(molecule_id=MOL_ID, data_dir=str(data_dir), spectrum_type="CNMR")
 
     def test_no_hnmr_multiplicity(self, no_hnmr_server):
         """Server without HNMR data should return error for HNMR tools."""

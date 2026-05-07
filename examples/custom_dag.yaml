@@ -2,9 +2,8 @@
 #
 # IMPORTANT: outputs computed against this DAG are LOCAL EXTENSION
 # DIAGNOSTICS. They are NOT comparable to ChemElucid-Gym official scores,
-# which are computed only against the frozen manifests under
-# `data_split/private_grader_data/` and the grader in
-# `interactive/grade.py`. See `docs/TASK_BUNDLE_FORMAT.md`.
+# which require controlled-release private grader assets. The anonymous review
+# package ships sanitized examples only. See `docs/TASK_BUNDLE_FORMAT.md`.
 
 schema_version: 1
 name: "minimal-illustrative-dag"

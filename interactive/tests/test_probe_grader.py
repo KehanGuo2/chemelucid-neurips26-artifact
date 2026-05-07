@@ -1,4 +1,9 @@
-"""Tests for the 48-molecule withheld-probe outcome-only grader pipeline."""
+"""Tests for withheld-probe outcome-only scoring definitions.
+
+The anonymous review package omits withheld-probe manifests and spectra; the
+artifact-integrity tests below skip unless controlled-release assets are
+present.
+"""
 
 from __future__ import annotations
 
@@ -78,7 +83,10 @@ def test_score_outcome_only_no_gt_in_output():
 def test_probe_manifest_exists_and_has_48_rows():
     """The probe artifact is built and contains exactly 48 entries with seed=42."""
     if not MANIFEST_PATH.exists():
-        pytest.skip(f"probe manifest missing at {MANIFEST_PATH}; run scripts/build_withheld_probe.py")
+        pytest.skip(
+            f"probe manifest missing at {MANIFEST_PATH}; withheld-probe labels "
+            "are intentionally omitted from the anonymous review package"
+        )
 
     with MANIFEST_PATH.open() as f:
         rows = list(csv.DictReader(f))
@@ -102,7 +110,7 @@ def test_probe_manifest_exists_and_has_48_rows():
 def test_probe_spectra_have_no_hidden_answer():
     """Agent-facing spectrum JSONs must NEVER contain SMILES, InChI, or 'answer' fields."""
     if not MANIFEST_PATH.exists():
-        pytest.skip(f"probe manifest missing at {MANIFEST_PATH}")
+        pytest.skip("withheld-probe manifest intentionally omitted from review package")
 
     with MANIFEST_PATH.open() as f:
         manifest = {r["probe_id"]: r for r in csv.DictReader(f)}
@@ -140,7 +148,7 @@ def test_probe_spectra_have_no_hidden_answer():
 def test_probe_no_overlap_with_core_18():
     """No probe SMILES may overlap the canonical 18-core (canonicalized comparison)."""
     if not MANIFEST_PATH.exists():
-        pytest.skip(f"probe manifest missing at {MANIFEST_PATH}")
+        pytest.skip("withheld-probe manifest intentionally omitted from review package")
     try:
         from rdkit import Chem
     except ImportError:
@@ -183,17 +191,20 @@ def test_probe_sampling_reproducibility():
     """The probe set is fully determined by the recorded seed.
 
     We cannot re-invoke the upstream sampler in a unit test (it depends on
-    a 50-mol pool of nmrshiftdb JSON files that may not be present), but we can
-    verify that re-running build_withheld_probe.py produces a byte-identical
-    manifest. This catches non-determinism in the mirroring step.
+    a controlled-release source pool that is not present in the anonymous
+    review package), but controlled-release trees may verify that their local
+    rebuild script produces a byte-identical manifest.
     """
     if not MANIFEST_PATH.exists():
-        pytest.skip(f"probe manifest missing at {MANIFEST_PATH}")
+        pytest.skip("withheld-probe manifest intentionally omitted from review package")
+    rebuild_script = REPO_ROOT / "scripts" / "build_withheld_probe.py"
+    if not rebuild_script.exists():
+        pytest.skip("controlled-release probe rebuild script omitted from review package")
 
     import subprocess
     before = MANIFEST_PATH.read_bytes()
     result = subprocess.run(
-        ["python3", "scripts/build_withheld_probe.py"],
+        ["python3", str(rebuild_script)],
         cwd=REPO_ROOT,
         capture_output=True,
         text=True,

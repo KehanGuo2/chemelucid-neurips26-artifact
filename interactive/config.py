@@ -16,7 +16,9 @@ from typing import Dict, List, Optional
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 
-# DAG templates
+# Private HRE DAG templates are intentionally omitted from the anonymous review
+# package. These paths are used only when controlled-release grader assets are
+# present; sanitized review examples live under examples/hre_toy/.
 CNMR_DAG_TEMPLATE = DATA_DIR / "CNMR_HRE_v5.json"
 HNMR_DAG_TEMPLATE = DATA_DIR / "HNMR_HRE_v5.json"
 
@@ -30,7 +32,14 @@ HNMR_DATA_DIR = DATA_DIR / "H_NMR"
 # ---------------------------------------------------------------------------
 
 def get_all_molecule_ids() -> List[str]:
-    """Get list of all available molecule IDs from the CNMR data directory."""
+    """Get molecule IDs available in the review-mode public task directory."""
+    public_root = PROJECT_ROOT / "data_split" / "public_task_data"
+    if public_root.exists():
+        return sorted(
+            p.name for p in public_root.iterdir()
+            if p.is_dir() and any(p.glob("task_*.json"))
+        )
+
     ids = []
     if CNMR_DATA_DIR.exists():
         for f in sorted(CNMR_DATA_DIR.glob("*_CNMR_HRE.json")):

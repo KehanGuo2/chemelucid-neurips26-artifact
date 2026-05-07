@@ -88,7 +88,10 @@ def cmd_run(args):
     print(f"Model:     {diagnostic['model']}")
     print(f"Stateful:  {diagnostic['stateful']}")
     print(f"Submitted: {diagnostic['submitted_smiles']}")
-    print(f"GT:        {diagnostic['gt_smiles']}")
+    if diagnostic.get("private_grader_available"):
+        print("Private grader: available")
+    else:
+        print("Private grader: omitted in anonymous review package")
     print(f"Exact:     {acc['exact_match']}")
     print(f"Tanimoto:  {acc['tanimoto']}")
     print(f"Coverage:  {diagnostic.get('coverage', 'N/A')}")
@@ -153,8 +156,10 @@ def cmd_run_all(args):
             env.save_diagnostic(diagnostic, args.output)
 
             acc = diagnostic["accuracy"]
+            tani = acc.get("tanimoto")
+            tani_str = f"{tani:.3f}" if isinstance(tani, (int, float)) else "N/A"
             logger.info(
-                f"  exact={acc['exact_match']}, tanimoto={acc['tanimoto']:.3f}, "
+                f"  exact={acc.get('exact_match')}, tanimoto={tani_str}, "
                 f"cost={diagnostic['total_cost']}, ended={diagnostic['terminated_by']}"
             )
             results.append(diagnostic)
@@ -172,10 +177,14 @@ def cmd_run_all(args):
             print(f"{r['molecule_id']:<40} ERROR: {r['error'][:30]}")
         else:
             acc = r["accuracy"]
+            exact = acc.get("exact_match")
+            tani = acc.get("tanimoto")
+            exact_str = "-" if exact is None else ("Y" if exact else "N")
+            tani_str = f"{tani:<10.3f}" if isinstance(tani, (int, float)) else f"{'N/A':<10}"
             print(
                 f"{r['molecule_id']:<40} "
-                f"{'Y' if acc['exact_match'] else 'N':<8} "
-                f"{acc['tanimoto']:<10.3f} "
+                f"{exact_str:<8} "
+                f"{tani_str} "
                 f"{r['total_cost']:<8} "
                 f"{r['terminated_by']:<10}"
             )
@@ -184,16 +193,28 @@ def cmd_run_all(args):
     # Aggregate stats
     successful = [r for r in results if "error" not in r]
     if successful:
-        exact_count = sum(1 for r in successful if r["accuracy"]["exact_match"])
-        avg_tanimoto = sum(r["accuracy"]["tanimoto"] for r in successful) / len(successful)
+        exact_count = sum(1 for r in successful if r["accuracy"].get("exact_match") is True)
+        tanis = [
+            r["accuracy"].get("tanimoto") for r in successful
+            if isinstance(r["accuracy"].get("tanimoto"), (int, float))
+        ]
+        avg_tanimoto = sum(tanis) / len(tanis) if tanis else None
         avg_cost = sum(r["total_cost"] for r in successful) / len(successful)
         print(f"\nExact matches: {exact_count}/{len(successful)}")
-        print(f"Avg Tanimoto:  {avg_tanimoto:.3f}")
+        print(f"Avg Tanimoto:  {avg_tanimoto:.3f}" if avg_tanimoto is not None else "Avg Tanimoto:  N/A")
         print(f"Avg Cost:      {avg_cost:.1f}")
 
 
 def cmd_run_probe(args):
     """Run a single withheld-probe episode in outcome-only mode (no DAG grading)."""
+    probe_dir = DATA_DIR / "withheld_probe" / "spectra"
+    if not probe_dir.exists() or not any(probe_dir.glob("*_CNMR.json")):
+        raise SystemExit(
+            "Withheld-probe assets are intentionally omitted from the anonymous "
+            "review package. The repo still supports public task execution and "
+            "sanitized scoring examples under examples/hre_toy/."
+        )
+
     config = ExperimentConfig(
         data_dir=str(DATA_DIR),
         budget=args.budget,
@@ -308,7 +329,7 @@ def cmd_analyze(args):
         print(
             f"{r.get('molecule_id', '?'):<32.32} "
             f"{r.get('model', '?'):<18.18} "
-            f"{'Y' if acc.get('exact_match') else 'N':<6} "
+            f"{('-' if acc.get('exact_match') is None else ('Y' if acc.get('exact_match') else 'N')):<6} "
             f"{_fmt(acc.get('tanimoto'), '.3f'):<6} "
             f"{_fmt(l1.get('score'), '.3f'):<6} "
             f"{_fmt(r.get('coverage'), '.3f'):<6} "
@@ -411,7 +432,7 @@ def main():
         "--scope",
         default="core",
         choices=["core", "all"],
-        help="core=canonical 18 molecules from ALL_MOLECULES (default); all=every JSON in data/C_NMR/",
+        help="core=canonical 18 molecules (default); all=public task dirs in data_split/public_task_data/",
     )
     p_list.set_defaults(func=cmd_list_molecules)
 

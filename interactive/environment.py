@@ -91,7 +91,9 @@ class ChemElucidEnv:
         )
         result = agent.run(observation)
 
-        # 5. Grade with DAG (skipped in withheld-probe mode — no DAG exists).
+        # 5. Grade with DAG when private HRE assets are present. The anonymous
+        # review package omits those assets, so this may return None while L1/L3
+        # and episode logging still run.
         if probe_mode:
             grading = None
         else:
@@ -113,8 +115,12 @@ class ChemElucidEnv:
 
         elapsed = time.time() - start_time
 
-        # 9. Compile diagnostic report. In probe_mode the DAG-derived fields are
-        # all None and gt_smiles is NOT echoed (would leak hidden ground truth).
+        private_grader_available = bool(tool_server.gt_smiles)
+
+        # 9. Compile diagnostic report. Private ground truth is never echoed;
+        # review-mode runs report inspectable logging and L1/L3 diagnostics, and
+        # exact hidden-grader metrics become available only when controlled
+        # private assets are supplied.
         diagnostic = {
             "molecule_id": molecule_id,
             "model": model,
@@ -123,7 +129,7 @@ class ChemElucidEnv:
             "spectrum_type": spectrum_type,
             "info_mode": info_mode,
             "probe_mode": probe_mode,
-            "accuracy": accuracy if not probe_mode else self._strip_gt(accuracy),
+            "accuracy": self._strip_gt(accuracy),
             "efficiency": efficiency,
             "coverage": grading["coverage"] if grading else None,
             "cf_coverage": grading.get("cf_coverage") if grading else None,
@@ -133,7 +139,12 @@ class ChemElucidEnv:
             "failure_analysis": grading["failure_analysis"] if grading else None,
             "grading_summary": grading["summary"] if grading else None,
             "submitted_smiles": result["submitted_smiles"],
-            "gt_smiles": tool_server.gt_smiles if not probe_mode else None,
+            "gt_smiles": None,
+            "private_grader_available": private_grader_available,
+            "release_boundary_note": (
+                "Private HRE assets are omitted from the anonymous review package; "
+                "exact private-grader metrics require controlled-release assets."
+            ) if not private_grader_available else None,
             "total_cost": result["total_cost"],
             "budget": budget,
             "num_turns": result["num_turns"],
@@ -148,19 +159,29 @@ class ChemElucidEnv:
             "timestamp": datetime.now().isoformat(),
         }
 
-        if probe_mode:
+        if probe_mode and tool_server.gt_smiles:
             from interactive.probe_grader import score_outcome_only
             outcome = score_outcome_only(
                 result["submitted_smiles"], tool_server.gt_smiles,
             )
             diagnostic["outcome_only"] = outcome
+        elif probe_mode:
+            diagnostic["outcome_only"] = {
+                "inchi_exact": None,
+                "tanimoto": None,
+                "valid_smiles": None,
+                "private_grader_available": False,
+                "note": (
+                    "Withheld-probe hidden labels are intentionally omitted from "
+                    "the anonymous review package."
+                ),
+            }
 
         return diagnostic
 
     @staticmethod
     def _strip_gt(accuracy: Dict[str, Any]) -> Dict[str, Any]:
-        """Drop any field that exposes the hidden ground-truth SMILES from a
-        diagnostic dict. Used when emitting withheld-probe results to disk."""
+        """Drop any field that exposes a hidden answer from a diagnostic dict."""
         if not isinstance(accuracy, dict):
             return accuracy
         scrubbed = {}
@@ -195,11 +216,11 @@ class ChemElucidEnv:
     ) -> Optional[Dict[str, Any]]:
         """Grade trajectory against a single DAG (CNMR or HNMR).
 
-        Prefers the split private grader file
-        (data_split/private_grader_data/{mol}/grader_{TYPE}.json) when present;
-        falls back to the legacy single-file layout otherwise.
+        Uses a split private grader file or legacy HRE file only when those
+        controlled-release assets are present. In the anonymous review package,
+        this returns None with a clear log message.
         """
-        from interactive.data_loader import has_split_data, _split_root
+        from interactive.data_loader import _split_root
 
         if spectrum_type == "CNMR":
             dag_template = self.config.cnmr_dag_template
@@ -211,20 +232,22 @@ class ChemElucidEnv:
             logger.warning(f"Unknown spectrum_type: {spectrum_type}")
             return None
 
-        # Prefer split private grader file when available.
         data_dir = Path(self.config.data_dir)
-        if has_split_data(molecule_id, spectrum_type, data_dir):
-            gt_file = (
-                _split_root(data_dir)
-                / "private_grader_data"
-                / molecule_id
-                / f"grader_{spectrum_type}.json"
-            )
-        else:
-            gt_file = legacy_gt
+        split_private = (
+            _split_root(data_dir)
+            / "private_grader_data"
+            / molecule_id
+            / f"grader_{spectrum_type}.json"
+        )
+        gt_file = split_private if split_private.exists() else legacy_gt
 
         if not Path(dag_template).exists() or not gt_file.exists():
-            logger.warning(f"DAG or GT file not found for {molecule_id}/{spectrum_type}")
+            logger.warning(
+                "Private HRE assets not found for %s/%s; skipping L2 private "
+                "grader coverage. This is expected in the anonymous review package.",
+                molecule_id,
+                spectrum_type,
+            )
             return None
 
         grader = DAGGrader(dag_path=dag_template, gt_path=str(gt_file))
@@ -301,6 +324,18 @@ class ChemElucidEnv:
         gt: str,
     ) -> Dict[str, Any]:
         """Check SMILES accuracy using InChI comparison + Tanimoto similarity."""
+        if not gt:
+            return {
+                "exact_match": None,
+                "tanimoto": None,
+                "submitted": submitted,
+                "private_grader_available": False,
+                "note": (
+                    "Private grader answer is intentionally omitted from the "
+                    "anonymous review package."
+                ),
+            }
+
         if not submitted:
             return {
                 "exact_match": False,

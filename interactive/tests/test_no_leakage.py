@@ -4,8 +4,9 @@ For each JSON under data_split/public_task_data/, walk every string token and
 attempt RDKit parsing. If any token parses to a valid molecule with at least
 3 heavy atoms, we treat that as a SMILES leak and fail.
 
-Also enforces the inverse: every public task file must have a matching
-private grader file with a non-empty gt_smiles.
+The anonymous review package intentionally omits the matching private grader
+files, so this test suite verifies that the public surface remains clean and
+that no private-grader JSONs were accidentally shipped.
 """
 from __future__ import annotations
 
@@ -98,16 +99,13 @@ def test_split_layout_has_files():
     assert len(files) >= 18, f"Expected >=18 public task files, got {len(files)}"
 
 
-@pytest.mark.parametrize("path", _public_task_files(), ids=lambda p: p.relative_to(PUBLIC_ROOT).as_posix())
-def test_each_public_file_has_matching_private_grader(path: Path):
-    """For every public file there must be a private grader with gt_smiles."""
-    rel = path.relative_to(PUBLIC_ROOT)
-    # rel is e.g. mol_id/task_CNMR.json
-    mol_id = rel.parts[0]
-    mode = rel.name.replace("task_", "").replace(".json", "")
-    priv = PRIVATE_ROOT / mol_id / f"grader_{mode}.json"
-    assert priv.exists(), f"Missing private grader for {mol_id}/{mode}"
-    with open(priv) as f:
-        gd = json.load(f)
-    smi = gd.get("ground_truth", {}).get("smiles", "")
-    assert smi, f"Empty gt_smiles in {priv.relative_to(REPO_ROOT)}"
+def test_private_grader_assets_omitted_from_review_package():
+    """Full private grader JSONs must not ship in the anonymous package."""
+    leaked = [
+        p for p in PRIVATE_ROOT.rglob("grader_*.json")
+        if p.is_file()
+    ] if PRIVATE_ROOT.exists() else []
+    assert not leaked, (
+        "Private grader files should be omitted from the anonymous review package: "
+        + ", ".join(str(p.relative_to(REPO_ROOT)) for p in leaked[:5])
+    )

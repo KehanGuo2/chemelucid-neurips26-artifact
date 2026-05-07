@@ -9,6 +9,10 @@ This artifact pairs:
 - **18 process-graded core molecules** with expert reasoning DAGs across CNMR / HNMR / combined modes.
 - **48 withheld-probe molecules** sampled from nmrshiftdb with hidden canonical SMILES, used for the outcome-only transfer experiment.
 
+## Leaderboard
+
+A lightweight static [Audit-18 Partial-Autonomous Diagnostic Leaderboard](leaderboard/audit18_pa.md) reports cached MolPuzzle-Gym broad PA results. EM is sorted for convenience, but MolPuzzle-Gym reports a diagnostic profile rather than a single target score: L1 evidence-acquisition breadth, L2 expert-roadmap coverage, and L3 observation-conditioned dependency. Transfer-24 and hidden-transfer results are intentionally kept out of the main leaderboard.
+
 ## Quick start
 
 ### Reviewer Docker harness (no API keys required)

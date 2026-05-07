@@ -50,7 +50,7 @@
     "equivalentProperty": "cr:equivalentProperty"
   },
   "@type": "sc:Dataset",
-  "name": "ChemElucid",
+  "name": "MolPuzzle-Gym / ChemElucid",
   "description": "ChemElucid / MolPuzzle-Gym anonymous review package for inspecting and running the public benchmark interface, public task bundle format, episode logging schema, scoring scripts, cached aggregate leaderboard data, and sanitized toy HRE examples. Full private HRE assets, private grader labels, withheld probe annotations, and complete expert-curated reasoning graphs are intentionally omitted during double-blind review.",
   "conformsTo": "http://mlcommons.org/croissant/1.1",
   "version": "0.1.0",
@@ -63,8 +63,8 @@
     "https://github.com/KehanGuo2/chemelucid-neurips26-artifact/tree/main"
   ],
   "datePublished": "2026-04-30",
-  "dateModified": "2026-05-04",
-  "sdVersion": "2026-05-04-neurips-ed-abstract",
+  "dateModified": "2026-05-07",
+  "sdVersion": "2026-05-07-neurips-ed-croissant-review-boundary",
   "citeAs": "@misc{chemelucid_2026, title={ChemElucid: Diagnosing Scientific Agents in Molecular Structure Elucidation}, author={Anonymous Authors}, year={2026}, note={NeurIPS 2026 Evaluations and Datasets track submission.}}",
   "creator": {
     "@type": "sc:Organization",
@@ -111,7 +111,16 @@
       "includes": "data_split/public_task_data/*/task_*.json"
     },
     {
-      "@type": "FileSet",
+      "@type": "cr:FileObject",
+      "@id": "toy-public-task-cnmr",
+      "name": "toy_public_task_CNMR.json",
+      "description": "Sanitized toy public task used to demonstrate the public task schema without exposing private benchmark HRE assets.",
+      "contentUrl": "examples/hre_toy/toy_public_task_CNMR.json",
+      "encodingFormat": "application/json",
+      "sha256": "7c6e9d8285071f047ee8a6fc264a6094f03349097ddfb298e47fcd820c193836"
+    },
+    {
+      "@type": "cr:FileSet",
       "@id": "sanitized-toy-hre",
       "name": "sanitized_toy_hre_examples",
       "description": "Toy HRE template, toy grader nodes, public toy task, trajectory, and scoring script for review-time inspection.",
@@ -226,34 +235,70 @@
       ]
     },
     {
-      "@type": "RecordSet",
+      "@type": "cr:RecordSet",
       "@id": "sanitized-toy-hre-records",
       "name": "sanitized_toy_hre",
-      "description": "Non-benchmark toy HRE records that demonstrate schema and trajectory alignment without exposing private grader assets.",
+      "description": "Non-benchmark toy public task record that demonstrates the schema consumed by the toy HRE alignment script without exposing private grader assets.",
       "field": [
         {
-          "@type": "Field",
+          "@type": "cr:Field",
           "@id": "sanitized-toy-hre/molecule_id",
           "name": "molecule_id",
-          "dataType": "sc:Text"
+          "description": "Toy public molecule identifier.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "toy-public-task-cnmr"
+            },
+            "extract": {
+              "jsonPath": "$.molecule_id"
+            }
+          }
         },
         {
-          "@type": "Field",
-          "@id": "sanitized-toy-hre/L1",
-          "name": "L1",
-          "dataType": "sc:Float"
+          "@type": "cr:Field",
+          "@id": "sanitized-toy-hre/spectrum_type",
+          "name": "spectrum_type",
+          "description": "Toy spectral modality.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "toy-public-task-cnmr"
+            },
+            "extract": {
+              "jsonPath": "$.spectrum_type"
+            }
+          }
         },
         {
-          "@type": "Field",
-          "@id": "sanitized-toy-hre/L2",
-          "name": "L2",
-          "dataType": "sc:Float"
+          "@type": "cr:Field",
+          "@id": "sanitized-toy-hre/molecular_formula",
+          "name": "molecular_formula",
+          "description": "Toy molecular formula exposed to the agent.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "toy-public-task-cnmr"
+            },
+            "extract": {
+              "jsonPath": "$.molecular_formula"
+            }
+          }
         },
         {
-          "@type": "Field",
-          "@id": "sanitized-toy-hre/L3",
-          "name": "L3",
-          "dataType": "sc:Float"
+          "@type": "cr:Field",
+          "@id": "sanitized-toy-hre/spectrum_peaks",
+          "name": "spectrum_peaks",
+          "description": "Toy 13C spectrum peaks exposed to the agent.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileObject": {
+              "@id": "toy-public-task-cnmr"
+            },
+            "extract": {
+              "jsonPath": "$.spectrum_peaks"
+            }
+          }
         }
       ]
     }

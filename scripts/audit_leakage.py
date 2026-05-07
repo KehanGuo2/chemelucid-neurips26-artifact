@@ -38,7 +38,7 @@ from typing import Iterable, List, Dict, Optional, Set, Tuple
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PUBLIC_ROOT = REPO_ROOT / "data_split" / "public_task_data"
 PRIVATE_ROOT = REPO_ROOT / "data_split" / "private_grader_data"
-CANARY_PROVENANCE = PRIVATE_ROOT / "_canary_provenance.json"
+PRIVATE_PROVENANCE = PRIVATE_ROOT / "_private_provenance.json"
 
 # Severity levels
 HARD = "HARD_LEAK"
@@ -127,21 +127,22 @@ def load_canonical_answers(Chem) -> Tuple[Dict[str, str], Set[str], Set[str]]:
         except Exception:
             pass
 
-    # Canary provenance lists canonical_smiles for canary_NNN
-    if CANARY_PROVENANCE.exists():
+    # Controlled-release private provenance may list additional canonical
+    # answers. It is absent from the anonymous review package.
+    if PRIVATE_PROVENANCE.exists():
         try:
-            with open(CANARY_PROVENANCE) as f:
+            with open(PRIVATE_PROVENANCE) as f:
                 prov = json.load(f)
             for entry in prov.get("entries", []):
-                cid = entry.get("canary_id")
-                if cid:
-                    mol_ids.add(cid)
+                private_id = entry.get("private_id") or entry.get("molecule_id")
+                if private_id:
+                    mol_ids.add(private_id)
                 smi = entry.get("canonical_smiles")
                 if not smi:
                     continue
                 inchi = _canon_inchi(Chem, smi)
                 if inchi:
-                    inchi_to_mol.setdefault(inchi, cid)
+                    inchi_to_mol.setdefault(inchi, private_id or "private")
                 try:
                     mol = Chem.MolFromSmiles(smi)
                     if mol is not None:
@@ -291,8 +292,7 @@ def audit_manifests(audit: AuditResult, Chem) -> None:
     mdir = REPO_ROOT / "manifests"
     if not mdir.exists():
         return
-    # Public manifests must contain NO leakage. private_canary_manifest is fine
-    # because it only contains paths and ids (verified below).
+    # Public manifests must contain no leakage in the anonymous review package.
     for path in mdir.glob("*.jsonl"):
         sev = HARD
         _scan_jsonl_file(path, Chem, audit, severity=sev, surface="manifests")
@@ -346,11 +346,12 @@ def audit_paper_and_readme(audit: AuditResult, Chem) -> None:
     if pdir.exists():
         for path in list(pdir.glob("*.tex")) + list(pdir.glob("*.md")):
             _scan_text_file(path, Chem, audit, severity=DOC, surface="paper")
-    # Canary SI drafts are tracked-public material; flag for review.
-    si = REPO_ROOT / "data_split" / "canary_si_drafts"
+    # Private SI drafts should not appear in the anonymous review package; if a
+    # local controlled-release tree has them, flag for review.
+    si = REPO_ROOT / "data_split" / "private_si_drafts"
     if si.exists():
         for path in si.rglob("*.json"):
-            _scan_json_file(path, Chem, audit, severity=DOC, surface="canary_si_drafts")
+            _scan_json_file(path, Chem, audit, severity=DOC, surface="private_si_drafts")
 
 
 def audit_scripts_and_analysis(audit: AuditResult, Chem) -> None:

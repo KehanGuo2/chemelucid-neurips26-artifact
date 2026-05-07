@@ -1,14 +1,13 @@
 """Reviewer-harness tests for `interactive.task_bundle`.
 
 These tests are Docker-independent: they validate the ingest/validate CLI,
-the public/private split, the leakage scanner, and the cached-trajectory
-grader's invariants. None of them require an LLM API.
+the public/private split, the leakage scanner, and sanitized toy scoring.
+None of them require an LLM API.
 """
 from __future__ import annotations
 
 import json
 import os
-import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -21,16 +20,7 @@ EXAMPLE_CNMR = REPO / "examples" / "acetaminophen_cnmr_peaks.csv"
 EXAMPLE_DAG = REPO / "examples" / "custom_dag.yaml"
 EXAMPLE_RUBRIC = REPO / "examples" / "custom_rubric.yaml"
 
-# A cached non-error trajectory used by the grader smoke-test.
-CACHED_DIAGNOSTIC = (
-    REPO
-    / "interactive"
-    / "results"
-    / "dummy_baselines"
-    / "random_tool_roulette"
-    / "partial_autonomous"
-    / "Benzil.json"
-)
+TOY_SCORING = REPO / "examples" / "hre_toy" / "run_toy_scoring.py"
 
 
 def _run(cmd: list[str], cwd: Path = REPO, env_extra: dict[str, str] | None = None) -> tuple[int, str, str]:
@@ -189,28 +179,17 @@ def test_validate_rubric_rejects_missing_criteria(tmp_path: Path) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Cached-trajectory grader: must produce metrics WITHOUT any private fields.
+# Sanitized toy scoring: must produce diagnostics WITHOUT private fields.
 # ---------------------------------------------------------------------------
 
-
-@pytest.mark.skipif(
-    not CACHED_DIAGNOSTIC.exists(),
-    reason="cached dummy trajectory not present; grader smoke test skipped",
-)
-def test_grade_cached_trajectory_emits_no_private_fields(tmp_path: Path) -> None:
-    out = tmp_path / "metrics.json"
+def test_toy_scoring_emits_no_private_fields() -> None:
     rc, stdout, stderr = _run([
-        sys.executable, "-m", "interactive.grade",
-        "--episode-log", str(CACHED_DIAGNOSTIC),
-        "--manifest", "core",
-        "--out", str(out),
+        sys.executable, str(TOY_SCORING),
     ])
-    assert rc == 0, f"grader failed: stdout={stdout} stderr={stderr}"
-    assert out.exists(), "grader must write metrics.json"
-    metrics = json.loads(out.read_text())
+    assert rc == 0, f"toy scoring failed: stdout={stdout} stderr={stderr}"
+    metrics = json.loads(stdout)
 
-    # The grader emits aggregate metrics only; assert no private GT key
-    # leaks into the public metrics file.
+    # The public toy scoring output must not use private benchmark field names.
     forbidden_keys = {
         "smiles", "canonical_smiles", "inchi", "inchi_key",
         "answer", "ground_truth", "gt_smiles",

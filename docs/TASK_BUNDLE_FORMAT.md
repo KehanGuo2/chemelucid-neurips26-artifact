@@ -10,9 +10,10 @@ that the contribution preserves the benchmark's invariants:
   DAG outputs are local extensions and are kept distinct from the official
   score
 
-The bundle is the *unit of contribution*. A frozen subset of bundles becomes
-the **official manifest** that the official grader runs against; everything
-outside that subset is local-only.
+The bundle is the *unit of contribution*. In controlled releases, a frozen
+subset of audited bundles becomes the official private-grader manifest;
+everything outside that subset is local-only. The anonymous review package
+ships the public format and sanitized examples, not the full private HRE assets.
 
 ## Directory layout
 
@@ -183,15 +184,20 @@ internal sanity check; it does not exercise the agent loop.
 
 ## Official vs custom
 
-The benchmark's headline scores are computed only against:
+The benchmark's headline private-grader scores are computed only against
+controlled-release assets:
 
-- `manifests/core18_full_matrix.jsonl` (the frozen 18-core manifest)
-- `manifests/private_canary_manifest.jsonl` (the frozen withheld-probe
-  manifest, public-facing aliases `probe_001..probe_048`)
-- `data_split/private_grader_data/<mol_id>/grader_*.json` (chemist-audited
-  expert DAGs for the core)
-- `interactive/grade.py` (frozen grader logic, including the four-class
-  failure taxonomy)
+- the frozen official manifest for audited benchmark molecules,
+- `data_split/private_grader_data/<mol_id>/grader_*.json` when supplied in a
+  controlled private-grader release,
+- withheld-probe labels when supplied in a controlled hidden-evaluation release,
+- `interactive/grade.py` and the associated scoring definitions.
+
+The anonymous review package does not include the full private HRE templates,
+private grader labels, withheld probe annotations, or expert-curated reasoning
+graphs. It includes public task bundles and `examples/hre_toy/` so reviewers can
+inspect the schema and scoring pipeline without exposing the private grader
+layer.
 
 A bundle authored under this format is **not automatically** part of the
 official manifest. Promotion follows the chemist-audit pipeline in
@@ -200,7 +206,7 @@ official manifest. Promotion follows the chemist-audit pipeline in
 by weight). Until promoted, bundles are local extension data and:
 
 - their grader output is reported under a separate header
-- they are not added to the official Croissant manifest in `release/`
+- they are not added to the official Croissant metadata
 - they cannot be cited as a ChemElucid-Gym benchmark score
 
 This separation is what makes the harness reviewer-proof: a contributor

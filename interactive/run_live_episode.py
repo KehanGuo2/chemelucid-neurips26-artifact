@@ -57,7 +57,7 @@ def write_summary_md(diagnostic: dict, path: str) -> None:
         f"| Metric | Value |",
         f"|--------|-------|",
         f"| Submitted SMILES | `{diagnostic.get('submitted_smiles', 'N/A')}` |",
-        f"| GT SMILES | `{diagnostic.get('gt_smiles', 'N/A')}` |",
+        f"| Private Grader | `{ 'available' if diagnostic.get('private_grader_available') else 'omitted in anonymous review package' }` |",
         f"| Exact Match | {'✅' if acc.get('exact_match') else '❌'} |",
         f"| Tanimoto Similarity | {acc.get('tanimoto', 'N/A')} |",
         f"| Efficiency | {diagnostic.get('efficiency', 'N/A')} |",
@@ -211,7 +211,10 @@ def main():
         print(f"  Molecule:     {diagnostic['molecule_id']}")
         print(f"  Model:        {diagnostic['model']}")
         print(f"  Submitted:    {diagnostic.get('submitted_smiles', 'N/A')}")
-        print(f"  GT:           {diagnostic.get('gt_smiles', 'N/A')}")
+        print(
+            "  Private Grader: "
+            + ("available" if diagnostic.get("private_grader_available") else "omitted in anonymous review package")
+        )
         print(f"  Exact Match:  {acc.get('exact_match', 'N/A')}")
         print(f"  Tanimoto:     {acc.get('tanimoto', 'N/A')}")
         print(f"  Coverage:     {diagnostic.get('coverage', 'N/A')}")

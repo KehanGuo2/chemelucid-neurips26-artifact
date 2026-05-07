@@ -51,7 +51,7 @@
   },
   "@type": "sc:Dataset",
   "name": "ChemElucid",
-  "description": "ChemElucid is an interactive evaluation environment for AI agents on molecular structure elucidation from NMR spectroscopy. The release pairs (a) 18 process-graded core molecules with expert reasoning DAGs across CNMR, HNMR, and combined modes, and (b) 48 withheld-probe molecules sampled from nmrshiftdb with hidden canonical SMILES used for outcome-only transfer evaluation. The artifact ships a public agent surface, a hidden grader, and a CLI for running and grading episodes.",
+  "description": "ChemElucid / MolPuzzle-Gym anonymous review package for inspecting and running the public benchmark interface, public task bundle format, episode logging schema, scoring scripts, cached aggregate leaderboard data, and sanitized toy HRE examples. Full private HRE assets, private grader labels, withheld probe annotations, and complete expert-curated reasoning graphs are intentionally omitted during double-blind review.",
   "conformsTo": "http://mlcommons.org/croissant/1.1",
   "version": "0.1.0",
   "license": [
@@ -73,224 +73,62 @@
   "isLiveDataset": false,
   "keywords": [
     "molecular structure elucidation",
-    "NMR",
-    "agent benchmark",
-    "structure elucidation",
-    "chemistry agents",
-    "evaluation",
-    "tool use"
+    "NMR spectroscopy",
+    "agent evaluation",
+    "scientific reasoning",
+    "public task bundles",
+    "sanitized HRE examples",
+    "anonymous review artifact"
   ],
-  "rai:dataCollection": "Core molecules (18) are curated from open-access chemistry references and published NMR catalogs; their identities are public because process annotations require expert authoring. Withheld-probe molecules (48) are sampled with seed=42 from a 150-row nmrshiftdb-derived candidate pool, stratified to match the core distribution along heavy-atom count, degree of unsaturation, and ring count. Source database license: nmrshiftdb is CC-BY-SA 3.0; only canonical SMILES, peak lists, formula, solvent, and frequency are redistributed. The original nmrshiftdb identifier is anonymized in agent-facing files (probe_001..probe_048).",
-  "rai:dataUseCases": "Evaluation of LLM agents on interactive scientific reasoning, with focus on whether final-answer accuracy reflects evidence-grounded investigation or benchmark-specific shortcutting. Process metrics (information acquisition, expert-DAG checkpoint coverage, dependency topology) make trajectory behavior auditable.",
-  "rai:dataLimitations": "The 18 core molecules skew toward small drug-like aromatic structures. The 48 withheld-probe molecules draw from natural-product-leaning entries with higher heavy-atom count and ring count than the core. Stereochemistry annotation is shallow. Spectra are publication-derived and may carry solvent- and instrument-specific shift biases that are not modeled. The release evaluates a single time point and is not a longitudinal contamination certificate.",
+  "rai:dataCollection": "The anonymous review package contains public task bundles for the review-time benchmark interface and sanitized toy HRE examples that demonstrate the scoring schema. Private HRE assets and withheld-probe labels used by the hidden grader are not included in this package.",
+  "rai:dataUseCases": "Reviewers can inspect task schemas, run the public tool interface, validate task bundles, execute L1/L2/L3 scoring definitions on sanitized examples, and inspect anonymous aggregate leaderboard tables. Exact private-grader evaluation requires controlled-release private HRE assets.",
+  "rai:dataLimitations": "This review package is not the full hidden-evaluation release. It omits complete chemistry-specific HRE templates, private grader labels, withheld probe annotations, and expert-curated reasoning graphs to preserve hidden-evaluation integrity during double-blind review.",
   "rai:personalSensitiveInformation": "None. The dataset contains no personal data, no human-subjects data, and no sensitive content. All molecules are small organic compounds documented in open-access chemistry sources.",
-  "rai:dataBiases": "Selection bias: core molecules favor drug-like aromatic chemistry; probe molecules favor natural-product space, reflecting the source pool composition. Both sets exclude organometallics, large biopolymers, and most stereochemistry-rich systems.",
-  "rai:dataSocialImpact": "Positive impact: ChemElucid makes agentic scientific reasoning more auditable by separating final-answer accuracy from evidence acquisition and tool-use process metrics. Potential negative impact: benchmark overfitting, leakage of hidden answers, or use of the environment as a proxy for real laboratory structure elucidation without expert review. Mitigations include a public/private data split, a leakage audit, hidden grader-side SMILES for probe tasks, explicit budgeted tools, and documentation that the benchmark is intended for evaluation research rather than safety-critical chemical or clinical decision-making.",
+  "rai:dataBiases": "The public review tasks and sanitized examples are intended for interface and scoring inspection, not as a complete characterization of the private hidden-evaluation set.",
+  "rai:dataSocialImpact": "Positive impact: the artifact makes the benchmark interface, logging, and diagnostic scoring code inspectable while protecting hidden-evaluation assets from premature release. Potential negative impact includes overfitting once private assets are released; mitigations include maintaining a public/private boundary and controlled post-publication release.",
   "rai:hasSyntheticData": false,
   "prov:wasDerivedFrom": [
-    "https://nmrshiftdb.nmr.uni-koeln.de/",
-    "https://github.com/KehanGuo2/chemelucid-neurips26-artifact/tree/main/data"
+    {
+      "@type": "CreativeWork",
+      "name": "Public task bundles and sanitized HRE examples",
+      "description": "Review-time public/sanitized assets that exercise the benchmark interface and scoring pipeline without exposing private HRE labels."
+    }
   ],
   "prov:wasGeneratedBy": [
     {
-      "@type": "prov:Activity",
-      "name": "Core-18 expert DAG curation",
-      "description": "Authors curated 18 molecule tasks with 13C, 1H, and combined NMR surfaces plus hidden expert reasoning DAG checkpoints for process grading. RDKit-based motif checks were used to validate structural ground truth where applicable."
-    },
-    {
-      "@type": "prov:Activity",
-      "name": "Withheld-probe sampling",
-      "description": "Authors sampled 48 probe molecules from a 150-row nmrshiftdb-derived pool using seed=42, with quotas along heavy-atom count, degree of unsaturation, and ring count; the probes are outcome-only graded."
-    },
-    {
-      "@type": "prov:Activity",
-      "name": "Public/private data split",
-      "description": "Agent-facing files contain formula and spectra only. Canonical SMILES, source identifiers, legacy aliases, and expert DAGs are stored in private grader files and are not served to evaluated agents."
-    },
-    {
-      "@type": "prov:Activity",
-      "name": "Preprocessing and validation",
-      "description": "Preprocessing normalizes identifiers, parses spectra, computes descriptors, builds deterministic manifests, and runs leakage checks to ensure agent-facing files exclude hidden answers."
+      "@type": "CreateAction",
+      "name": "Public/private release-boundary packaging",
+      "description": "The anonymous review package retains public task bundles and sanitized examples while omitting private HRE assets and hidden labels."
     }
   ],
   "distribution": [
     {
-      "@type": "cr:FileObject",
-      "@id": "probe-48-manifest",
-      "name": "probe_48_manifest.csv",
-      "description": "Hidden ground-truth manifest for the 48-molecule withheld-probe layer. Used by the grader; not exposed to evaluation agents.",
-      "contentUrl": "data/withheld_probe/probe_48_manifest.csv",
-      "encodingFormat": "text/csv",
-      "sha256": "7a196e5c31f5966b602a9f70ee980c123c2adae7a3b4c4c8ec072eb609392453"
-    },
-    {
-      "@type": "cr:FileSet",
-      "@id": "probe-48-spectra-cnmr",
-      "name": "probe_spectra_cnmr",
-      "description": "48 agent-facing 13C NMR spectrum files. One JSON per probe molecule; contains formula, peaks, solvent, and frequency only. SMILES, InChI, and source identifiers are excluded by construction.",
-      "encodingFormat": "application/json",
-      "includes": "data/withheld_probe/spectra/probe_*_CNMR.json"
-    },
-    {
       "@type": "cr:FileSet",
       "@id": "core-18-public-tasks",
       "name": "core_18_public_tasks",
-      "description": "Agent-facing task files for the 18 process-graded core molecules. One file per molecule per spectrum mode (CNMR, HNMR, COMBO). Hidden answers (SMILES) are stored separately under data_split/private_grader_data/ and are not exposed in these files.",
+      "description": "Agent-facing public task files for the Audit-18 review tasks. One file per molecule per spectrum mode where available; hidden answers, private labels, and expert DAGs are intentionally omitted from the anonymous review package.",
       "encodingFormat": "application/json",
       "includes": "data_split/public_task_data/*/task_*.json"
     },
     {
-      "@type": "cr:FileSet",
-      "@id": "core-18-private-grader",
-      "name": "core_18_private_grader",
-      "description": "Hidden grader files (canonical SMILES + reasoning DAG checkpoints) for the 18 core molecules. Used only by the grader CLI; never returned to the agent loop.",
-      "encodingFormat": "application/json",
-      "includes": "data_split/private_grader_data/*/grader_*.json"
-    },
-    {
-      "@type": "cr:FileObject",
-      "@id": "nmrshiftdb-pool-csv",
-      "name": "nmrshiftdb_scale150.csv",
-      "description": "150-row nmrshiftdb-derived candidate pool from which the 48 probe molecules were sampled with seed=42. Provenance only; not used at evaluation time.",
-      "contentUrl": "data/dynamic/nmrshiftdb_scale150.csv",
-      "encodingFormat": "text/csv",
-      "sha256": "ae05fdd76428d392dc1eb3ccfff4136591a4f5b7e5d0b3f6a93ac8d8da734d0f"
+      "@type": "FileSet",
+      "@id": "sanitized-toy-hre",
+      "name": "sanitized_toy_hre_examples",
+      "description": "Toy HRE template, toy grader nodes, public toy task, trajectory, and scoring script for review-time inspection.",
+      "encodingFormat": [
+        "application/json",
+        "text/x-python",
+        "text/markdown"
+      ],
+      "includes": "examples/hre_toy/*"
     }
   ],
   "recordSet": [
     {
       "@type": "cr:RecordSet",
-      "@id": "withheld-probe-48",
-      "name": "withheld_probe_48",
-      "description": "The 48-molecule withheld-probe layer. Outcome-only graded (InChI exact match + Morgan/2/2048 Tanimoto). No expert-DAG annotation; no L2 or L3 process metrics.",
-      "field": [
-        {
-          "@type": "cr:Field",
-          "@id": "withheld-probe-48/probe_id",
-          "name": "probe_id",
-          "description": "Public probe identifier, e.g., probe_001..probe_048.",
-          "dataType": "sc:Text",
-          "source": {
-            "fileObject": {
-              "@id": "probe-48-manifest"
-            },
-            "extract": {
-              "column": "probe_id"
-            }
-          }
-        },
-        {
-          "@type": "cr:Field",
-          "@id": "withheld-probe-48/smiles_hidden",
-          "name": "smiles_hidden",
-          "description": "Canonical SMILES of the hidden ground-truth structure. Visible to the grader, never returned to the agent.",
-          "dataType": "sc:Text",
-          "source": {
-            "fileObject": {
-              "@id": "probe-48-manifest"
-            },
-            "extract": {
-              "column": "smiles_hidden"
-            }
-          }
-        },
-        {
-          "@type": "cr:Field",
-          "@id": "withheld-probe-48/source_id",
-          "name": "source_id",
-          "description": "nmrshiftdb source entry id, e.g., nmrshiftdb2:2500. Provenance only; not exposed in agent-facing spectrum files.",
-          "dataType": "sc:Text",
-          "source": {
-            "fileObject": {
-              "@id": "probe-48-manifest"
-            },
-            "extract": {
-              "column": "source_id"
-            }
-          }
-        },
-        {
-          "@type": "cr:Field",
-          "@id": "withheld-probe-48/heavy_atoms",
-          "name": "heavy_atoms",
-          "description": "Heavy-atom count (HAC) of the ground-truth structure. Used for difficulty stratification.",
-          "dataType": "sc:Integer",
-          "source": {
-            "fileObject": {
-              "@id": "probe-48-manifest"
-            },
-            "extract": {
-              "column": "heavy_atoms"
-            }
-          }
-        },
-        {
-          "@type": "cr:Field",
-          "@id": "withheld-probe-48/num_peaks",
-          "name": "num_peaks",
-          "description": "Count of distinct 13C NMR peaks in the source spectrum.",
-          "dataType": "sc:Integer",
-          "source": {
-            "fileObject": {
-              "@id": "probe-48-manifest"
-            },
-            "extract": {
-              "column": "num_peaks"
-            }
-          }
-        },
-        {
-          "@type": "cr:Field",
-          "@id": "withheld-probe-48/has_hnmr",
-          "name": "has_hnmr",
-          "description": "Boolean: whether a 1H NMR spectrum is also released for this probe.",
-          "dataType": "sc:Boolean",
-          "source": {
-            "fileObject": {
-              "@id": "probe-48-manifest"
-            },
-            "extract": {
-              "column": "has_hnmr"
-            }
-          }
-        },
-        {
-          "@type": "cr:Field",
-          "@id": "withheld-probe-48/sampling_seed",
-          "name": "sampling_seed",
-          "description": "Random seed (=42) used to draw this probe from the nmrshiftdb pool.",
-          "dataType": "sc:Integer",
-          "source": {
-            "fileObject": {
-              "@id": "probe-48-manifest"
-            },
-            "extract": {
-              "column": "sampling_seed"
-            }
-          }
-        },
-        {
-          "@type": "cr:Field",
-          "@id": "withheld-probe-48/legacy_internal_id",
-          "name": "legacy_internal_id",
-          "description": "Internal alias used by the curation pipeline (canary_001..canary_048). Documented for reproducibility; the public-facing ID is probe_id. The agent-facing 13C NMR spectrum file is named data/withheld_probe/spectra/{probe_id}_CNMR.json.",
-          "dataType": "sc:Text",
-          "source": {
-            "fileObject": {
-              "@id": "probe-48-manifest"
-            },
-            "extract": {
-              "column": "legacy_internal_id"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "@type": "cr:RecordSet",
       "@id": "core-18",
-      "name": "core_18_process_graded",
-      "description": "The 18 process-graded core molecules. Each molecule has agent-facing task files (CNMR, HNMR, COMBO) under data_split/public_task_data/ and a hidden grader file under data_split/private_grader_data/. Three trajectory metrics (L1, L2, L3) are computed per episode against the expert reasoning DAG.",
+      "name": "audit18_public_task_bundles",
+      "description": "Public agent-facing task bundles for the Audit-18 review interface. Private grader assets required for exact hidden evaluation are intentionally omitted.",
       "field": [
         {
           "@type": "cr:Field",
@@ -329,7 +167,7 @@
           "@type": "cr:Field",
           "@id": "core-18/molecular_formula",
           "name": "molecular_formula",
-          "description": "Molecular formula of the ground-truth structure, exposed to the agent.",
+          "description": "Molecular formula exposed to the agent.",
           "dataType": "sc:Text",
           "source": {
             "fileSet": {
@@ -384,6 +222,38 @@
               "jsonPath": "$.mhz"
             }
           }
+        }
+      ]
+    },
+    {
+      "@type": "RecordSet",
+      "@id": "sanitized-toy-hre-records",
+      "name": "sanitized_toy_hre",
+      "description": "Non-benchmark toy HRE records that demonstrate schema and trajectory alignment without exposing private grader assets.",
+      "field": [
+        {
+          "@type": "Field",
+          "@id": "sanitized-toy-hre/molecule_id",
+          "name": "molecule_id",
+          "dataType": "sc:Text"
+        },
+        {
+          "@type": "Field",
+          "@id": "sanitized-toy-hre/L1",
+          "name": "L1",
+          "dataType": "sc:Float"
+        },
+        {
+          "@type": "Field",
+          "@id": "sanitized-toy-hre/L2",
+          "name": "L2",
+          "dataType": "sc:Float"
+        },
+        {
+          "@type": "Field",
+          "@id": "sanitized-toy-hre/L3",
+          "name": "L3",
+          "dataType": "sc:Float"
         }
       ]
     }

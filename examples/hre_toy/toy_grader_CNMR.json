@@ -1,0 +1,41 @@
+{
+  "schema_version": "toy-hre-v1",
+  "molecule_id": "toy_cnmr_review_example",
+  "spectrum_type": "CNMR",
+  "ground_truth": {
+    "smiles": "CCO",
+    "molecular_formula": "C2H6O"
+  },
+  "dag_nodes": [
+    {
+      "id": "BIG QUESTION",
+      "label": "{Molecular Formula: C2H6O} {Spectra: 58.0, 18.0}",
+      "answer": "CCO",
+      "weight": 0
+    },
+    {
+      "id": "F1",
+      "label": "Compute degree of unsaturation.",
+      "answer": "0",
+      "weight": 1
+    },
+    {
+      "id": "F1.2.1",
+      "label": "Is a carbonyl-region carbon present?",
+      "answer": "No",
+      "weight": 1
+    },
+    {
+      "id": "F1.4.1",
+      "label": "Is an aromatic-region carbon present?",
+      "answer": "No",
+      "weight": 1
+    },
+    {
+      "id": "F3",
+      "label": "Is an alkyl-region carbon present?",
+      "answer": "Yes",
+      "weight": 1
+    }
+  ]
+}

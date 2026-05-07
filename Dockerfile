@@ -4,16 +4,18 @@
 #   - reproducible verification environment for E&D reviewers
 #   - no API keys required for any in-container command
 #   - small enough to build in a few minutes on a laptop
+#   - no full private HRE assets or withheld labels bundled
 #
 # What the container can do (no API):
 #   - python -m interactive.cli list-molecules
 #   - python -m interactive.experiments.smoke_test
-#   - python -m interactive.grade --episode-log <cached> --manifest core --out <out>
+#   - python examples/hre_toy/run_toy_scoring.py
 #   - python -m interactive.task_bundle ingest / validate / validate-rubric / validate-dag
 #   - pytest interactive/tests/
 #
 # What the container intentionally does NOT do:
 #   - live LLM/API episodes (would require provider keys; out of scope)
+#   - exact private-grader evaluation (private HRE assets are withheld in review)
 #   - serve a web UI or leaderboard
 #   - bundle py2opsin / Java (IUPAC->SMILES is not on the verification path)
 
@@ -46,7 +48,7 @@ COPY pyproject.toml requirements.txt README.md LICENSE ./
 
 # Install only the dependencies needed for the no-API verification path:
 # rdkit (chemistry), pytest (tests). py2opsin (IUPAC->SMILES + JRE) is
-# explicitly omitted to keep the image small; smoke-test, grader, and
+# explicitly omitted to keep the image small; smoke-test, toy scoring, and
 # task-bundle CLIs do not exercise it.
 RUN pip install --upgrade pip \
     && pip install \

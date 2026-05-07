@@ -1,4 +1,4 @@
-"""Outcome-only grader for the 48-molecule withheld-probe layer.
+"""Outcome-only grader for the withheld-probe layer in controlled releases.
 
 The withheld-probe layer is graded on final-answer correctness only — there is
 no expert-annotated reasoning DAG, so L2/L3 metrics do not apply. The grader
@@ -10,6 +10,10 @@ returns three scalars:
 
 Reuses canonicalization and Tanimoto helpers from chem_defense.utils.smiles_utils
 so canonical-form rules stay consistent with the core-set grader.
+
+The anonymous review package intentionally omits withheld-probe spectra and
+hidden labels. This module remains as the scoring definition for controlled
+post-publication releases.
 """
 
 from __future__ import annotations
@@ -40,7 +44,9 @@ def score_outcome_only(
     if not hidden_smiles:
         raise ValueError(
             "score_outcome_only requires a non-empty hidden_smiles; "
-            "the withheld-probe manifest must always carry the hidden answer."
+            "withheld-probe hidden labels are intentionally omitted from the "
+            "anonymous review package and are required only for controlled "
+            "private-grader evaluation."
         )
 
     if submitted_smiles is None or not str(submitted_smiles).strip():

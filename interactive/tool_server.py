@@ -443,8 +443,10 @@ def _hnmr_peak_in_range(peak, ppm_min: float, ppm_max: float) -> bool:
 class ToolServer:
     """Provides chemistry tools for interactive structure elucidation.
 
-    Loads spectrum data and ground truth for a specific molecule, then
-    executes tool calls and logs all interactions for post-hoc grading.
+    Loads agent-visible spectrum data for a specific molecule, then executes
+    tool calls and logs all interactions for post-hoc grading. In the anonymous
+    review package, private grader assets are omitted, so ``gt_smiles`` may be
+    empty even when the public task loads correctly.
     """
 
     def __init__(
@@ -457,7 +459,7 @@ class ToolServer:
         """
         Args:
             molecule_id: Molecule identifier (e.g., "2_4_dimethyl_aniline")
-            data_dir: Path to data directory containing C_NMR/, H_NMR/, etc.
+            data_dir: Path to data directory containing public task bundles.
             spectrum_type: "CNMR", "HNMR", or "COMBO"
             info_mode: "full" or "partial". In partial mode, get_full_spectrum
                        is hidden from the agent (must use query_spectrum).
@@ -598,6 +600,19 @@ class ToolServer:
                     if not self._gt_smiles:
                         self._gt_smiles = node.get("answer", "")
                     break
+
+        if self.spectrum_type in ("CNMR", "COMBO") and not self._cnmr_peaks:
+            raise FileNotFoundError(
+                f"No public CNMR task data found for {self.molecule_id}. "
+                "The anonymous review package uses data_split/public_task_data/ "
+                "and omits full private HRE assets."
+            )
+        if self.spectrum_type in ("HNMR", "COMBO") and not self._hnmr_peaks:
+            raise FileNotFoundError(
+                f"No public HNMR task data found for {self.molecule_id}. "
+                "The anonymous review package uses data_split/public_task_data/ "
+                "and omits full private HRE assets."
+            )
 
     @property
     def formula(self) -> str:

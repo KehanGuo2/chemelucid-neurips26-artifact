@@ -1,0 +1,10 @@
+{
+  "schema_version": "public-task-v1",
+  "molecule_id": "toy_cnmr_review_example",
+  "spectrum_type": "CNMR",
+  "molecular_formula": "C2H6O",
+  "spectrum_peaks": [58.0, 18.0],
+  "solvent": "toy",
+  "mhz": "toy",
+  "task_prompt": "Given only this formula and toy 13C spectrum, acquire evidence and submit a candidate SMILES."
+}

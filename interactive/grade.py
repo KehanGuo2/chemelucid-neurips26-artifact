@@ -1,9 +1,13 @@
-"""Hidden-grader CLI for ChemElucid.
+"""Private-grader CLI for controlled-release ChemElucid assets.
 
 Reads a public episode log (trajectory + submitted SMILES) and grades it against
-the *private* ground-truth grader files under data_split/private_grader_data/.
+the optional private ground-truth grader files under
+data_split/private_grader_data/. The anonymous review package intentionally
+omits those files; in that mode the CLI exits with a clear release-boundary
+message instead of exposing or fabricating hidden-grader metrics.
+
 The CLI never prints or writes any private field (notably gt_smiles); it only
-emits aggregate metrics.
+emits aggregate metrics when private assets are available.
 
 Typical usage:
 
@@ -14,8 +18,8 @@ Typical usage:
 
 Exit codes:
     0 — success (metrics.json written)
-    1 — molecule_id not found in the requested manifest(s)
-    2 — referenced grader file missing on disk
+    1 — molecule_id not found in the requested manifest
+    2 — referenced private grader asset missing on disk
     3 — episode log malformed (missing required fields)
 """
 
@@ -45,7 +49,15 @@ logger = logging.getLogger(__name__)
 # ---------------------------------------------------------------------------
 
 CORE_MANIFEST = PROJECT_ROOT / "manifests" / "core18_full_matrix.jsonl"
-CANARY_MANIFEST = PROJECT_ROOT / "manifests" / "private_canary_manifest.jsonl"
+
+
+REVIEW_BOUNDARY_MESSAGE = (
+    "Private HRE assets are intentionally omitted from the anonymous review "
+    "package. This package supports inspection of the public benchmark "
+    "interface, episode logging, scoring definitions, and sanitized toy HRE "
+    "examples. Exact private-grader evaluation requires controlled-release "
+    "assets after public paper release."
+)
 
 
 def _iter_jsonl(path: Path):
@@ -57,11 +69,11 @@ def _iter_jsonl(path: Path):
 
 
 def _molecule_in_manifest(molecule_id: str, manifest_path: Path) -> bool:
-    """True iff manifest_path lists a row with this molecule_id (or canary_id)."""
+    """True iff manifest_path lists a row with this molecule_id."""
     if not manifest_path.exists():
         return False
     for row in _iter_jsonl(manifest_path):
-        if row.get("molecule_id") == molecule_id or row.get("canary_id") == molecule_id:
+        if row.get("molecule_id") == molecule_id:
             return True
     return False
 
@@ -69,7 +81,7 @@ def _molecule_in_manifest(molecule_id: str, manifest_path: Path) -> bool:
 def resolve_manifest(molecule_id: str, manifest_choice: str) -> Tuple[str, Path]:
     """Return (resolved_choice, manifest_path) for the given molecule.
 
-    manifest_choice is one of: "core", "canary", "auto".
+    manifest_choice is one of: "core", "auto".
     Raises LookupError if the molecule is not in any allowed manifest.
     """
     if manifest_choice == "core":
@@ -79,24 +91,15 @@ def resolve_manifest(molecule_id: str, manifest_choice: str) -> Tuple[str, Path]
             f"molecule_id '{molecule_id}' not found in core manifest "
             f"({CORE_MANIFEST.name})"
         )
-    if manifest_choice == "canary":
-        if _molecule_in_manifest(molecule_id, CANARY_MANIFEST):
-            return "canary", CANARY_MANIFEST
-        raise LookupError(
-            f"molecule_id '{molecule_id}' not found in canary manifest "
-            f"({CANARY_MANIFEST.name})"
-        )
     if manifest_choice == "auto":
         if _molecule_in_manifest(molecule_id, CORE_MANIFEST):
             return "core", CORE_MANIFEST
-        if _molecule_in_manifest(molecule_id, CANARY_MANIFEST):
-            return "canary", CANARY_MANIFEST
         raise LookupError(
-            f"molecule_id '{molecule_id}' not found in core or canary manifests"
+            f"molecule_id '{molecule_id}' not found in the review core manifest"
         )
     raise ValueError(
         f"Unknown manifest choice '{manifest_choice}'. "
-        f"Expected one of: core, canary, auto"
+        f"Expected one of: core, auto"
     )
 
 
@@ -214,12 +217,15 @@ def grade_episode(episode_log_path: Path, manifest_choice: str) -> Dict[str, Any
     grader_file = _grader_path(molecule_id, spectrum_type)
     if not grader_file.exists():
         raise FileNotFoundError(
-            f"Grader file not found for {molecule_id}/{spectrum_type}: {grader_file}"
+            f"Grader file not found for {molecule_id}/{spectrum_type}: {grader_file}. "
+            f"{REVIEW_BOUNDARY_MESSAGE}"
         )
 
     dag_template = _dag_template_for(spectrum_type)
     if not dag_template.exists():
-        raise FileNotFoundError(f"DAG template not found: {dag_template}")
+        raise FileNotFoundError(
+            f"DAG template not found: {dag_template}. {REVIEW_BOUNDARY_MESSAGE}"
+        )
 
     # Load grader to extract gt_smiles for accuracy *only*; never returned.
     with grader_file.open() as fh:
@@ -284,7 +290,7 @@ def _build_parser() -> argparse.ArgumentParser:
         help="Path to episode JSON (e.g., interactive/results/...x.json)",
     )
     p.add_argument(
-        "--manifest", default="auto", choices=["core", "canary", "auto"],
+        "--manifest", default="auto", choices=["core", "auto"],
         help="Which manifest to look the molecule_id up in (default: auto).",
     )
     p.add_argument(

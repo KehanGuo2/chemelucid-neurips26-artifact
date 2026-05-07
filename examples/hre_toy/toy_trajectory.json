@@ -1,0 +1,30 @@
+[
+  {
+    "tool": "compute_unsaturation",
+    "args": {"formula": "C2H6O"},
+    "result": {"degree": 0, "formula": "C2H6O"},
+    "cost": 1,
+    "category": "computation"
+  },
+  {
+    "tool": "query_spectrum",
+    "args": {"nucleus": "13C", "ppm_min": 150, "ppm_max": 220},
+    "result": {"nucleus": "13C", "peaks": [], "count": 0, "range": [150, 220]},
+    "cost": 1,
+    "category": "spectrum_query"
+  },
+  {
+    "tool": "query_spectrum",
+    "args": {"nucleus": "13C", "ppm_min": 0, "ppm_max": 50},
+    "result": {"nucleus": "13C", "peaks": [18.0], "count": 1, "range": [0, 50]},
+    "cost": 1,
+    "category": "spectrum_query"
+  },
+  {
+    "tool": "submit",
+    "args": {"smiles": "CCO"},
+    "result": {"submitted": "CCO", "valid": true},
+    "cost": 0,
+    "category": "submit"
+  }
+]

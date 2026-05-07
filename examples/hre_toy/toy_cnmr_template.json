@@ -1,0 +1,12 @@
+{
+  "schema_version": "toy-hre-v1",
+  "name": "sanitized_toy_cnmr_template",
+  "description": "Minimal public template used only to exercise DAGGrader in review mode.",
+  "nodes": [
+    {"id": "BIG QUESTION", "weight": 0},
+    {"id": "F1", "weight": 1},
+    {"id": "F1.2.1", "weight": 1},
+    {"id": "F1.4.1", "weight": 1},
+    {"id": "F3", "weight": 1}
+  ]
+}

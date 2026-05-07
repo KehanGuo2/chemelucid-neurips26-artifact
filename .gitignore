@@ -10,3 +10,34 @@ analysis/leakage_audit_report.md
 # Default output directories for interactive episodes
 interactive_results/
 interactive/results/withheld_probe/
+
+# Private HRE / hidden-evaluation assets.
+# Keep placeholder READMEs and sanitized examples tracked.
+private_hre/*
+!private_hre/README.md
+withheld_labels/*
+!withheld_labels/README.md
+expert_graphs_private/*
+!expert_graphs_private/README.md
+grader_private/*
+!grader_private/README.md
+data_split/private_grader_data/*
+!data_split/private_grader_data/README.md
+data_split/private_si_drafts/
+data/withheld_probe/*
+!data/withheld_probe/README.md
+data/C_NMR/*
+!data/C_NMR/README.md
+data/H_NMR/*
+!data/H_NMR/README.md
+data/combo/*
+!data/combo/README.md
+data/dynamic/*
+!data/dynamic/README.md
+interactive/results/canary_probe/
+interactive/results/dummy_baselines/
+manifests/private_*.jsonl
+*_private_manifest.jsonl
+*.private.json
+*_withheld.json
+*_expert_graph.json
